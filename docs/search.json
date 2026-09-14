@@ -4,10 +4,7 @@
     "href": "projeto.html",
     "title": "Projetos",
     "section": "",
-    "text": "Esta página contém os projetos de análise de dados que serão apresentados ao longo do semestre. Você pode baixar os projetos em versão PDF.\n\n\n\n1. Análise de Componentes Principais\n\n\n Ver projeto PDF \n Entrega: 19/12/2025 \n\n\n\n\n2. Análise Fatorial\n\n\n Ver projeto PDF \n Entrega: 03/02/2026 \n\n\n\n\n3. Análise de Agrupamentos\n\n\n Ver projeto PDF \n Entrega: 26/02/2026 \n\n\n\n\n4. Análise Discriminante\n\n\n Ver projeto PDF \n Entrega: 26/02/2026",
-    "crumbs": [
-      "Projetos"
-    ]
+    "text": "Esta página contém os projetos de análise de dados que serão apresentados ao longo do semestre. Você pode baixar os projetos em versão PDF.\n\n\n\n1. Análise de Componentes Principais\n\n\n Ver projeto PDF \n Entrega: 19/12/2025 \n\n\n\n\n2. Análise Fatorial\n\n\n Ver projeto PDF \n Entrega: 03/02/2026 \n\n\n\n\n3. Análise de Agrupamentos\n\n\n Ver projeto PDF \n Entrega: 26/02/2026 \n\n\n\n\n4. Análise Discriminante\n\n\n Ver projeto PDF \n Entrega: 26/02/2026"
   },
   {
     "objectID": "projeto/ad/ad.html",
@@ -126,14 +123,14 @@
     "href": "programacao/semana-4.html",
     "title": "Semana 04",
     "section": "",
-    "text": "Introdução à Estatística Multivariada"
+    "text": "Introdução à Estatística Multivariada\n Distribuição Normal Multivariada"
   },
   {
     "objectID": "programacao/semana-4.html#slides",
     "href": "programacao/semana-4.html#slides",
     "title": "Semana 04",
     "section": "",
-    "text": "Introdução à Estatística Multivariada"
+    "text": "Introdução à Estatística Multivariada\n Distribuição Normal Multivariada"
   },
   {
     "objectID": "programacao/semana-4.html#script-r",
@@ -147,7 +144,7 @@
     "href": "programacao/semana-4.html#entrega-lista-de-exercícios-02",
     "title": "Semana 04",
     "section": "Entrega lista de exercícios 02",
-    "text": "Entrega lista de exercícios 02\n\n\n\n\n\n\nFique Atento!\n\n\n\n Lista de exercícios 02\nEntrega via Moodle\n\nData de entrega:\n\n17 de novembro de 2025"
+    "text": "Entrega lista de exercícios 02\n\n\n\n\n\n\nFique Atento!\n\n\n\n Lista de exercícios 02\nEntrega via Moodle\n\nData de entrega:\n\n21 de setembro de 2026"
   },
   {
     "objectID": "programacao/semana-2.html",
@@ -220,11 +217,32 @@
     "text": "Sejam bem-vindos à disciplina EST328 - Análise Multivariada e Aprendizado Não Supervisionado."
   },
   {
+    "objectID": "programacao/semana-1.html#plano-de-ensino",
+    "href": "programacao/semana-1.html#plano-de-ensino",
+    "title": "Semana 01",
+    "section": "Plano de Ensino",
+    "text": "Plano de Ensino\nLeiam com atenção o plano de ensino da disciplina. Nele estão as regras do jogo!"
+  },
+  {
+    "objectID": "programacao/semana-1.html#slides",
+    "href": "programacao/semana-1.html#slides",
+    "title": "Semana 01",
+    "section": "Slides",
+    "text": "Slides\n Revisão de Álgebra Matricial"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Análise Multivariada e Aprendizado Não Supervisionado",
     "section": "",
     "text": "Página dedicada à disciplina EST328 - Análise Multivariada e Aprendizado Não Supervisionado\nAnálise Multivariada e Aprendizado Não Supervisionado é uma disciplina que apresenta o estudo de técnicas estatísticas voltadas para a análise simultânea de múltiplas variáveis. O curso abrange temas como análise de componentes principais, análise fatorial, análise de agrupamentos e análise discriminante. Essas metodologias são amplamente aplicadas em diversas áreas do conhecimento, permitindo a extração de informações relevantes a partir de conjuntos de dados complexos. O objetivo da disciplina é fornecer tanto a fundamentação teórica quanto a aplicação prática dessas técnicas, capacitando os alunos a utilizar ferramentas estatísticas avançadas em suas pesquisas e projetos."
+  },
+  {
+    "objectID": "index.html#avaliações",
+    "href": "index.html#avaliações",
+    "title": "Análise Multivariada e Aprendizado Não Supervisionado",
+    "section": "Avaliações",
+    "text": "Avaliações\n\n\n\n\n\n\nCritérios de Avaliação\n\n\n\nA nota final do semestre será computada da seguinte forma:\n\n\n\nAtividade\nTipo\nConteúdo\nData\nPontos\n\n\n\n\nAtividade 1\nLista de exercícios 01\nRevisão de Álgebra Matricial\n08/09/2026\n10,0\n\n\nAtividade 2\nLista de exercícios 02\nIntrodução à Estatística Multivariada\n21/09/2026\n10,0\n\n\nAtividade 3\nLista de Exercícios 03\nDistribuição Normal Multivariada\n05/10/2026\n10,0\n\n\nAtividade 4\nRelatório de Análise de Dados\nAnálise de Componentes Principais\n19/10/2026\n17,5\n\n\nAtividade 5\nRelatório de Análise de Dados\nAnálise Fatorial\n03/11/2026\n17,5\n\n\nAtividade 6\nRelatório de Análise de Dados\nAnálise de Agrupamentos\n16/11/2026\n17,5\n\n\nAtividade 7\nRelatório de Análise de Dados\nAnálise Discriminante\n30/11/2026\n17,5\n\n\n\n\nTotal\n\n100,0\n\n\n\n\n\nExame Especial: 21/12/2026"
   },
   {
     "objectID": "exercicios/lista03.html",
@@ -245,7 +263,7 @@
     "href": "aulas.html",
     "title": "Aulas",
     "section": "",
-    "text": "Esta página contém aulas que serão apresentadas ao longo do semestre.\n\n\n Revisão de Álgebra Matricial \n Ver slides  \n\n\n Introdução à Estatística Multivariada \n Ver slides",
+    "text": "Esta página contém aulas que serão apresentadas ao longo do semestre.\n\n\n Revisão de Álgebra Matricial \n Ver slides  \n\n\n Introdução à Estatística Multivariada \n Ver slides  \n\n\n Distribuição Normal Multivariada \n Ver slides",
     "crumbs": [
       "Aulas"
     ]
@@ -1753,7 +1771,7 @@
     "href": "analises.html",
     "title": "Análise de dados",
     "section": "",
-    "text": "Esta página contém scripts de análises de dados comentados utilizando algumas técnicas que serão apresentadas ao longo do semestre. Você pode baixar as análises em versão PDF.\n\n\n Descrição e Visualização da base de dados Iris \n Ver análise PDF \n\n\n Mapas Perceptuais com PCA: estudo de marcas \n Ver análise PDF \n\n\n Avaliação da Satisfação de Estudantes Universitários \n Ver análise PDF \n\n\n Segmentação de clientes de uma rede de academias \n Ver análise PDF \n\n\n Classificação Antifraude em Seguros Automotivos usando Funções Discriminantes Lineares e Quadráticas \n Ver análise PDF",
+    "text": "Esta página contém scripts de análises de dados comentados utilizando algumas técnicas que serão apresentadas ao longo do semestre. Você pode baixar as análises em versão PDF.\n\n\n Descrição e Visualização da base de dados Iris \n Ver análise PDF",
     "crumbs": [
       "Análise de dados"
     ]
@@ -3548,7 +3566,7 @@
     "href": "cronograma.html",
     "title": "Cronograma da Disciplina",
     "section": "",
-    "text": "Esta página contém um esboço dos tópicos, conteúdos e tarefas para o semestre. Este cronograma será atualizado conforme o semestre avança.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSemana\nData\nTópico\nArtigo\nSlides\nEC\nLE\nScript\nMC\nProjeto\n\n\n\n\n1\nSeg, 24/08\nApresentação da disciplina\n\n\n\n\n\n\n\n\n\n\nQua, 26/08\nRevisão de Álgebra Linear\n\n\n\n\n\n\n\n\n\n2\nSeg, 31/08\nRevisão de Álgebra Linear\n\n\n\n\n\n\n\n\n\n\nQua, 02/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n3\nSe, 07/09\nFeriado: Independência do Brasil\n\n\n\n\n\n\n\n\n\n\nQui, 09/09\nIntrodução à Estatística Multivariada",
+    "text": "Esta página contém um esboço dos tópicos, conteúdos e tarefas para o semestre. Este cronograma será atualizado conforme o semestre avança.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSemana\nData\nTópico\nArtigo\nSlides\nEC\nLE\nScript\nMC\nProjeto\n\n\n\n\n1\nSeg, 24/08\nApresentação da disciplina\n\n\n\n\n\n\n\n\n\n\nQua, 26/08\nRevisão de Álgebra Linear\n\n\n\n\n\n\n\n\n\n2\nSeg, 31/08\nRevisão de Álgebra Linear\n\n\n\n\n\n\n\n\n\n\nQua, 02/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n3\nSeg, 07/09\nFeriado: Independência do Brasil\n\n\n\n\n\n\n\n\n\n\nQui, 09/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n4\nSeg, 14/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n\nQua, 30/10\nDistribuição Normal Multivariada",
     "crumbs": [
       "Cronograma da Disciplina"
     ]
@@ -3565,7 +3583,7 @@
     "href": "exercicios.html",
     "title": "Listas de Exercícios",
     "section": "",
-    "text": "Esta página contém as listas de exercícios que serão apresentadas ao longo do semestre. Você pode baixar as listas em versão PDF.\n\n\n\n1. Revisão de Álgebra Linear\n\n\n Ver lista PDF \n Entrega: 08/09/2026",
+    "text": "Esta página contém as listas de exercícios que serão apresentadas ao longo do semestre. Você pode baixar as listas em versão PDF.\n\n\n\n1. Revisão de Álgebra Linear\n\n\n Ver lista PDF \n Entrega: 08/09/2026 \n\n\n\n\n2. Introdução à Estatística Multivariada\n\n\n Ver lista PDF \n Entrega: 21/09/2026",
     "crumbs": [
       "Listas de Exercícios"
     ]
@@ -3810,26 +3828,5 @@
     "title": "Análise fatorial aplicada ao comportamento do consumidor",
     "section": "5.4 Correlações Residuais",
     "text": "5.4 Correlações Residuais\n\nAvaliar a matriz de correlações residuais;\nIdentificar padrões que indiquem inadequação do modelo."
-  },
-  {
-    "objectID": "index.html#avaliações",
-    "href": "index.html#avaliações",
-    "title": "Análise Multivariada e Aprendizado Não Supervisionado",
-    "section": "Avaliações",
-    "text": "Avaliações\n\n\n\n\n\n\nCritérios de Avaliação\n\n\n\nA nota final do semestre será computada da seguinte forma:\n\n\n\nAtividade\nTipo\nConteúdo\nData\nPontos\n\n\n\n\nAtividade 1\nLista de exercícios 01\nRevisão de Álgebra Matricial\n08/09/2026\n10,0\n\n\nAtividade 2\nLista de Exercícios 02\nIntrodução à Estatística Multivariada\n21/09/2026\n10,0\n\n\nAtividade 3\nLista de Exercícios 03\nDistribuição Normal Multivariada\n05/10/2026\n10,0\n\n\nAtividade 4\nRelatório de Análise de Dados\nAnálise de Componentes Principais\n19/10/2026\n17,5\n\n\nAtividade 5\nRelatório de Análise de Dados\nAnálise Fatorial\n03/11/2026\n17,5\n\n\nAtividade 6\nRelatório de Análise de Dados\nAnálise de Agrupamentos\n16/11/2026\n17,5\n\n\nAtividade 7\nRelatório de Análise de Dados\nAnálise Discriminante\n30/11/2026\n17,5\n\n\n\n\nTotal\n\n100,0\n\n\n\n\n\nExame Especial: 21/12/2026"
-  },
-  {
-    "objectID": "programacao/semana-1.html#plano-de-ensino",
-    "href": "programacao/semana-1.html#plano-de-ensino",
-    "title": "Semana 01",
-    "section": "Plano de Ensino",
-    "text": "Plano de Ensino\nLeiam com atenção o plano de ensino da disciplina. Nele estão as regras do jogo!"
-  },
-  {
-    "objectID": "programacao/semana-1.html#slides",
-    "href": "programacao/semana-1.html#slides",
-    "title": "Semana 01",
-    "section": "Slides",
-    "text": "Slides\n Revisão de Álgebra Matricial"
   }
 ]

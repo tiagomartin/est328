@@ -7,7 +7,7 @@ title: "Semana 04"
 
 {{< fa file-powerpoint size=lg >}} [Introdução à Estatística Multivariada](/aulas/intro_est_multi/intro_est_multi.html#/title-slide "Introdução à Estatística Multivariada"){aria-label="Introdução à Estatística Multivariada"}
 
-
+{{< fa file-powerpoint size=lg >}} [Distribuição Normal Multivariada](/aulas/distr_normal_multi/distr_normal_multi.html#/title-slide "Distribuição Normal Multivariada"){aria-label="Distribuição Normal Multivariada"}
 
 ## Script R
 
@@ -25,6 +25,6 @@ title: "Semana 04"
 Entrega via [Moodle](https://moodlepresencial.ufop.br/login/index.php)
 
 -   Data de entrega:
-    -   17 de novembro de 2025
+    -   21 de setembro de 2026
 :::
 

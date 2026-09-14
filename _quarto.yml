@@ -34,7 +34,7 @@ website:
       - aulas.qmd
       #- estudos.qmd
       - exercicios.qmd
-      #- analises.qmd
+      - analises.qmd
       - plano.qmd
       #- projeto.qmd
       - cronograma.qmd

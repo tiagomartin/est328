@@ -63,52 +63,52 @@ Esta página contém scripts de análises de dados comentados utilizando algumas
 </span>
 :::
 
-::: {.list-group-item .d-flex .justify-content-between .align-items-center}
-<span class="fw-bold">
-  Mapas Perceptuais com PCA: estudo de marcas
-</span>
+<!-- ::: {.list-group-item .d-flex .justify-content-between .align-items-center} -->
+<!-- <span class="fw-bold"> -->
+<!--   Mapas Perceptuais com PCA: estudo de marcas -->
+<!-- </span> -->
 
-<span>
-[Ver análise](/analise_dados/brands.html){.btn .btn-est304-main .btn-sm}
-[PDF](/analise_dados/brands.pdf){.btn .btn-est304-outline .btn-sm}
-</span>
-:::
-
-
-::: {.list-group-item .d-flex .justify-content-between .align-items-center}
-<span class="fw-bold">
-  Avaliação da Satisfação de Estudantes Universitários
-</span>
-
-<span>
-[Ver análise](/analise_dados/estudantes.html){.btn .btn-est304-main .btn-sm}
-[PDF](/analise_dados/estudantes.pdf){.btn .btn-est304-outline .btn-sm}
-</span>
-:::
+<!-- <span> -->
+<!-- [Ver análise](/analise_dados/brands.html){.btn .btn-est304-main .btn-sm} -->
+<!-- [PDF](/analise_dados/brands.pdf){.btn .btn-est304-outline .btn-sm} -->
+<!-- </span> -->
+<!-- ::: -->
 
 
-::: {.list-group-item .d-flex .justify-content-between .align-items-center}
-<span class="fw-bold">
-  Segmentação de clientes de uma rede de academias
-</span>
+<!-- ::: {.list-group-item .d-flex .justify-content-between .align-items-center} -->
+<!-- <span class="fw-bold"> -->
+<!--   Avaliação da Satisfação de Estudantes Universitários -->
+<!-- </span> -->
 
-<span>
-[Ver análise](/analise_dados/clientes.html){.btn .btn-est304-main .btn-sm}
-[PDF](/analise_dados/clientes.pdf){.btn .btn-est304-outline .btn-sm}
-</span>
-:::
+<!-- <span> -->
+<!-- [Ver análise](/analise_dados/estudantes.html){.btn .btn-est304-main .btn-sm} -->
+<!-- [PDF](/analise_dados/estudantes.pdf){.btn .btn-est304-outline .btn-sm} -->
+<!-- </span> -->
+<!-- ::: -->
 
 
-::: {.list-group-item .d-flex .justify-content-between .align-items-center}
-<span class="fw-bold">
-  Classificação Antifraude em Seguros Automotivos usando Funções Discriminantes Lineares e Quadráticas
-</span>
+<!-- ::: {.list-group-item .d-flex .justify-content-between .align-items-center} -->
+<!-- <span class="fw-bold"> -->
+<!--   Segmentação de clientes de uma rede de academias -->
+<!-- </span> -->
 
-<span>
-[Ver análise](/analise_dados/seguradora.html){.btn .btn-est304-main .btn-sm}
-[PDF](/analise_dados/seguradora.pdf){.btn .btn-est304-outline .btn-sm}
-</span>
-:::
+<!-- <span> -->
+<!-- [Ver análise](/analise_dados/clientes.html){.btn .btn-est304-main .btn-sm} -->
+<!-- [PDF](/analise_dados/clientes.pdf){.btn .btn-est304-outline .btn-sm} -->
+<!-- </span> -->
+<!-- ::: -->
+
+
+<!-- ::: {.list-group-item .d-flex .justify-content-between .align-items-center} -->
+<!-- <span class="fw-bold"> -->
+<!--   Classificação Antifraude em Seguros Automotivos usando Funções Discriminantes Lineares e Quadráticas -->
+<!-- </span> -->
+
+<!-- <span> -->
+<!-- [Ver análise](/analise_dados/seguradora.html){.btn .btn-est304-main .btn-sm} -->
+<!-- [PDF](/analise_dados/seguradora.pdf){.btn .btn-est304-outline .btn-sm} -->
+<!-- </span> -->
+<!-- ::: -->
 
 :::
 
