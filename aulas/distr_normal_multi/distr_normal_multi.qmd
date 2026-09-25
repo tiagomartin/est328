@@ -135,72 +135,406 @@ $$f_{\mathbf{x}}(\mathbf{x}) = \displaystyle{\frac{1}{2 \pi \sigma_1 \sigma_2 \s
 #| echo: false
 #| warning: false
 #| message: false
-#| fig-width: 10
-#| fig-height: 8
+#| fig-width: 14
+#| fig-height: 9
+#| out-width: 100%
+#| fig-align: center
 
 library(plotly)
 
+# =========================================================
+# 1. Grade para construção da superfície
+# =========================================================
+
 x <- seq(-3, 3, length.out = 90)
 y <- seq(-3, 3, length.out = 90)
-grid <- expand.grid(x = x, y = y)
 
-bivn_pdf <- function(x, y, mu1 = 0, mu2 = 0, s1 = 1, s2 = 1, rho = -1) {
-  rho <- max(min(rho, 0.999), -0.999)
-  1/(2*pi*s1*s2*sqrt(1 - rho^2)) *
-    exp(-1/(2*(1 - rho^2)) * (
-      (x - mu1)^2/s1^2 + (y - mu2)^2/s2^2 -
-        2*rho*(x - mu1)*(y - mu2)/(s1*s2)
-    ))
+grid <- expand.grid(
+  x = x,
+  y = y
+)
+
+# =========================================================
+# 2. Função densidade Normal Bivariada
+# =========================================================
+
+bivn_pdf <- function(
+    x, y,
+    mu1 = 0,
+    mu2 = 0,
+    s1 = 1,
+    s2 = 1,
+    rho = 0) {
+  
+  # Evita singularidade exatamente em rho = -1 ou rho = 1
+  rho_aux <- max(
+    min(rho, 0.999),
+    -0.999
+  )
+  
+  1 / (
+    2 * pi * s1 * s2 *
+      sqrt(1 - rho_aux^2)
+  ) *
+    exp(
+      -1 / (2 * (1 - rho_aux^2)) *
+        (
+          (x - mu1)^2 / s1^2 +
+          (y - mu2)^2 / s2^2 -
+          2 * rho_aux *
+            (x - mu1) *
+            (y - mu2) /
+            (s1 * s2)
+        )
+    )
 }
 
-rhos <- seq(-1, 1, by = 0.05)
+# =========================================================
+# 3. Valores de rho
+# =========================================================
 
-# pdf normalizada: multiplica por sqrt(1 - rho^2) para manter o pico ~ 1/(2π)
-Z_list <- lapply(rhos, function(rho) {
-  z <- matrix(bivn_pdf(grid$x, grid$y, rho = rho), nrow = length(x))
-  z * sqrt(1 - max(min(rho, 0.999), -0.999)^2)
-})
+rhos <- seq(
+  -1,
+  1,
+  by = 0.05
+)
 
-i0 <- which.min(abs(rhos - 0))
+# =========================================================
+# 4. Construção das superfícies
+# =========================================================
+
+Z_list <- lapply(
+  rhos,
+  function(rho) {
+    
+    rho_aux <- max(
+      min(rho, 0.999),
+      -0.999
+    )
+    
+    z <- matrix(
+      bivn_pdf(
+        grid$x,
+        grid$y,
+        rho = rho
+      ),
+      nrow = length(x),
+      ncol = length(y)
+    )
+    
+    # -----------------------------------------------------
+    # Normalização visual
+    #
+    # Mantém aproximadamente a mesma escala vertical
+    # para facilitar a comparação da forma da superfície
+    # conforme rho varia.
+    # -----------------------------------------------------
+    
+    z * sqrt(1 - rho_aux^2)
+  }
+)
+
+# =========================================================
+# 5. Superfície inicial: rho = 0
+# =========================================================
+
+i0 <- which.min(
+  abs(rhos)
+)
+
 z0 <- Z_list[[i0]]
 
+# =========================================================
+# 6. Criar gráfico inicial
+# =========================================================
+
 fig <- plot_ly(
-  x = ~x, y = ~y, z = ~z0,
+  x = x,
+  y = y,
+  z = z0,
   type = "surface",
   colorscale = "Viridis",
   showscale = FALSE
 )
 
-frames <- lapply(seq_along(rhos), function(i) {
-  list(
-    name   = sprintf("ρ = %.2f", rhos[i]),
-    traces = list(0),
-    data   = list(list(z = Z_list[[i]]))
-  )
-})
+# =========================================================
+# 7. Frames da animação
+# =========================================================
 
-fig <- fig %>%
+frames <- lapply(
+  seq_along(rhos),
+  function(i) {
+    
+    list(
+      name = sprintf(
+        "rho_%.2f",
+        rhos[i]
+      ),
+      
+      traces = list(0),
+      
+      data = list(
+        list(
+          z = Z_list[[i]]
+        )
+      )
+    )
+  }
+)
+
+# =========================================================
+# 8. Slider
+# =========================================================
+
+slider_steps <- lapply(
+  seq_along(rhos),
+  function(i) {
+    
+    list(
+      method = "animate",
+      
+      args = list(
+        
+        list(
+          sprintf(
+            "rho_%.2f",
+            rhos[i]
+          )
+        ),
+        
+        list(
+          mode = "immediate",
+          
+          frame = list(
+            duration = 0,
+            redraw = TRUE
+          ),
+          
+          transition = list(
+            duration = 0
+          )
+        )
+      ),
+      
+      label = sprintf(
+        "%.2f",
+        rhos[i]
+      )
+    )
+  }
+)
+
+# =========================================================
+# 9. Layout
+# =========================================================
+
+fig <- fig |>
   layout(
-    title = "Efeito da variação de ρ na distribuição normal bivariada",
-    scene = list(
-      xaxis = list(title = "x₁"),
-      yaxis = list(title = "x₂"),
-      zaxis = list(title = "f̂(x₁, x₂)", range = c(0, 0.18))  # ~1/(2π)
+    
+    # -----------------------------------------------------
+    # Título interno
+    # -----------------------------------------------------
+    
+    title = list(
+      text = paste0(
+        "Efeito da variação de ",
+        "<i>ρ</i>",
+        " na distribuição normal bivariada"
+      ),
+      x = 0.5,
+      xanchor = "center",
+      y = 0.97,
+      font = list(
+        size = 18
+      )
     ),
-    sliders = list(list(
-      active = which.min(abs(rhos - 0)) - 1,  # posição inicial no slider (ρ = 0)
-      steps = lapply(seq_along(rhos), function(i)
-        list(method = "animate",
-            args = list(list(sprintf("ρ = %.2f", rhos[i])),
-                     list(mode = "immediate",
-                          frame = list(duration = 0, redraw = TRUE))),
-            label = sprintf("ρ = %.2f", rhos[i]))),
-      x = 0.1, len = 0.9, y = -0.1
-    ))
+    
+    # -----------------------------------------------------
+    # Margens externas pequenas
+    # -----------------------------------------------------
+    
+    margin = list(
+      l = 10,
+      r = 10,
+      b = 70,
+      t = 55
+    ),
+    
+    # -----------------------------------------------------
+    # Ambiente tridimensional
+    # -----------------------------------------------------
+    
+    scene = list(
+      
+      # Utiliza praticamente toda a área disponível
+      domain = list(
+        x = c(0.01, 0.99),
+        y = c(0.13, 0.95)
+      ),
+      
+      # ---------------------------------------------------
+      # Eixo X1
+      # ---------------------------------------------------
+      
+      xaxis = list(
+        
+        title = list(
+          text = "x₁",
+          font = list(
+            size = 18
+          )
+        ),
+        
+        tickfont = list(
+          size = 13
+        ),
+        
+        range = c(-3, 3),
+        
+        showgrid = TRUE,
+        zeroline = TRUE
+      ),
+      
+      # ---------------------------------------------------
+      # Eixo X2
+      # ---------------------------------------------------
+      
+      yaxis = list(
+        
+        title = list(
+          text = "x₂",
+          font = list(
+            size = 18
+          )
+        ),
+        
+        tickfont = list(
+          size = 13
+        ),
+        
+        range = c(-3, 3),
+        
+        showgrid = TRUE,
+        zeroline = TRUE
+      ),
+      
+      # ---------------------------------------------------
+      # Densidade
+      # ---------------------------------------------------
+      
+      zaxis = list(
+        
+        title = list(
+          text = "f(x₁, x₂)",
+          font = list(
+            size = 18
+          )
+        ),
+        
+        tickfont = list(
+          size = 13
+        ),
+        
+        range = c(0, 0.18),
+        
+        showgrid = TRUE,
+        zeroline = TRUE
+      ),
+      
+      # ---------------------------------------------------
+      # Proporções do gráfico
+      # ---------------------------------------------------
+      
+      aspectmode = "manual",
+      
+      aspectratio = list(
+        x = 1.35,
+        y = 1.35,
+        z = 0.85
+      ),
+      
+      # ---------------------------------------------------
+      # Posição inicial da câmera
+      # ---------------------------------------------------
+      
+      camera = list(
+        
+        eye = list(
+          x = 1.35,
+          y = 1.35,
+          z = 1.10
+        ),
+        
+        center = list(
+          x = 0,
+          y = 0,
+          z = -0.05
+        )
+      )
+    ),
+    
+    # =====================================================
+    # Slider
+    # =====================================================
+    
+    sliders = list(
+      
+      list(
+        
+        active = i0 - 1,
+        
+        steps = slider_steps,
+        
+        # Valor atual
+        currentvalue = list(
+          prefix = "ρ = ",
+          visible = TRUE,
+          xanchor = "center",
+          font = list(
+            size = 16
+          )
+        ),
+        
+        # Posição
+        x = 0.15,
+        len = 0.70,
+        y = 0.01,
+        
+        pad = list(
+          t = 20,
+          b = 0
+        ),
+        
+        ticklen = 4,
+        
+        font = list(
+          size = 10
+        )
+      )
+    )
   )
+
+# =========================================================
+# 10. Adicionar frames
+# =========================================================
 
 fig$x$frames <- frames
-fig %>% config(displayModeBar = FALSE)
+
+# =========================================================
+# 11. Configuração final
+# =========================================================
+
+fig <- fig |>
+  config(
+    displayModeBar = FALSE,
+    responsive = TRUE
+  )
+
+# =========================================================
+# 12. Exibir
+# =========================================================
+
+fig
 ```
 
 
@@ -254,111 +588,468 @@ onde $\chi_p^2(\alpha)$ é o quantil superior $\alpha$ de uma distribuição $\c
 #| echo: false
 #| warning: false
 #| message: false
-#| fig-width: 16
-#| fig-height: 7
+#| fig-width: 15
+#| fig-height: 8.5
+#| out-width: 100%
+#| fig-align: center
 
 library(plotly)
 
-# grade
+# =========================================================
+# 1. Grade
+# =========================================================
+
 x <- seq(-3, 3, length.out = 90)
 y <- seq(-3, 3, length.out = 90)
-grid <- expand.grid(x = x, y = y)
 
-# pdf bivariada
-bivn_pdf <- function(x, y, mu1 = 0, mu2 = 0, s1 = 1, s2 = 1, rho = 0) {
-  rho <- max(min(rho, 0.999), -0.999)
-  1/(2*pi*s1*s2*sqrt(1 - rho^2)) *
-    exp(-1/(2*(1 - rho^2)) * (
-      (x - mu1)^2/s1^2 + (y - mu2)^2/s2^2 -
-        2*rho*(x - mu1)*(y - mu2)/(s1*s2)
-    ))
+grid <- expand.grid(
+  x = x,
+  y = y
+)
+
+# =========================================================
+# 2. Densidade Normal Bivariada
+# =========================================================
+
+bivn_pdf <- function(
+    x, y,
+    mu1 = 0,
+    mu2 = 0,
+    s1 = 1,
+    s2 = 1,
+    rho = 0) {
+  
+  # Evita singularidade em rho = +/- 1
+  rho_aux <- max(
+    min(rho, 0.999),
+    -0.999
+  )
+  
+  1 / (
+    2 * pi * s1 * s2 *
+      sqrt(1 - rho_aux^2)
+  ) *
+    exp(
+      -1 / (2 * (1 - rho_aux^2)) *
+        (
+          (x - mu1)^2 / s1^2 +
+          (y - mu2)^2 / s2^2 -
+          2 * rho_aux *
+            (x - mu1) *
+            (y - mu2) /
+            (s1 * s2)
+        )
+    )
 }
 
-# sequência e normalização da altura (para comparar forma)
-rhos <- seq(-1, 1, by = 0.05)
-Z_list <- lapply(rhos, function(rho) {
-  z <- matrix(bivn_pdf(grid$x, grid$y, rho = rho), nrow = length(x))
-  z * sqrt(1 - max(min(rho, 0.999), -0.999)^2)
-})
+# =========================================================
+# 3. Valores de rho
+# =========================================================
 
-i0 <- which.min(abs(rhos - 0))
+rhos <- seq(
+  -1,
+  1,
+  by = 0.05
+)
+
+# =========================================================
+# 4. Superfícies
+# =========================================================
+
+Z_list <- lapply(
+  rhos,
+  function(rho) {
+    
+    rho_aux <- max(
+      min(rho, 0.999),
+      -0.999
+    )
+    
+    z <- matrix(
+      bivn_pdf(
+        grid$x,
+        grid$y,
+        rho = rho
+      ),
+      nrow = length(x),
+      ncol = length(y)
+    )
+    
+    # Normalização apenas para comparação visual da forma
+    z * sqrt(1 - rho_aux^2)
+  }
+)
+
+# =========================================================
+# 5. Valor inicial: rho = 0
+# =========================================================
+
+i0 <- which.min(abs(rhos))
+
 z0 <- Z_list[[i0]]
 
-# ------- painel 3D
-fig3D <- plot_ly(
-  x = ~x, y = ~y, z = ~z0,
+# =========================================================
+# 6. Gráfico 3D
+# =========================================================
+
+p3d <- plot_ly(
+  x = x,
+  y = y,
+  z = z0,
   type = "surface",
   colorscale = "Viridis",
   showscale = FALSE
-) %>%
-  layout(
-    title = list(text = "Densidade 3D"),
-    scene = list(
-      xaxis = list(title = "x₁", range = c(-3, 3)),
-      yaxis = list(title = "x₂", range = c(-3, 3)),
-      zaxis = list(title = "f(x₁, x₂)", range = c(0, 0.18))
-    ),
-    margin = list(l = 0, r = 0, b = 0, t = 40)
-  )
+)
 
-# ------- painel 2D (contornos)
-fig2D <- plot_ly(
-  x = ~x, y = ~y, z = ~z0,
+# =========================================================
+# 7. Curvas de nível
+# =========================================================
+
+pcont <- plot_ly(
+  x = x,
+  y = y,
+  z = z0,
   type = "contour",
-  contours = list(
-    showlabels = TRUE,
-    coloring = "heatmap",
-    start = 0.02, end = 0.14, size = 0.02
-  ),
   colorscale = "Viridis",
-  showscale = FALSE
-) %>%
-  layout(
-    title = list(text = "Contornos (2D)"),
-    xaxis = list(title = "x₁", zeroline = FALSE, showgrid = FALSE,
-                 scaleanchor = "y", scaleratio = 1, range = c(-3, 3)),
-    yaxis = list(title = "x₂", zeroline = FALSE, showgrid = FALSE, range = c(-3, 3)),
-    plot_bgcolor = "white",
-    paper_bgcolor = "white",
-    margin = list(l = 0, r = 0, b = 0, t = 40)
+  showscale = FALSE,
+  
+  contours = list(
+    coloring = "heatmap",
+    
+    showlabels = TRUE,
+    
+    labelfont = list(
+      size = 13
+    )
+  ),
+  
+  line = list(
+    width = 1.3
   )
-
-# ------- frames sincronizados
-frames <- lapply(seq_along(rhos), function(i) {
-  list(
-    name   = sprintf("ρ = %.2f", rhos[i]),
-    traces = list(0, 1),                     # atualiza ambos os painéis
-    data   = list(list(z = Z_list[[i]]),     # 3D
-                  list(z = Z_list[[i]]))     # 2D
-  )
-})
-
-# ------- slider (ρ = 0 default, valor atual visível)
-slider <- list(
-  active = which.min(abs(rhos - 0)) - 1,
-  currentvalue = list(prefix = "ρ = ", font = list(size = 14)),
-  steps = lapply(seq_along(rhos), function(i)
-    list(method = "animate",
-         args = list(list(sprintf("ρ = %.2f", rhos[i])),
-                     list(mode = "immediate",
-                          frame = list(duration = 0, redraw = TRUE))),
-         label = sprintf("%.2f", rhos[i]))),
-  x = 0.18, len = 0.64, y = -0.16
 )
 
-# ------- combina e aplica slider
+# =========================================================
+# 8. Juntar os dois gráficos
+# =========================================================
+
 fig <- subplot(
-  fig3D, fig2D,
-  widths = c(0.48, 0.48),
-  margin  = 0.2,
-  shareY  = FALSE
-) %>% layout(
-  title = "Efeito da variação de ρ na distribuição normal bivariada",
-  sliders = list(slider)
+  p3d,
+  pcont,
+  
+  widths = c(0.53, 0.47),
+  
+  margin = 0.035,
+  
+  shareY = FALSE
 )
+
+# =========================================================
+# 9. Frames da animação
+# =========================================================
+
+frames <- lapply(
+  seq_along(rhos),
+  function(i) {
+    
+    list(
+      name = sprintf(
+        "rho_%.2f",
+        rhos[i]
+      ),
+      
+      traces = list(
+        0,
+        1
+      ),
+      
+      data = list(
+        
+        # Superfície 3D
+        list(
+          z = Z_list[[i]],
+          type = "surface"
+        ),
+        
+        # Contorno
+        list(
+          z = Z_list[[i]],
+          type = "contour"
+        )
+      )
+    )
+  }
+)
+
+# =========================================================
+# 10. Etapas do slider
+# =========================================================
+
+slider_steps <- lapply(
+  seq_along(rhos),
+  function(i) {
+    
+    list(
+      method = "animate",
+      
+      args = list(
+        
+        list(
+          sprintf(
+            "rho_%.2f",
+            rhos[i]
+          )
+        ),
+        
+        list(
+          mode = "immediate",
+          
+          frame = list(
+            duration = 0,
+            redraw = TRUE
+          ),
+          
+          transition = list(
+            duration = 0
+          )
+        )
+      ),
+      
+      label = sprintf(
+        "%.2f",
+        rhos[i]
+      )
+    )
+  }
+)
+
+# =========================================================
+# 11. Layout
+# =========================================================
+
+fig <- fig |>
+  layout(
+    
+    # -----------------------------------------------------
+    # Título interno
+    # -----------------------------------------------------
+    
+    title = list(
+      text = paste0(
+        "Efeito da variação de ",
+        "<i>ρ</i>",
+        " na distribuição normal bivariada"
+      ),
+      
+      x = 0.5,
+      xanchor = "center",
+      
+      y = 0.98,
+      
+      font = list(
+        size = 18
+      )
+    ),
+    
+    # -----------------------------------------------------
+    # Margens
+    # -----------------------------------------------------
+    
+    margin = list(
+      l = 40,
+      r = 25,
+      b = 100,
+      t = 55
+    ),
+    
+    # =====================================================
+    # GRÁFICO 3D
+    # =====================================================
+    
+    scene = list(
+      
+      # Ocupa praticamente metade esquerda
+      domain = list(
+        x = c(0.00, 0.52),
+        y = c(0.17, 0.94)
+      ),
+      
+      xaxis = list(
+        
+        title = list(
+          text = "x₁",
+          font = list(size = 18)
+        ),
+        
+        tickfont = list(
+          size = 13
+        ),
+        
+        range = c(-3, 3)
+      ),
+      
+      yaxis = list(
+        
+        title = list(
+          text = "x₂",
+          font = list(size = 18)
+        ),
+        
+        tickfont = list(
+          size = 13
+        ),
+        
+        range = c(-3, 3)
+      ),
+      
+      zaxis = list(
+        
+        title = list(
+          text = "f(x₁, x₂)",
+          font = list(size = 17)
+        ),
+        
+        tickfont = list(
+          size = 12
+        ),
+        
+        range = c(0, 0.18)
+      ),
+      
+      # Proporções maiores
+      aspectmode = "manual",
+      
+      aspectratio = list(
+        x = 1.25,
+        y = 1.25,
+        z = 0.85
+      ),
+      
+      # Aproxima a câmera
+      camera = list(
+        
+        eye = list(
+          x = 1.35,
+          y = 1.35,
+          z = 1.10
+        ),
+        
+        center = list(
+          x = 0,
+          y = 0,
+          z = -0.05
+        )
+      )
+    ),
+    
+    # =====================================================
+    # GRÁFICO DE CONTORNO
+    # =====================================================
+    
+    xaxis = list(
+      
+      domain = c(0.59, 0.98),
+      
+      title = list(
+        text = "x₁",
+        font = list(size = 18)
+      ),
+      
+      tickfont = list(
+        size = 13
+      ),
+      
+      range = c(-3, 3),
+      
+      zeroline = TRUE
+    ),
+    
+    yaxis = list(
+      
+      domain = c(0.17, 0.94),
+      
+      title = list(
+        text = "x₂",
+        font = list(size = 18)
+      ),
+      
+      tickfont = list(
+        size = 13
+      ),
+      
+      range = c(-3, 3),
+      
+      scaleanchor = "x",
+      scaleratio = 1,
+      
+      zeroline = TRUE
+    ),
+    
+    # =====================================================
+    # SLIDER
+    # =====================================================
+    
+    sliders = list(
+      
+      list(
+        
+        active = i0 - 1,
+        
+        steps = slider_steps,
+        
+        currentvalue = list(
+          
+          prefix = "ρ = ",
+          
+          visible = TRUE,
+          
+          xanchor = "center",
+          
+          font = list(
+            size = 17
+          )
+        ),
+        
+        # Slider centralizado e largo
+        x = 0.12,
+        len = 0.76,
+        
+        y = 0.015,
+        
+        pad = list(
+          t = 20,
+          b = 0
+        ),
+        
+        ticklen = 4,
+        
+        font = list(
+          size = 10
+        )
+      )
+    )
+  )
+
+# =========================================================
+# 12. Adicionar os frames
+# =========================================================
 
 fig$x$frames <- frames
-fig %>% config(displayModeBar = FALSE)
+
+# =========================================================
+# 13. Configuração final
+# =========================================================
+
+fig <- fig |>
+  config(
+    displayModeBar = FALSE,
+    responsive = TRUE
+  )
+
+# =========================================================
+# 14. Exibir
+# =========================================================
+
+fig
 ```
 
 
