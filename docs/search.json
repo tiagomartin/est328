@@ -3566,7 +3566,7 @@
     "href": "cronograma.html",
     "title": "Cronograma da Disciplina",
     "section": "",
-    "text": "Esta página contém um esboço dos tópicos, conteúdos e tarefas para o semestre. Este cronograma será atualizado conforme o semestre avança.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSemana\nData\nTópico\nArtigo\nSlides\nEC\nLE\nScript\nMC\nProjeto\n\n\n\n\n1\nSeg, 24/08\nApresentação da disciplina\n\n\n\n\n\n\n\n\n\n\nQua, 26/08\nRevisão de Álgebra Linear\n\n\n\n\n\n\n\n\n\n2\nSeg, 31/08\nRevisão de Álgebra Linear\n\n\n\n\n\n\n\n\n\n\nQua, 02/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n3\nSeg, 07/09\nFeriado: Independência do Brasil\n\n\n\n\n\n\n\n\n\n\nQua, 09/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n4\nSeg, 14/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n\nQua, 16/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n5\nSeg, 21/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n\nQua, 23/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n6\nSeg, 28/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n\nQua, 30/09\nAnálise de Componentes Principais",
+    "text": "Esta página contém um esboço dos tópicos, conteúdos e tarefas para o semestre. Este cronograma será atualizado conforme o semestre avança.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSemana\nData\nTópico\nArtigo\nSlides\nEC\nLE\nScript\nMC\nProjeto\n\n\n\n\n1\nSeg, 24/08\nApresentação da disciplina\n\n\n\n\n\n\n\n\n\n\nQua, 26/08\nRevisão de Álgebra Linear\n\n\n\n\n\n\n\n\n\n2\nSeg, 31/08\nRevisão de Álgebra Linear\n\n\n\n\n\n\n\n\n\n\nQua, 02/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n3\nSeg, 07/09\nFeriado: Independência do Brasil\n\n\n\n\n\n\n\n\n\n\nQua, 09/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n4\nSeg, 14/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n\nQua, 16/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n5\nSeg, 21/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n\nQua, 23/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n6\nSeg, 28/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n\nQua, 30/09\nAnálise de Componentes Principais\n\n\n\n\n\n\n\n\n\n7\nSeg, 05/10\nAnálise de Componentes Principais\n\n\n\n\n\n\n\n\n\n\nQua, 07/10\nAnálise de Componentes Principais",
     "crumbs": [
       "Cronograma da Disciplina"
     ]
@@ -3722,7 +3722,7 @@
     "href": "programacao/semana-7.html",
     "title": "Semana 07",
     "section": "",
-    "text": "Não haverá aula!"
+    "text": "Análise de Componentes Principais \n\n\nVer slides PDF"
   },
   {
     "objectID": "programacao/semana-7.html#entrega-lista-de-exercícios-03",
@@ -3828,5 +3828,19 @@
     "title": "Análise fatorial aplicada ao comportamento do consumidor",
     "section": "5.4 Correlações Residuais",
     "text": "5.4 Correlações Residuais\n\nAvaliar a matriz de correlações residuais;\nIdentificar padrões que indiquem inadequação do modelo."
+  },
+  {
+    "objectID": "programacao/semana-7.html#slides",
+    "href": "programacao/semana-7.html#slides",
+    "title": "Semana 07",
+    "section": "",
+    "text": "Análise de Componentes Principais \n\n\nVer slides PDF"
+  },
+  {
+    "objectID": "programacao/semana-7.html#projeto-análise-de-componentes-principais",
+    "href": "programacao/semana-7.html#projeto-análise-de-componentes-principais",
+    "title": "Semana 07",
+    "section": "",
+    "text": "Análise da necessidade de cognição usando PCA \n Ver projeto PDF"
   }
 ]
