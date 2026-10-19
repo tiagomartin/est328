@@ -398,7 +398,8 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#leitura-dos-dados" id="toc-leitura-dos-dados" class="nav-link" data-scroll-target="#leitura-dos-dados"><span class="header-section-number">2.1</span> Leitura dos dados</a></li>
   <li><a href="#visualização-exploratória" id="toc-visualização-exploratória" class="nav-link" data-scroll-target="#visualização-exploratória"><span class="header-section-number">2.2</span> Visualização exploratória</a></li>
-  <li><a href="#matriz-de-correlações" id="toc-matriz-de-correlações" class="nav-link" data-scroll-target="#matriz-de-correlações"><span class="header-section-number">2.3</span> Matriz de correlações</a></li>
+  <li><a href="#perfil-médio-dos-atributos-por-marca" id="toc-perfil-médio-dos-atributos-por-marca" class="nav-link" data-scroll-target="#perfil-médio-dos-atributos-por-marca"><span class="header-section-number">2.3</span> Perfil médio dos atributos por marca</a></li>
+  <li><a href="#matriz-de-correlações" id="toc-matriz-de-correlações" class="nav-link" data-scroll-target="#matriz-de-correlações"><span class="header-section-number">2.4</span> Matriz de correlações</a></li>
   </ul></li>
   <li><a href="#construção-das-componentes-principais" id="toc-construção-das-componentes-principais" class="nav-link" data-scroll-target="#construção-das-componentes-principais"><span class="header-section-number">3</span> Construção das componentes principais</a>
   <ul class="collapse">
@@ -585,14 +586,23 @@ $ brand   &lt;chr&gt; "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"
 <span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>df_scaled <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">brand_fac =</span> brand_fac, X_scaled)</span>
 <span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co"># histogramas facetados</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>p_hist <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(X_long, <span class="fu">aes</span>(nota)) <span class="sc">+</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">9</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="fu">facet_wrap</span>(<span class="sc">~</span> atributo, <span class="at">scales=</span><span class="st">"free_y"</span>) <span class="sc">+</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribuição dos atributos (histogramas)"</span>) <span class="sc">+</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_minimal</span>()</span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>p_hist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>p_hist <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(X_long, <span class="fu">aes</span>(<span class="at">x =</span> nota)) <span class="sc">+</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">binwidth =</span> <span class="dv">1</span>,</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">boundary =</span> <span class="fl">0.5</span>,</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span>,</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"#2E9FDF"</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> atributo, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribuição dos atributos"</span>,</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Nota atribuída"</span>,</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Frequência"</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>p_hist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -601,17 +611,95 @@ $ brand   &lt;chr&gt; "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"
 </div>
 </div>
 </div>
-<p>Observa-se que a maior parte dos atributos tem uma massa grande de notas baixas (1 a 4), exceto <code>latest</code>, <code>fun</code> e (em menor grau) <code>trendy</code>, que apresentam caudas mais fortes para notas altas. Isso sugere que a percepção média de “inovação/modernidade/diversão” tende a ser mais positiva do que a percepção de “valor/preço/desempenho”. Além disso, <code>rebuy</code> é visivelmente o mais “puxado” para notas muito baixas, indicando que a disposição em recomprar é o atributo mais crítico (e possivelmente o mais difícil de conquistar), o que antecipa que a PCA provavelmente vai separar dimensões ligadas a modernidade/diversão versus valor/preço e recompra.</p>
+<p>Os histogramas evidenciam diferenças importantes nas distribuições das avaliações dos nove atributos das marcas. Observa-se predominância de notas baixas em atributos como <code>bargain</code>, <code>rebuy</code>, <code>serious</code> e <code>value</code>, enquanto <code>fun</code> apresenta maior concentração de avaliações elevadas. Os atributos <code>latest</code> e <code>perform</code> destacam-se pela presença expressiva de avaliações extremas, sugerindo heterogeneidade na percepção dos consumidores. Já <code>trendy</code> apresenta maior concentração em valores intermediários. Esses resultados indicam diferentes padrões de percepção das características das marcas e justificam uma investigação multivariada das relações entre os atributos. Entretanto, como os histogramas descrevem apenas as distribuições individuais das variáveis, a identificação de possíveis dimensões latentes comuns depende da análise da matriz de correlações e da aplicação da Análise de Componentes Principais (ACP).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplots facetados por atributo</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>p_box <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(X_long, <span class="fu">aes</span>(<span class="at">x =</span> atributo, <span class="at">y =</span> nota)) <span class="sc">+</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribuição dos atributos (boxplots)"</span>) <span class="sc">+</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_minimal</span>()</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>p_box</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordenar os atributos pela mediana</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>X_long_box <span class="ot">&lt;-</span> X_long <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">atributo =</span> forcats<span class="sc">::</span><span class="fu">fct_reorder</span>(</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>      atributo, nota, <span class="at">.fun =</span> median,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">na.rm =</span> <span class="cn">TRUE</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular médias por atributo</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>medias <span class="ot">&lt;-</span> X_long_box <span class="sc">%&gt;%</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(atributo) <span class="sc">%&gt;%</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">media =</span> <span class="fu">mean</span>(nota, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplots aprimorados</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>p_box <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>  X_long_box,</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> nota, <span class="at">y =</span> atributo, <span class="at">fill =</span> atributo)</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="fl">0.60</span>,</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="fl">0.65</span>,</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"#334155"</span>,</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.85</span>,</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">outlier.shape =</span> <span class="dv">21</span>,</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">outlier.size =</span> <span class="fl">1.8</span>,</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">outlier.alpha =</span> <span class="fl">0.5</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> medias,</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> media, <span class="at">y =</span> atributo),</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">shape =</span> <span class="dv">23</span>,</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">3.5</span>,</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"#F59E0B"</span>,</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"#1F2937"</span>,</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">stroke =</span> <span class="fl">0.7</span></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>(</span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">option =</span> <span class="st">"C"</span>,</span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">begin =</span> <span class="fl">0.15</span>,</span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">end =</span> <span class="fl">0.85</span></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(</span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">10.5</span>)</span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribuição das avaliações por atributo"</span>,</span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Mediana, intervalo interquartílico e média das notas"</span>,</span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Nota atribuída (1 a 10)"</span>,</span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="cn">NULL</span>,</span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Losango amarelo: média | Linha interna: mediana | Caixa: intervalo interquartílico"</span></span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(</span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>      <span class="at">face =</span> <span class="st">"bold"</span>,</span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>      <span class="at">size =</span> <span class="dv">18</span></span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(</span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a>      <span class="at">size =</span> <span class="dv">12</span>,</span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> <span class="st">"#64748B"</span></span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(</span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a>      <span class="at">face =</span> <span class="st">"bold"</span>,</span>
+<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a>      <span class="at">size =</span> <span class="dv">12</span></span>
+<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major.x =</span> <span class="fu">element_line</span>(</span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> <span class="st">"#E2E8F0"</span></span>
+<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(</span>
+<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a>      <span class="at">size =</span> <span class="dv">10</span>,</span>
+<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a>      <span class="at">hjust =</span> <span class="dv">0</span></span>
+<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span></span>
+<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a>p_box</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -620,15 +708,58 @@ $ brand   &lt;chr&gt; "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"
 </div>
 </div>
 </div>
-<p>O boxplot reforça o padrão visto nos histogramas: os atributos ligados a “inovação/diversão” (<code>latest</code>, <code>fun</code>, <code>trendy</code>) apresentam medianas mais altas e intervalos interquartílicos deslocados para a direita, enquanto atributos relacionados a valor/preço (<code>bargain</code>, <code>value</code>) e especialmente rebuy permanecem com centrais mais baixas. Além disso, há bastante dispersão em todos os atributos, sugerindo heterogeneidade real na percepção das marcas. Esse contraste estrutural entre atributos “mais modernos” e atributos “valor/recompra” é exatamente o tipo de padrão latente que a PCA tende a capturar, separando dimensões latentes distintas no mapa perceptual.</p>
+<p>Os boxplots evidenciam diferenças na posição central e na dispersão das avaliações dos nove atributos. Os atributos <code>latest</code> e <code>fun</code> apresentam as maiores medianas, aproximadamente 7 e 6, respectivamente, indicando avaliações predominantemente mais elevadas. Em contrapartida, <code>rebuy</code> apresenta a menor mediana (3), sugerindo menor intenção de recompra no conjunto das avaliações. Quanto à dispersão, <code>perform</code> destaca-se pelo maior intervalo interquartílico, com 50% das observações concentradas entre as notas 1 e 7, enquanto os demais atributos apresentam intervalos interquartílicos entre 4 e 5 pontos. A comparação entre médias e medianas também sugere diferenças na assimetria das distribuições, especialmente em <code>latest</code> e <code>rebuy</code>. Esses resultados revelam heterogeneidade nas avaliações e reforçam a importância de considerar a estrutura de variâncias e correlações na Análise de Componentes Principais (ACP). Como os atributos apresentam diferentes dispersões, a utilização da matriz de correlações, após a padronização das variáveis, constitui uma escolha metodológica adequada para a análise.</p>
 </section>
-<section id="matriz-de-correlações" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="matriz-de-correlações"><span class="header-section-number">2.3</span> Matriz de correlações</h2>
+<section id="perfil-médio-dos-atributos-por-marca" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="perfil-médio-dos-atributos-por-marca"><span class="header-section-number">2.3</span> Perfil médio dos atributos por marca</h2>
+<p>O gráfico apresenta a média das notas de cada atributo para cada marca, permitindo identificar semelhanças e diferenças nos perfis de avaliação.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>cormat <span class="ot">&lt;-</span> <span class="fu">cor</span>(X)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(cormat, <span class="at">method =</span> <span class="st">"color"</span>, <span class="at">type =</span> <span class="st">"upper"</span>, <span class="at">addCoef.col =</span> <span class="st">"black"</span>,</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="at">tl.col =</span> <span class="st">"black"</span>, <span class="at">tl.srt =</span> <span class="dv">45</span>, <span class="at">number.cex =</span> .<span class="dv">6</span>,</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="at">title =</span> <span class="st">"Matriz de correlações entre atributos"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Organizar os dados</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>brands_long <span class="ot">&lt;-</span> brands <span class="sc">%&gt;%</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">brand =</span> <span class="fu">as.factor</span>(brand)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="sc">-</span>brand,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"atributo"</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"nota"</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular médias por marca e atributo</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>perfil_marcas <span class="ot">&lt;-</span> brands_long <span class="sc">%&gt;%</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(brand, atributo) <span class="sc">%&gt;%</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">media =</span> <span class="fu">mean</span>(nota, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico de perfis</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>p_perfil <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  perfil_marcas,</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> atributo, <span class="at">y =</span> media,</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>      <span class="at">group =</span> brand, <span class="at">color =</span> brand)</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">10</span>),</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Perfil médio dos atributos por marca"</span>,</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Atributo"</span>,</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Nota média"</span>,</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Marca"</span></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">13</span>) <span class="sc">+</span></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>      <span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span></span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>p_perfil</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -637,21 +768,38 @@ $ brand   &lt;chr&gt; "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"
 </div>
 </div>
 </div>
-<p>A matriz de correlações mostra claramente dois sub-blocos relevantes: (i) <code>bargain</code> e <code>value</code> são fortemente correlacionados (0,74), compondo um núcleo evidente de “valor/preço percebido”; (ii) <code>latest</code> e <code>trendy</code> também se correlacionam positivamente (0,63), sugerindo um eixo de “modernidade/moda”. Além disso, <code>rebuy</code> correlaciona moderadamente com <code>value</code> (0,51) e <code>perform</code> (0,31), indicando que intenção de recompra parece ancorar-se tanto em percepção de valor quanto em desempenho.</p>
+<p>O gráfico de perfis médios evidencia diferenças expressivas na percepção dos consumidores em relação às dez marcas avaliadas. Observa-se que algumas marcas apresentam perfis relativamente semelhantes, enquanto outras se destacam por características específicas. As marcas d, e e h, por exemplo, apresentam avaliações elevadas em atributos associados à diversão, modernidade e tendência, enquanto b e c se destacam principalmente em liderança, desempenho e seriedade. Por outro lado, as marcas f e g apresentam avaliações favoráveis em preço vantajoso, valor percebido e intenção de recompra. Esses resultados sugerem a existência de diferentes padrões de posicionamento das marcas, possivelmente associados a dimensões perceptuais subjacentes. Nesse contexto, a Análise de Componentes Principais (ACP) pode contribuir para sintetizar as relações entre os atributos e representar as marcas em um espaço de menor dimensionalidade. Entretanto, a identificação e a interpretação dessas dimensões devem ser fundamentadas na estrutura de correlações e nas cargas das componentes principais, não apenas na semelhança visual entre os perfis médios.</p>
+</section>
+<section id="matriz-de-correlações" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="matriz-de-correlações"><span class="header-section-number">2.4</span> Matriz de correlações</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>tidy_cors <span class="ot">&lt;-</span> X <span class="sc">%&gt;%</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlate</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stretch</span>()</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>graph_cors <span class="ot">&lt;-</span> tidy_cors <span class="sc">%&gt;%</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">abs</span>(r) <span class="sc">&gt;</span> .<span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">graph_from_data_frame</span>(<span class="at">directed =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(graph_cors) <span class="sc">+</span> <span class="fu">geom_edge_link</span>() <span class="sc">+</span> <span class="fu">geom_node_point</span>() <span class="sc">+</span>   <span class="do">## Variaveis aparentam se agrupar em dois grupos</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>cormat <span class="ot">&lt;-</span> <span class="fu">cor</span>(X)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(cormat, <span class="at">method =</span> <span class="st">"color"</span>, <span class="at">type =</span> <span class="st">"upper"</span>, <span class="at">addCoef.col =</span> <span class="st">"black"</span>,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="at">tl.col =</span> <span class="st">"black"</span>, <span class="at">tl.srt =</span> <span class="dv">45</span>, <span class="at">number.cex =</span> .<span class="dv">6</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="at">title =</span> <span class="st">"Matriz de correlações entre atributos"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
 <p><img src="brands_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A matriz de correlações mostra claramente dois sub-blocos relevantes: (i) <code>bargain</code> e <code>value</code> são fortemente correlacionados (0,74), compondo um núcleo evidente de “valor/preço percebido”; (ii) <code>latest</code> e <code>trendy</code> também se correlacionam positivamente (0,63), sugerindo um eixo de “modernidade/moda”. Além disso, <code>rebuy</code> correlaciona moderadamente com <code>value</code> (0,51) e <code>perform</code> (0,31), indicando que intenção de recompra parece ancorar-se tanto em percepção de valor quanto em desempenho.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>tidy_cors <span class="ot">&lt;-</span> X <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlate</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stretch</span>()</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>graph_cors <span class="ot">&lt;-</span> tidy_cors <span class="sc">%&gt;%</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">abs</span>(r) <span class="sc">&gt;</span> .<span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">graph_from_data_frame</span>(<span class="at">directed =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(graph_cors) <span class="sc">+</span> <span class="fu">geom_edge_link</span>() <span class="sc">+</span> <span class="fu">geom_node_point</span>() <span class="sc">+</span>   <span class="do">## Variaveis aparentam se agrupar em dois grupos</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="brands_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -664,11 +812,11 @@ $ brand   &lt;chr&gt; "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"
 <h1 data-number="3"><span class="header-section-number">3</span> Construção das componentes principais</h1>
 <p>PCA é sensível a escala. Como nossos atributos são todos numa escala comum (1–10), poderíamos usar a matriz de correlações. Isso facilita a interpretação dos loadings como correlações entre variável e componente.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># PCA sobre correlações (equivalente a prcomp com scale.=TRUE)</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(X, <span class="at">center =</span> <span class="cn">TRUE</span>, <span class="at">scale. =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>pca <span class="sc">%&gt;%</span> </span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># PCA sobre correlações (equivalente a prcomp com scale.=TRUE)</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(X, <span class="at">center =</span> <span class="cn">TRUE</span>, <span class="at">scale. =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>pca <span class="sc">%&gt;%</span> </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Importance of components:
                          PC1    PC2    PC3    PC4     PC5     PC6     PC7
@@ -683,22 +831,22 @@ Cumulative Proportion  0.97298 1.00000</code></pre>
 </div>
 <p>Os dois primeiros componentes capturam 56,4% da variância total, e os três primeiros chegam a 68,4%. Isso é um resultado muito típico em dados de marketing com vários atributos perceptuais: algumas dimensões latentes bem “macro” explicam boa parte da estrutura. Olhando os números, faz sentido reter duas componentes para construção do mapa perceptual (<span class="math inline">\(Y_1\)</span> + <span class="math inline">\(Y_2\)</span>), porque já carregam mais da metade da informação, e a <span class="math inline">\(Y_3\)</span> adicionaria relativamente pouco ganho incremental (≈ +12%). Portanto, a representação bidimensional preserva a maior parte dos contrastes relevantes entre atributos e marcas, mantendo uma visualização simples e interpretável.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_eig</span>(pca, <span class="at">geom=</span><span class="st">"line"</span>,  <span class="at">choice =</span> <span class="fu">c</span>(<span class="st">"eigenvalue"</span>), <span class="at">addlabels =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_eig</span>(pca, <span class="at">geom=</span><span class="st">"line"</span>,  <span class="at">choice =</span> <span class="fu">c</span>(<span class="st">"eigenvalue"</span>), <span class="at">addlabels =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="brands_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="brands_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="2100"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>O scree plot mostra um “cotovelo” muito claro após o segundo componente: o autovalor cai de 3 → 2,1 → 1,1, e depois segue um declínio suave e quase linear. Esse formato clássico (queda acentuada nos dois primeiros PCs e cauda longa de autovalores pequenos) é um indicativo forte de que duas componentes já capturam a parte estrutural da variabilidade, enquanto as demais carregam essencialmente ruído/variação incomum. Em termos práticos de análise e comunicação gerencial, isso justifica a escolha de reduzir o espaço de 9 atributos para 2 dimensões para interpretar o mapa perceptual.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fa.parallel</span>(X, <span class="at">fa=</span><span class="st">"pc"</span>, <span class="at">n.iter=</span><span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fa.parallel</span>(X, <span class="at">fa=</span><span class="st">"pc"</span>, <span class="at">n.iter=</span><span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="brands_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="brands_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -711,8 +859,8 @@ Cumulative Proportion  0.97298 1.00000</code></pre>
 <h2 data-number="3.1" class="anchored" data-anchor-id="loadings-correlações-e-interpretação-geométrica"><span class="header-section-number">3.1</span> Loadings, correlações e interpretação geométrica</h2>
 <p>Temos que as componentes encontradas são dadas por:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Loadings (cargas)</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>pca<span class="sc">$</span>rotation</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Loadings (cargas)</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>pca<span class="sc">$</span>rotation</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>               PC1         PC2         PC3         PC4         PC5        PC6
 perform  0.2374679  0.41991179  0.03854006 -0.52630873 -0.46793435  0.3370676
@@ -741,25 +889,25 @@ rebuy    0.388656160 -0.20210688  0.01720236</code></pre>
 <p><span class="math display">\[Y_2 = 0,42 \times Z_{\text{perform}} + 0,52 \times Z_{\text{leader}} + 0,20 \times Z_{\text{latest}} - 0,25 \times Z_{\text{fun}} + 0,51 \times Z_{\text{serious}} - 0,22 \times Z_{\text{bargain}} - 0,19 \times Z_{\text{value}} + 0,32 \times Z_{\text{trendy}} + 0,02 \times Z_{\text{rebuy}}\]</span></p>
 <p>Observando as loadings, <span class="math inline">\(Y_1\)</span> tem cargas altas positivas em <code>value</code>, <code>bargain</code>, <code>rebuy</code> e <code>perform</code>, indicando que esta dimensão parece sintetizar uma percepção geral de benefício percebido/custo-benefício/probabilidade de recompra (mais “valor concreto” da marca). Já <span class="math inline">\(Y_2\)</span> tem cargas altas em <code>leader</code>, <code>serious</code> e <code>perform</code>, indicando que essa dimensão se aproxima mais de um eixo de prestígio/liderança/seriedade. Em síntese: <span class="math inline">\(Y_1\)</span> capta “valor concreto oferecido”, <span class="math inline">\(Y_2\)</span> capta “status institucional da marca”.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_biplot</span>(pca, <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">col.var =</span> <span class="st">"#2E9FDF"</span>, <span class="co"># Variables color</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">col.ind =</span> <span class="st">"#696969"</span>  <span class="co"># Individuals color</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>                )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_biplot</span>(pca, <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">col.var =</span> <span class="st">"#2E9FDF"</span>, <span class="co"># Variables color</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">col.ind =</span> <span class="st">"#696969"</span>  <span class="co"># Individuals color</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="brands_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="brands_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="2100"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>No biplot com indivíduos, o padrão fica difícil de visualizar devido ao volume de pontos, sugerindo a execução da PCA usando avaliacoes agregadas por marca.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Medias dos atributos por marca</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>brand.mean <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(. <span class="sc">~</span>brand_fac, <span class="at">data =</span> df_scaled, mean)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(brand.mean) <span class="ot">&lt;-</span> brand.mean[, <span class="dv">1</span>]  <span class="co"># usar marca para os nomes das linhas</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>brand.mean <span class="ot">&lt;-</span> brand.mean[, <span class="sc">-</span><span class="dv">1</span>] <span class="co"># remover coluna de nome de marca</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>brand.mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Medias dos atributos por marca</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>brand.mean <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(. <span class="sc">~</span>brand_fac, <span class="at">data =</span> df_scaled, mean)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(brand.mean) <span class="ot">&lt;-</span> brand.mean[, <span class="dv">1</span>]  <span class="co"># usar marca para os nomes das linhas</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>brand.mean <span class="ot">&lt;-</span> brand.mean[, <span class="sc">-</span><span class="dv">1</span>] <span class="co"># remover coluna de nome de marca</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>brand.mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
@@ -769,9 +917,9 @@ rebuy    0.388656160 -0.20210688  0.01720236</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>pca_mu <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(brand.mean, <span class="at">scale =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>pca_mu <span class="sc">%&gt;%</span> </span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>pca_mu <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(brand.mean, <span class="at">scale =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>pca_mu <span class="sc">%&gt;%</span> </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Importance of components:
                           PC1    PC2    PC3     PC4     PC5     PC6     PC7
@@ -786,14 +934,14 @@ Cumulative Proportion  0.99974 1.00000</code></pre>
 </div>
 <p>Realizada nova padronização, as médias agregadas têm escala um pouco diferente que os dados padronizados. A PCA neste contexto é extremamente dominante nas duas primeiras dimensões, isto é, <span class="math inline">\(Y_1\)</span> sozinha já explica 50,6% da variância total, e <span class="math inline">\(Y_1 + Y_2\)</span> explicam 84,1%. Ou seja, praticamente toda a estrutura relevante dos 9 atributos pode ser projetada com segurança em apenas duas dimensões.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_biplot</span>(pca_mu, <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">col.var =</span> <span class="st">"#2E9FDF"</span>, <span class="co"># Variables color</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">col.ind =</span> <span class="st">"#696969"</span>  <span class="co"># Individuals color</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>                )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_biplot</span>(pca_mu, <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">col.var =</span> <span class="st">"#2E9FDF"</span>, <span class="co"># Variables color</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">col.ind =</span> <span class="st">"#696969"</span>  <span class="co"># Individuals color</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>                )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="brands_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="brands_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -803,8 +951,8 @@ Cumulative Proportion  0.99974 1.00000</code></pre>
 <p>Isso pode ser bom ou ruim: há setores em que o consumidor valoriza o “não ter arestas”, ou seja, confiança, regularidade, estabilidade, não polêmica. Por exemplo, serviços financeiros conservadores, empresas B2B que vendem confiabilidade. Em um caso assim, estar no centro pode até ser seguro. Entretanto, se o jogo competitivo naquele setor depende de posicionamento claro (ex.: “premium”, “inovadora”, “low-cost”, “divertida”, etc.), então estar no centro é perigoso. A marca “e” pode estar sendo percebida como sem personalidade. Isso é típico de marcas que não conseguem defender um território mental.</p>
 <p>Uma alternativa para a marca “e” seria, na prática, intervir nas percepções associadas à marca (por comunicação, experiência, produto ou preço) para que ela passe a ser percebida de forma mais alinhada a um território desejado, por exemplo, se o interesse é em realizar um deslocamento da marca “e” → “c” no espaço dos atributos padronizados:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Diferenças entre a marca c e e</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>brand.mean[<span class="st">"c"</span>,] <span class="sc">-</span> brand.mean[<span class="st">"e"</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Diferenças entre a marca c e e</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>brand.mean[<span class="st">"c"</span>,] <span class="sc">-</span> brand.mean[<span class="st">"e"</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
@@ -816,8 +964,8 @@ Cumulative Proportion  0.99974 1.00000</code></pre>
 <p>O vetor de diferença mostra que “c” é muito mais forte que e em <code>serious</code> (+1,18), <code>perform</code> (+1,21) e <code>leader</code> (+0,97). Estes são os atributos que definem o território de “c”: seriedade, liderança e desempenho. Por outro lado, “c” perde claramente em <code>fun</code> (−1,14), <code>bargain</code> (−1,16) e <code>value</code> (−0,86). Portanto, se a marca “e” quiser migrar na direção do território perceptual de “c”, ela precisa subir principalmente em seriedade, performance e liderança, uma vez que é exatamente aí que “c” se diferencia. Contudo, ela não deveria tentar deslocar ao mesmo tempo a sua eventual vantagem em diversão ou custo-benefício, pois “c” não compete nesses atributos.</p>
 <p>Se o interesse é não seguir outra marca, mas obter espaço diferenciado, podemos deslocar nossa marca para áreas “vazias” no mapa. Agora estamos comparando a marca “e” a um cluster-alvo (“b”, “c”, “f”, “g”) que, pelo mapa, parece ser o cluster “das marcas vencedoras” em prestígio + valor concreto.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Gap value-leader: Assumindo que o gap reflete aproximadamente a media dessas 4 marcas</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(brand.mean[<span class="fu">c</span>(<span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"f"</span>, <span class="st">"g"</span>), ]) <span class="sc">-</span> brand.mean[<span class="st">"e"</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Gap value-leader: Assumindo que o gap reflete aproximadamente a media dessas 4 marcas</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(brand.mean[<span class="fu">c</span>(<span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"f"</span>, <span class="st">"g"</span>), ]) <span class="sc">-</span> brand.mean[<span class="st">"e"</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">

@@ -111,31 +111,176 @@ X_scaled <- scale(X)
 df_scaled <- data.frame(brand_fac = brand_fac, X_scaled)
 
 # histogramas facetados
-p_hist <- ggplot(X_long, aes(nota)) +
-geom_histogram(bins = 9, color = "white") +
-facet_wrap(~ atributo, scales="free_y") +
-labs(title = "Distribuição dos atributos (histogramas)") +
-theme_minimal()
-
+p_hist <- ggplot(X_long, aes(x = nota)) +
+  geom_histogram(
+    binwidth = 1,
+    boundary = 0.5,
+    color = "white",
+    fill = "#2E9FDF"
+  ) +
+  facet_wrap(~ atributo, scales = "free_y") +
+  scale_x_continuous(breaks = 1:10) +
+  labs(
+    title = "Distribuição dos atributos",
+    x = "Nota atribuída",
+    y = "Frequência"
+  ) +
+  theme_minimal()
 
 p_hist
 ```
 
-Observa-se que a maior parte dos atributos tem uma massa grande de notas baixas (1 a 4), exceto `latest`, `fun` e (em menor grau) `trendy`, que apresentam caudas mais fortes para notas altas. Isso sugere que a percepção média de “inovação/modernidade/diversão” tende a ser mais positiva do que a percepção de “valor/preço/desempenho”. Além disso, `rebuy` é visivelmente o mais “puxado” para notas muito baixas, indicando que a disposição em recomprar é o atributo mais crítico (e possivelmente o mais difícil de conquistar), o que antecipa que a PCA provavelmente vai separar dimensões ligadas a modernidade/diversão versus valor/preço e recompra.
+Os histogramas evidenciam diferenças importantes nas distribuições das avaliações dos nove atributos das marcas. Observa-se predominância de notas baixas em atributos como `bargain`, `rebuy`, `serious` e `value`, enquanto `fun` apresenta maior concentração de avaliações elevadas. Os atributos `latest` e `perform` destacam-se pela presença expressiva de avaliações extremas, sugerindo heterogeneidade na percepção dos consumidores. Já `trendy` apresenta maior concentração em valores intermediários. Esses resultados indicam diferentes padrões de percepção das características das marcas e justificam uma investigação multivariada das relações entre os atributos. Entretanto, como os histogramas descrevem apenas as distribuições individuais das variáveis, a identificação de possíveis dimensões latentes comuns depende da análise da matriz de correlações e da aplicação da Análise de Componentes Principais (ACP).
 
 ```{r}
-# boxplots facetados por atributo
-p_box <- ggplot(X_long, aes(x = atributo, y = nota)) +
-geom_boxplot() +
-coord_flip() +
-labs(title = "Distribuição dos atributos (boxplots)") +
-theme_minimal()
+library(tidyverse)
 
+# Ordenar os atributos pela mediana
+X_long_box <- X_long %>%
+  mutate(
+    atributo = forcats::fct_reorder(
+      atributo, nota, .fun = median,
+      na.rm = TRUE
+    )
+  )
+
+# Calcular médias por atributo
+medias <- X_long_box %>%
+  group_by(atributo) %>%
+  summarise(
+    media = mean(nota, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+# Boxplots aprimorados
+p_box <- ggplot(
+  X_long_box,
+  aes(x = nota, y = atributo, fill = atributo)
+) +
+  geom_boxplot(
+    width = 0.60,
+    linewidth = 0.65,
+    color = "#334155",
+    alpha = 0.85,
+    outlier.shape = 21,
+    outlier.size = 1.8,
+    outlier.alpha = 0.5
+  ) +
+  geom_point(
+    data = medias,
+    aes(x = media, y = atributo),
+    inherit.aes = FALSE,
+    shape = 23,
+    size = 3.5,
+    fill = "#F59E0B",
+    color = "#1F2937",
+    stroke = 0.7
+  ) +
+  scale_fill_viridis_d(
+    option = "C",
+    begin = 0.15,
+    end = 0.85
+  ) +
+  scale_x_continuous(
+    breaks = 1:10,
+    limits = c(0.5, 10.5)
+  ) +
+  labs(
+    title = "Distribuição das avaliações por atributo",
+    subtitle = "Mediana, intervalo interquartílico e média das notas",
+    x = "Nota atribuída (1 a 10)",
+    y = NULL,
+    caption = "Losango amarelo: média | Linha interna: mediana | Caixa: intervalo interquartílico"
+  ) +
+  guides(fill = "none") +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(
+      face = "bold",
+      size = 18
+    ),
+    plot.subtitle = element_text(
+      size = 12,
+      color = "#64748B"
+    ),
+    axis.text.y = element_text(
+      face = "bold",
+      size = 12
+    ),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_line(
+      color = "#E2E8F0"
+    ),
+    plot.caption = element_text(
+      size = 10,
+      hjust = 0
+    ),
+    legend.position = "none"
+  )
 
 p_box
 ```
 
-O boxplot reforça o padrão visto nos histogramas: os atributos ligados a “inovação/diversão” (`latest`, `fun`, `trendy`) apresentam medianas mais altas e intervalos interquartílicos deslocados para a direita, enquanto atributos relacionados a valor/preço (`bargain`, `value`) e especialmente rebuy permanecem com centrais mais baixas. Além disso, há bastante dispersão em todos os atributos, sugerindo heterogeneidade real na percepção das marcas. Esse contraste estrutural entre atributos “mais modernos” e atributos “valor/recompra” é exatamente o tipo de padrão latente que a PCA tende a capturar, separando dimensões latentes distintas no mapa perceptual.
+Os boxplots evidenciam diferenças na posição central e na dispersão das avaliações dos nove atributos. Os atributos `latest` e `fun` apresentam as maiores medianas, aproximadamente 7 e 6, respectivamente, indicando avaliações predominantemente mais elevadas. Em contrapartida, `rebuy` apresenta a menor mediana (3), sugerindo menor intenção de recompra no conjunto das avaliações. Quanto à dispersão, `perform` destaca-se pelo maior intervalo interquartílico, com 50% das observações concentradas entre as notas 1 e 7, enquanto os demais atributos apresentam intervalos interquartílicos entre 4 e 5 pontos. A comparação entre médias e medianas também sugere diferenças na assimetria das distribuições, especialmente em `latest` e `rebuy`. Esses resultados revelam heterogeneidade nas avaliações e reforçam a importância de considerar a estrutura de variâncias e correlações na Análise de Componentes Principais (ACP). Como os atributos apresentam diferentes dispersões, a utilização da matriz de correlações, após a padronização das variáveis, constitui uma escolha metodológica adequada para a análise.
+
+
+## Perfil médio dos atributos por marca
+
+O gráfico apresenta a média das notas de cada atributo para cada marca, permitindo identificar semelhanças e diferenças nos perfis de avaliação.
+
+```{r}
+library(tidyverse)
+
+# Organizar os dados
+brands_long <- brands %>%
+  mutate(brand = as.factor(brand)) %>%
+  pivot_longer(
+    cols = -brand,
+    names_to = "atributo",
+    values_to = "nota"
+  )
+
+# Calcular médias por marca e atributo
+perfil_marcas <- brands_long %>%
+  group_by(brand, atributo) %>%
+  summarise(
+    media = mean(nota, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+# Gráfico de perfis
+p_perfil <- ggplot(
+  perfil_marcas,
+  aes(x = atributo, y = media,
+      group = brand, color = brand)
+) +
+  geom_line(linewidth = 0.9) +
+  geom_point(size = 2) +
+  scale_y_continuous(
+    limits = c(1, 10),
+    breaks = 1:10
+  ) +
+  labs(
+    title = "Perfil médio dos atributos por marca",
+    x = "Atributo",
+    y = "Nota média",
+    color = "Marca"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    axis.text.x = element_text(
+      angle = 45, hjust = 1
+    ),
+    legend.position = "bottom"
+  )
+
+p_perfil
+```
+
+
+O gráfico de perfis médios evidencia diferenças expressivas na percepção dos consumidores em relação às dez marcas avaliadas. Observa-se que algumas marcas apresentam perfis relativamente semelhantes, enquanto outras se destacam por características específicas. As marcas d, e e h, por exemplo, apresentam avaliações elevadas em atributos associados à diversão, modernidade e tendência, enquanto b e c se destacam principalmente em liderança, desempenho e seriedade. Por outro lado, as marcas f e g apresentam avaliações favoráveis em preço vantajoso, valor percebido e intenção de recompra. Esses resultados sugerem a existência de diferentes padrões de posicionamento das marcas, possivelmente associados a dimensões perceptuais subjacentes. Nesse contexto, a Análise de Componentes Principais (ACP) pode contribuir para sintetizar as relações entre os atributos e representar as marcas em um espaço de menor dimensionalidade. Entretanto, a identificação e a interpretação dessas dimensões devem ser fundamentadas na estrutura de correlações e nas cargas das componentes principais, não apenas na semelhança visual entre os perfis médios.
+
 
 ## Matriz de correlações
 
