@@ -36,7 +36,7 @@ website:
       - exercicios.qmd
       - analises.qmd
       - plano.qmd
-      #- projeto.qmd
+      - projeto.qmd
       - cronograma.qmd
       #- material.qmd
 

@@ -32,7 +32,7 @@ Nesta análise, vamos construir **mapas perceptuais** de marcas por meio da **An
 
 Vamos usar a base `brand.csv` (100 respondentes, 10 marcas `a`–`j`, atributos: *perform, leader, latest, fun, serious, bargain, value, trendy, rebuy*).
 
--   Características das marcas: perguntas
+- Características das marcas: perguntas
 
 ```{=html}
 <style type="text/css">

@@ -4,7 +4,10 @@
     "href": "projeto.html",
     "title": "Projetos",
     "section": "",
-    "text": "Esta página contém os projetos de análise de dados que serão apresentados ao longo do semestre. Você pode baixar os projetos em versão PDF.\n\n\n\n1. Análise de Componentes Principais\n\n\n Ver projeto PDF \n Entrega: 19/12/2025 \n\n\n\n\n2. Análise Fatorial\n\n\n Ver projeto PDF \n Entrega: 03/02/2026 \n\n\n\n\n3. Análise de Agrupamentos\n\n\n Ver projeto PDF \n Entrega: 26/02/2026 \n\n\n\n\n4. Análise Discriminante\n\n\n Ver projeto PDF \n Entrega: 26/02/2026"
+    "text": "Esta página contém os projetos de análise de dados que serão apresentados ao longo do semestre. Você pode baixar os projetos em versão PDF.\n\n\n\n1. Análise de Componentes Principais\n\n\n Ver projeto PDF \n Entrega: 02/11/2026",
+    "crumbs": [
+      "Projetos"
+    ]
   },
   {
     "objectID": "projeto/ad/ad.html",
@@ -75,27 +78,6 @@
     "title": "Segmentação de Usuários de uma Plataforma de Streaming",
     "section": "2.6 Conclusão",
     "text": "2.6 Conclusão\nApresente:\n\na segmentação final escolhida;\na justificativa metodológica completa;\na interpretação dos perfis encontrados;\nimplicações práticas para a plataforma de streaming."
-  },
-  {
-    "objectID": "programacao/semana-8.html",
-    "href": "programacao/semana-8.html",
-    "title": "Semana 08",
-    "section": "",
-    "text": "Análise de Componentes Principais \n\n\nVer slides PDF\n\n\n\n\n\n  Mapas Perceptuais com PCA: estudo de marcas \n Ver análise PDF"
-  },
-  {
-    "objectID": "programacao/semana-8.html#slides",
-    "href": "programacao/semana-8.html#slides",
-    "title": "Semana 08",
-    "section": "",
-    "text": "Análise de Componentes Principais \n\n\nVer slides PDF\n\n\n\n\n\n  Mapas Perceptuais com PCA: estudo de marcas \n Ver análise PDF"
-  },
-  {
-    "objectID": "programacao/semana-8.html#script-de-análise-de-dados",
-    "href": "programacao/semana-8.html#script-de-análise-de-dados",
-    "title": "Semana 08",
-    "section": "",
-    "text": "Mapas Perceptuais com PCA: estudo de marcas \n Ver análise PDF"
   },
   {
     "objectID": "programacao/semana-6.html",
@@ -242,7 +224,7 @@
     "href": "index.html#avaliações",
     "title": "Análise Multivariada e Aprendizado Não Supervisionado",
     "section": "Avaliações",
-    "text": "Avaliações\n\n\n\n\n\n\nCritérios de Avaliação\n\n\n\nA nota final do semestre será computada da seguinte forma:\n\n\n\nAtividade\nTipo\nConteúdo\nData\nPontos\n\n\n\n\nAtividade 1\nLista de exercícios 01\nRevisão de Álgebra Matricial\n08/09/2026\n10,0\n\n\nAtividade 2\nLista de exercícios 02\nIntrodução à Estatística Multivariada\n21/09/2026\n10,0\n\n\nAtividade 3\nLista de exercícios 03\nDistribuição Normal Multivariada\n05/10/2026\n10,0\n\n\nAtividade 4\nRelatório de Análise de Dados\nAnálise de Componentes Principais\n19/10/2026\n17,5\n\n\nAtividade 5\nRelatório de Análise de Dados\nAnálise Fatorial\n03/11/2026\n17,5\n\n\nAtividade 6\nRelatório de Análise de Dados\nAnálise de Agrupamentos\n16/11/2026\n17,5\n\n\nAtividade 7\nRelatório de Análise de Dados\nAnálise Discriminante\n30/11/2026\n17,5\n\n\n\n\nTotal\n\n100,0\n\n\n\n\n\nExame Especial: 21/12/2026"
+    "text": "Avaliações\n\n\n\n\n\n\nCritérios de Avaliação\n\n\n\nA nota final do semestre será computada da seguinte forma:\n\n\n\nAtividade\nTipo\nConteúdo\nData\nPontos\n\n\n\n\nAtividade 1\nLista de exercícios 01\nRevisão de Álgebra Matricial\n08/09/2026\n10,0\n\n\nAtividade 2\nLista de exercícios 02\nIntrodução à Estatística Multivariada\n21/09/2026\n10,0\n\n\nAtividade 3\nLista de exercícios 03\nDistribuição Normal Multivariada\n05/10/2026\n10,0\n\n\nAtividade 4\nRelatório de Análise de Dados\nAnálise de Componentes Principais\n02/11/2026\n17,5\n\n\nAtividade 5\nRelatório de Análise de Dados\nAnálise Fatorial\n16/11/2026\n17,5\n\n\nAtividade 6\nRelatório de Análise de Dados\nAnálise de Agrupamentos\n30/11/2026\n17,5\n\n\nAtividade 7\nRelatório de Análise de Dados\nAnálise Discriminante\n14/12/2026\n17,5\n\n\n\n\nTotal\n\n100,0\n\n\n\n\n\nExame Especial: 21/12/2026"
   },
   {
     "objectID": "exercicios/lista03.html",
@@ -263,7 +245,7 @@
     "href": "aulas.html",
     "title": "Aulas",
     "section": "",
-    "text": "Esta página contém aulas que serão apresentadas ao longo do semestre.\n\n\n Revisão de Álgebra Matricial \n Ver slides  \n\n\n Introdução à Estatística Multivariada \n Ver slides  \n\n\n Distribuição Normal Multivariada \n Ver slides  \n\n\n Análise de Componentes Principais \n Ver slides",
+    "text": "Esta página contém aulas que serão apresentadas ao longo do semestre.\n\n\n Revisão de Álgebra Matricial \n Ver slides  \n\n\n Introdução à Estatística Multivariada \n Ver slides  \n\n\n Distribuição Normal Multivariada \n Ver slides  \n\n\n Análise de Componentes Principais \n Ver slides  \n\n\n Análise Fatorial \n Ver slides",
     "crumbs": [
       "Aulas"
     ]
@@ -1771,7 +1753,7 @@
     "href": "analises.html",
     "title": "Análise de dados",
     "section": "",
-    "text": "Esta página contém scripts de análises de dados comentados utilizando algumas técnicas que serão apresentadas ao longo do semestre. Você pode baixar as análises em versão PDF.\n\n\n Descrição e Visualização da base de dados Iris \n Ver análise PDF",
+    "text": "Esta página contém scripts de análises de dados comentados utilizando algumas técnicas que serão apresentadas ao longo do semestre. Você pode baixar as análises em versão PDF.\n\n\n Descrição e Visualização da base de dados Iris \n Ver análise PDF \n\n\n Mapas Perceptuais com PCA: estudo de marcas \n Ver análise PDF",
     "crumbs": [
       "Análise de dados"
     ]
@@ -3566,7 +3548,7 @@
     "href": "cronograma.html",
     "title": "Cronograma da Disciplina",
     "section": "",
-    "text": "Esta página contém um esboço dos tópicos, conteúdos e tarefas para o semestre. Este cronograma será atualizado conforme o semestre avança.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSemana\nData\nTópico\nArtigo\nSlides\nEC\nLE\nScript\nMC\nProjeto\n\n\n\n\n1\nSeg, 24/08\nApresentação da disciplina\n\n\n\n\n\n\n\n\n\n\nQua, 26/08\nRevisão de Álgebra Linear\n\n\n\n\n\n\n\n\n\n2\nSeg, 31/08\nRevisão de Álgebra Linear\n\n\n\n\n\n\n\n\n\n\nQua, 02/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n3\nSeg, 07/09\nFeriado: Independência do Brasil\n\n\n\n\n\n\n\n\n\n\nQua, 09/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n4\nSeg, 14/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n\nQua, 16/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n5\nSeg, 21/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n\nQua, 23/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n6\nSeg, 28/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n\nQua, 30/09\nAnálise de Componentes Principais\n\n\n\n\n\n\n\n\n\n7\nSeg, 05/10\nAnálise de Componentes Principais\n\n\n\n\n\n\n\n\n\n\nQua, 07/10\nAnálise de Componentes Principais",
+    "text": "Esta página contém um esboço dos tópicos, conteúdos e tarefas para o semestre. Este cronograma será atualizado conforme o semestre avança.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSemana\nData\nTópico\nArtigo\nSlides\nEC\nLE\nScript\nMC\nProjeto\n\n\n\n\n1\nSeg, 24/08\nApresentação da disciplina\n\n\n\n\n\n\n\n\n\n\nQua, 26/08\nRevisão de Álgebra Linear\n\n\n\n\n\n\n\n\n\n2\nSeg, 31/08\nRevisão de Álgebra Linear\n\n\n\n\n\n\n\n\n\n\nQua, 02/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n3\nSeg, 07/09\nFeriado: Independência do Brasil\n\n\n\n\n\n\n\n\n\n\nQua, 09/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n4\nSeg, 14/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n\nQua, 16/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n5\nSeg, 21/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n\nQua, 23/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n6\nSeg, 28/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n\nQua, 30/09\nAnálise de Componentes Principais\n\n\n\n\n\n\n\n\n\n7\nSeg, 05/10\nAnálise de Componentes Principais\n\n\n\n\n\n\n\n\n\n\nQua, 07/10\nAnálise de Componentes Principais\n\n\n\n\n\n\n\n\n\n8\nSeg, 12/10\nFeriado: Nossa Senhora Aparecida\n\n\n\n\n\n\n\n\n\n\nQua, 14/10\nNão haverá aula!\n\n\n\n\n\n\n\n\n\n9\nSeg, 19/10\nAnálise de Componentes Principais\n\n\n\n\n\n\n\n\n\n\nQua, 21/10\nAnálise Fatorial",
     "crumbs": [
       "Cronograma da Disciplina"
     ]
@@ -3725,25 +3707,32 @@
     "text": "Análise de Componentes Principais \n\n\nVer slides PDF"
   },
   {
-    "objectID": "programacao/semana-7.html#entrega-lista-de-exercícios-03",
-    "href": "programacao/semana-7.html#entrega-lista-de-exercícios-03",
+    "objectID": "programacao/semana-7.html#slides",
+    "href": "programacao/semana-7.html#slides",
     "title": "Semana 07",
-    "section": "Entrega lista de exercícios 03",
-    "text": "Entrega lista de exercícios 03\n\n\n\n\n\n\nFique Atento!\n\n\n\n Lista de exercícios 03\nEntrega via Moodle\n\nData de entrega:\n\n02 de dezembro de 2025"
+    "section": "",
+    "text": "Análise de Componentes Principais \n\n\nVer slides PDF"
   },
   {
     "objectID": "programacao/semana-9.html",
     "href": "programacao/semana-9.html",
     "title": "Semana 09",
     "section": "",
-    "text": "Análise Fatorial \n\n\nVer slides PDF\n\n\n\n\n\n  Análise da necessidade de cognição usando PCA \n Ver projeto PDF"
+    "text": "Análise Fatorial \n\n\nVer slides PDF\n\n\n\n\n\n  Mapas Perceptuais com PCA: estudo de marcas \n Ver análise PDF \n\n\n\n\n\n  Análise da necessidade de cognição usando PCA \n Ver projeto PDF"
   },
   {
     "objectID": "programacao/semana-9.html#slides",
     "href": "programacao/semana-9.html#slides",
     "title": "Semana 09",
     "section": "",
-    "text": "Análise Fatorial \n\n\nVer slides PDF\n\n\n\n\n\n  Análise da necessidade de cognição usando PCA \n Ver projeto PDF"
+    "text": "Análise Fatorial \n\n\nVer slides PDF\n\n\n\n\n\n  Mapas Perceptuais com PCA: estudo de marcas \n Ver análise PDF \n\n\n\n\n\n  Análise da necessidade de cognição usando PCA \n Ver projeto PDF"
+  },
+  {
+    "objectID": "programacao/semana-9.html#script-de-análise-de-dados",
+    "href": "programacao/semana-9.html#script-de-análise-de-dados",
+    "title": "Semana 09",
+    "section": "",
+    "text": "Mapas Perceptuais com PCA: estudo de marcas \n Ver análise PDF"
   },
   {
     "objectID": "programacao/semana-9.html#projeto-análise-de-componentes-principais",
@@ -3757,7 +3746,7 @@
     "href": "projeto/acp/acp.html",
     "title": "Análise da necessidade de cognição usando PCA",
     "section": "",
-    "text": "Data de entrega: 19 de dezembro de 2025\nUm bom exemplo de redução da dimensionalidade é a criação de índices de dados de levantamentos ou de dados experimentais. Pesquisadores frequentemente usam muitas questões diferentes para obter uma propriedade ou característica particular dos respondentes de pesquisas. Por exemplo, Ofir and Simonson (2001) usaram uma bateria de 18 questões desenvolvida por Cacioppo, Petty, and Kao (1984) para obter a “necessidade de cognição” de cada sujeito (isto é, a extensão com que o sujeito gosta e se envolve no raciocínio e na resolução de problemas). A lista de questões é apresentada na Tabela 1 (observe que algumas são “codificadas de modo invertido”, de modo que um escore mais alto para a questão reflete uma necessidade mais baixa de cognição).\n(R) indica um item de código reverso. Fonte: Cacioppo, Petty e Kao (1984).\nCriar um único índice de “necessidade de cognição” é não somente mais parcimonioso do que usar várias medidas separadas, mas também mais confiável do que usar uma única medida (porque somos menos suscetíveis ao erro de medida associado a uma questão particular do estudo). Uma abordagem possível para se criar tal índice é tomar uma soma de escores (subtrair ao invés de somar as medidas codificadas de modo invertido) de todas as 18 variáveis. Uma abordagem alternativa é a análise de componentes principais: o primeiro componente principal será a combinação linear das 18 questões que captar a quantidade máxima de informações nos dados.\nOs dados brutos colhidos por Ofir and Simonson (2001) para medir a “necessidade de cognição” estão disponíveis no arquivo COGNITION.txt. A base de dados contém 19 variáveis: o número de identificação de um respondente e os escores para os 18 itens listados na Tabela 1."
+    "text": "Data de entrega: 02 de novembro de 2026\nUm bom exemplo de redução da dimensionalidade é a criação de índices de dados de levantamentos ou de dados experimentais. Pesquisadores frequentemente usam muitas questões diferentes para obter uma propriedade ou característica particular dos respondentes de pesquisas. Por exemplo, Ofir and Simonson (2001) usaram uma bateria de 18 questões desenvolvida por Cacioppo, Petty, and Kao (1984) para obter a “necessidade de cognição” de cada sujeito (isto é, a extensão com que o sujeito gosta e se envolve no raciocínio e na resolução de problemas). A lista de questões é apresentada na Tabela 1 (observe que algumas são “codificadas de modo invertido”, de modo que um escore mais alto para a questão reflete uma necessidade mais baixa de cognição).\n(R) indica um item de código reverso. Fonte: Cacioppo, Petty e Kao (1984).\nCriar um único índice de “necessidade de cognição” é não somente mais parcimonioso do que usar várias medidas separadas, mas também mais confiável do que usar uma única medida (porque somos menos suscetíveis ao erro de medida associado a uma questão particular do estudo). Uma abordagem possível para se criar tal índice é tomar uma soma de escores (subtrair ao invés de somar as medidas codificadas de modo invertido) de todas as 18 variáveis. Uma abordagem alternativa é a análise de componentes principais: o primeiro componente principal será a combinação linear das 18 questões que captar a quantidade máxima de informações nos dados.\nOs dados brutos colhidos por Ofir and Simonson (2001) para medir a “necessidade de cognição” estão disponíveis no arquivo COGNITION.txt. A base de dados contém 19 variáveis: o número de identificação de um respondente e os escores para os 18 itens listados na Tabela 1."
   },
   {
     "objectID": "projeto/acp/acp.html#referências",
@@ -3828,19 +3817,5 @@
     "title": "Análise fatorial aplicada ao comportamento do consumidor",
     "section": "5.4 Correlações Residuais",
     "text": "5.4 Correlações Residuais\n\nAvaliar a matriz de correlações residuais;\nIdentificar padrões que indiquem inadequação do modelo."
-  },
-  {
-    "objectID": "programacao/semana-7.html#slides",
-    "href": "programacao/semana-7.html#slides",
-    "title": "Semana 07",
-    "section": "",
-    "text": "Análise de Componentes Principais \n\n\nVer slides PDF"
-  },
-  {
-    "objectID": "programacao/semana-7.html#projeto-análise-de-componentes-principais",
-    "href": "programacao/semana-7.html#projeto-análise-de-componentes-principais",
-    "title": "Semana 07",
-    "section": "",
-    "text": "Análise da necessidade de cognição usando PCA \n Ver projeto PDF"
   }
 ]
