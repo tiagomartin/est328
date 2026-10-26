@@ -48,8 +48,8 @@ Esta página contém um esboço dos tópicos, conteúdos e tarefas para o semest
 |  | Qua, 14/10 | Não haverá aula! |  |  |  |  |  |  |  |
 | [9](programacao/semana-9.html) | Seg, 19/10 | Análise de Componentes Principais |  |  |  |  | [{{< fa brands r-project size=2xl >}}](/analise_dados/brands.html "Análise de dados"){aria-label="Análise de dados"} |  |  [{{< fa list-check size=2xl >}}](/projeto/acp/acp.html "Projeto: Análise de Componentes Principais"){aria-label="Projeto: Análise de Componentes Principais"}
 |  | Qua, 21/10 | Análise Fatorial |  | [{{< fa file-powerpoint size=2xl >}}](/aulas/analise_fatorial/fatorial.html#/title-slide "Análise Fatorial"){aria-label="Análise Fatorial"} |  |  |  |  |  |
-<!-- | [10](programacao/semana-10.html) | Ter, 09/12 | Não haverá aula! |  |  |  |  |  |  |  | -->
-<!-- |  | Qui, 11/12 | Análise Fatorial |  | [{{< fa file-powerpoint size=2xl >}}](/aulas/analise_fatorial/fatorial.html#/rotação-dos-fatores "Análise Fatorial"){aria-label="Análise Fatorial"} |  |  |  |  |  | -->
+| [10](programacao/semana-10.html) | Seg, 26/10 | Não haverá aula! |  |  |  |  |  |  |  |
+|  | Qua, 28/10 | **Recesso Acadêmico: Dia do Servidor Público** |  |  |  |  |  |  |  |
 <!-- | [11](programacao/semana-11.html) | Ter, 16/12 | Análise Fatorial |  | [{{< fa file-powerpoint size=2xl >}}](/aulas/analise_fatorial/fatorial.html#/contexto-empresa-telco "Análise Fatorial"){aria-label="Análise Fatorial"} |  |  |  |  |  | -->
 <!-- |  | Qui, 18/12 | Não haverá aula |  |  |  |  |  |  |  | -->
 <!-- |  |  | **22/12 a 17/01  -  Recesso Acadêmico** |  |  |  |  |  |  |  | -->
