@@ -61,7 +61,7 @@ format:
 <div class="d-flex align-items-center gap-3">
 
 [Ver slides](/aulas/analise_fatorial/fatorial.html#/title-slide){.btn .btn-est304-main .btn-sm}
-[PDF](/aulas/analise_fatorial/fatorial.pdf){.btn .btn-est304-outline .btn-sm}
+<!-- [PDF](/aulas/analise_fatorial/fatorial.pdf){.btn .btn-est304-outline .btn-sm} -->
 
 </div>
 
