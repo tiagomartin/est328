@@ -70,26 +70,26 @@ Esta página contém os projetos de análise de dados que serão apresentados ao
 </div>
 :::
 
-<!-- ::: {.list-group-item .d-flex .justify-content-between .align-items-center} -->
-<!-- <div> -->
-<!--   <span class="fw-bold">2. Análise Fatorial</span> -->
-<!-- </div> -->
+::: {.list-group-item .d-flex .justify-content-between .align-items-center}
+<div>
+  <span class="fw-bold">2. Análise Fatorial</span>
+</div>
 
-<!-- <div class="d-flex align-items-center gap-3"> -->
+<div class="d-flex align-items-center gap-3">
 
-<!--   <span> -->
-<!--     <a href="projeto/af/af.html" class="btn btn-est304-main btn-sm">Ver projeto</a> -->
-<!--     <a href="projeto/af/af.pdf" class="btn btn-est304-outline btn-sm">PDF</a> -->
-<!--   </span> -->
+  <span>
+    <a href="projeto/af/af.html" class="btn btn-est304-main btn-sm">Ver projeto</a>
+    <a href="projeto/af/af.pdf" class="btn btn-est304-outline btn-sm">PDF</a>
+  </span>
 
-<!--   <span class="badge due-date-badge"> -->
-<!--     Entrega: 03/02/2026 -->
-<!--   </span> -->
+  <span class="badge due-date-badge">
+    Entrega: 23/11/2026
+  </span>
 
-<!-- </div> -->
+</div>
 
 
-<!-- ::: -->
+:::
 
 
 <!-- ::: {.list-group-item .d-flex .justify-content-between .align-items-center} -->

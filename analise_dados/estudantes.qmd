@@ -25,7 +25,6 @@ execute:
   # fig-format: "png"   # opcional; descomente se preferir PNG sempre
 ---
 
-
 ## Contexto e Objetivo
 
 Uma universidade realizou uma pesquisa institucional com **250 estudantes de graduação**, solicitando que atribuíssem escores de **0 a 10** para diferentes aspectos relacionados à sua experiência acadêmica no campus.
@@ -34,17 +33,16 @@ O **objetivo** da pesquisa é identificar **dimensões latentes de satisfação*
 
 As variáveis analisadas são:
 
-- `TEACH` – qualidade do ensino  
-- `CURRIC` – organização curricular  
-- `FACULTY` – acessibilidade dos professores  
-- `INFRA` – infraestrutura do campus  
-- `LIBRARY` – qualidade da biblioteca  
-- `IT` – serviços de tecnologia/internet  
-- `SUPPORT` – serviços administrativos e apoio ao estudante  
-
+- `TEACH` – qualidade do ensino\
+- `CURRIC` – organização curricular\
+- `FACULTY` – acessibilidade dos professores\
+- `INFRA` – infraestrutura do campus\
+- `LIBRARY` – qualidade da biblioteca\
+- `IT` – serviços de tecnologia/internet\
+- `SUPPORT` – serviços administrativos e apoio ao estudante
 
 ## Pacotes utilizados
- 
+
 ```{r}
 load <- function(pkg){
   new.pkg <- pkg[!(pkg %in% installed.packages()[, "Package"])]
@@ -58,8 +56,6 @@ load <- function(pkg){
 packages = c("tidyverse", "factoextra", "psych", "gridExtra", "readr", "janitor", "ggrepel", "patchwork", "corrplot", "corrr", "igraph", "ggraph")
 load(packages)
 ```
-
-
 
 ```{r, echo=FALSE}
 set.seed(20260119)
@@ -113,8 +109,6 @@ dados <- tibble(
 write.csv(dados, "F:/SITE/est328/dados/estudantes.csv", row.names = FALSE)
 ```
 
-
-
 ## Leitura e exploração dos dados
 
 os dados para esta análise estão disponíveis [aqui](/dados/estudantes.csv).
@@ -127,7 +121,7 @@ dados %>%
   summary()
 ```
 
-A base de dados contém 250 observações e 7 variáveis numéricas, todas armazenadas como dbl, correspondendo às avaliações de satisfação dos estudantes em escala contínua de 0 a 10. Não há variáveis categóricas nem valores ausentes aparentes, o que facilita a aplicação direta de métodos baseados em matriz de correlação, como PCA e Análise Fatorial Exploratória. 
+A base de dados contém 250 observações e 7 variáveis numéricas, todas armazenadas como dbl, correspondendo às avaliações de satisfação dos estudantes em escala contínua de 0 a 10. Não há variáveis categóricas nem valores ausentes aparentes, o que facilita a aplicação direta de métodos baseados em matriz de correlação, como PCA e Análise Fatorial Exploratória.
 
 Em média, os estudantes atribuem avaliações moderadas a todos os aspectos analisados. Não há evidência de satisfação extrema nem de insatisfação generalizada. Os quartis mostram ampla dispersão:
 
@@ -141,11 +135,9 @@ Isso indica que:
 
 - Diferentes perfis de satisfação coexistem na amostra.
 
-
 Análise fatorial exige variabilidade. Se todos os estudantes atribuíssem notas muito semelhantes, não haveria estrutura de correlação suficiente para extrair fatores.
 
 A análise descritiva inicial indica que as variáveis apresentam comportamento adequado para a aplicação de técnicas multivariadas baseadas em correlação. Todas as variáveis respeitam a escala proposta, exibem variabilidade suficiente, não apresentam concentrações excessivas em valores extremos e possuem distribuições aproximadamente simétricas. Dessa forma, a base de dados é apropriada para a aplicação da Análise Fatorial Exploratória.
-
 
 ## Matriz de correlações
 
@@ -154,9 +146,7 @@ cor_mat <- cor(dados)
 round(cor_mat, 2)
 ```
 
-
 A matriz de correlação entre as sete variáveis evidencia padrões claros de associação, sugerindo a presença de estruturas latentes passíveis de modelagem por meio de Análise de Componentes Principais e Análise Fatorial Exploratória.
-
 
 As variáveis `TEACH`, `CURRIC` e `FACULTY` apresentam correlações moderadas a elevadas entre si:
 
@@ -166,11 +156,9 @@ As variáveis `TEACH`, `CURRIC` e `FACULTY` apresentam correlações moderadas a
 
 - `CURRIC × FACULTY`: 0,46
 
-
 Essas correlações indicam que estudantes que avaliam positivamente um desses aspectos acadêmicos tendem a avaliar positivamente os demais, sugerindo a existência de um fator comum associado à Qualidade Acadêmica.
 
 Do ponto de vista da análise fatorial, esse padrão é típico de um conjunto de variáveis que compartilham variância comum, condição essencial para a extração de fatores.
-
 
 As variáveis `INFRA`, `LIBRARY` e `IT` apresentam correlações elevadas entre si, destacando-se:
 
@@ -183,8 +171,6 @@ As variáveis `INFRA`, `LIBRARY` e `IT` apresentam correlações elevadas entre 
 Esses valores indicam uma forte associação entre aspectos de infraestrutura física e tecnológica do campus, sugerindo a presença de um fator latente relacionado à Estrutura e Recursos Institucionais.
 
 Esse bloco de correlações é mais intenso do que o observado no bloco acadêmico, o que sugere que essa dimensão pode ser particularmente bem definida na estrutura fatorial.
-
-
 
 A variável `SUPPORT` apresenta correlações moderadas com ambos os blocos:
 
@@ -202,12 +188,9 @@ Com variáveis estruturais:
 
 - `SUPPORT × IT`: 0,53
 
-
 Esse padrão sugere que SUPPORT possui uma natureza híbrida, relacionada tanto à experiência acadêmica quanto ao suporte institucional. Em termos de análise fatorial, isso antecipa a possibilidade de cargas cruzadas (cross-loading), isto é, a variável apresentar cargas relevantes em mais de um fator.
 
 Esse comportamento não representa um problema metodológico, desde que seja substantivamente justificável, como é o caso neste contexto.
-
-
 
 As correlações entre variáveis acadêmicas e estruturais são, em geral, baixas a moderadas, por exemplo:
 
@@ -217,9 +200,7 @@ As correlações entre variáveis acadêmicas e estruturais são, em geral, baix
 
 - `FACULTY × IT`: 0,24
 
-
 Esses valores indicam que, embora as dimensões acadêmica e estrutural estejam relacionadas, elas não são redundantes, o que reforça a hipótese de mais de um fator latente.
-
 
 ```{r}
 corrplot(cor_mat, method = "color", type = "upper", addCoef.col = "black",
@@ -231,7 +212,6 @@ O gráfico apresenta o mapa de calor da matriz de correlações entre os atribut
 
 De modo geral, observa-se a presença de padrões bem definidos de correlação, sugerindo uma estrutura latente adequada para aplicação de Análise Fatorial Exploratória.
 
-
 ## Adequação para Análise Fatorial: KMO e Bartlett
 
 Antes da aplicação da Análise Fatorial Exploratória, avaliou-se a adequação da matriz de correlações por meio da Medida de Adequação da Amostra de Kaiser–Meyer–Olkin (KMO) e do Teste de Esfericidade de Bartlett.
@@ -239,7 +219,6 @@ Antes da aplicação da Análise Fatorial Exploratória, avaliou-se a adequaçã
 ```{r}
 KMO(cor_mat)
 ```
-
 
 O valor global da medida KMO foi:
 
@@ -249,9 +228,8 @@ De acordo com a classificação proposta por Kaiser, valores de KMO entre 0,80 e
 
 Além disso, as medidas individuais (MSA) para cada variável foram:
 
-
 | Variável | MSA  |
-| -------- | ---- |
+|----------|------|
 | TEACH    | 0,74 |
 | CURRIC   | 0,71 |
 | FACULTY  | 0,81 |
@@ -259,8 +237,6 @@ Além disso, as medidas individuais (MSA) para cada variável foram:
 | LIBRARY  | 0,81 |
 | IT       | 0,83 |
 | SUPPORT  | 0,87 |
-
-
 
 - Todas as variáveis apresentam MSA superiores a 0,70, indicando que nenhuma delas compromete a estrutura fatorial.
 
@@ -284,9 +260,7 @@ O teste de Bartlett produziu os seguintes resultados:
 
 O valor-p extremamente pequeno leva à rejeição da hipótese nula de que a matriz de correlações populacional é a matriz identidade. Isso indica que existem correlações significativas entre as variáveis, condição essencial para a aplicação da análise fatorial.
 
-
 Os resultados da medida KMO e do teste de esfericidade de Bartlett indicam que a matriz de correlações apresenta adequação muito boa para a aplicação da análise fatorial. Assim, procede-se à determinação do número de fatores a serem retidos e à estimação dos modelos por diferentes métodos, visando comparar soluções alternativas e avaliar a robustez da estrutura latente identificada.
-
 
 ## Quantos fatores reter?
 
@@ -310,15 +284,11 @@ De acordo com o **critério de Kaiser**, devem ser retidos os fatores com autova
 
 Do ponto de vista interpretativo, os dois primeiros fatores concentram a maior parte da variância total padronizada, enquanto os fatores subsequentes apresentam contribuições marginais, indicando que a estrutura essencial dos dados pode ser adequadamente representada por duas dimensões latentes.
 
-
-
 ### Scree Plot
 
 A inspeção visual do Scree Plot evidencia um **ponto de inflexão pronunciado após o segundo fator**, a partir do qual os autovalores passam a decrescer de forma aproximadamente linear e com pequena magnitude.
 
 Esse padrão sugere que os fatores a partir do terceiro capturam predominantemente variância específica ou ruído, reforçando a escolha de **dois fatores** como solução parcimoniosa.
-
-
 
 ### Análise Paralela
 
@@ -331,9 +301,7 @@ Observa-se que:
 
 Segundo esse critério, apenas os dois primeiros fatores apresentam evidência estatística de estrutura não aleatória, corroborando a retenção de **dois fatores**.
 
-
 ## Estimação do modelo fatorial ortogonal
-
 
 ### Método das Componentes Principais (MCP)
 
@@ -343,22 +311,21 @@ AF_pca
 print(AF_pca$loadings, cutoff = 0.30)
 ```
 
-
 O método das Componentes Principais foi aplicada à matriz de correlações das variáveis, considerando a extração de **dois fatores**, conforme indicado pelos critérios de Kaiser, Scree Plot e Análise Paralela. Utilizou-se rotação **Varimax**, com o objetivo de facilitar a interpretação das componentes.
 
 #### Cargas fatoriais
 
 A Tabela a seguir apresenta as **cargas padronizadas** das variáveis nas duas componentes principais, bem como as comunalidades ($h^2$), unicidades ($u^2$) e complexidade.
 
-| Variável  | RC1 | RC2 | $h^2$ | $u^2$ |
-|---------|-----|-----|------|------|
-| TEACH   | 0,13 | 0,83 | 0,71 | 0,29 |
-| CURRIC  | 0,05 | 0,83 | 0,69 | 0,31 |
-| FACULTY | 0,28 | 0,74 | 0,63 | 0,37 |
-| INFRA   | 0,85 | 0,09 | 0,73 | 0,27 |
-| LIBRARY | 0,84 | 0,09 | 0,72 | 0,28 |
-| IT      | 0,81 | 0,11 | 0,68 | 0,32 |
-| SUPPORT | 0,71 | 0,31 | 0,61 | 0,39 |
+| Variável | RC1  | RC2  | $h^2$ | $u^2$ |
+|----------|------|------|-------|-------|
+| TEACH    | 0,13 | 0,83 | 0,71  | 0,29  |
+| CURRIC   | 0,05 | 0,83 | 0,69  | 0,31  |
+| FACULTY  | 0,28 | 0,74 | 0,63  | 0,37  |
+| INFRA    | 0,85 | 0,09 | 0,73  | 0,27  |
+| LIBRARY  | 0,84 | 0,09 | 0,72  | 0,28  |
+| IT       | 0,81 | 0,11 | 0,68  | 0,32  |
+| SUPPORT  | 0,71 | 0,31 | 0,61  | 0,39  |
 
 Observa-se que:
 
@@ -366,15 +333,14 @@ Observa-se que:
 - O **Fator 2 (RC2)** apresenta cargas elevadas para **TEACH**, **CURRIC** e **FACULTY**, caracterizando uma dimensão associada à **Qualidade Acadêmica**;
 - A variável **SUPPORT** apresenta carga relevante no Fator 1 e carga secundária no Fator 2, refletindo sua natureza transversal.
 
-
 #### Variância Explicada
 
 A decomposição da variância total é apresentada a seguir:
 
 | Componente | SS Loadings | Proporção da Variância | Variância Acumulada |
-|-----------|-------------|-----------------------|---------------------|
-| RC1 | 2,70 | 0,39 | 0,39 |
-| RC2 | 2,06 | 0,29 | 0,68 |
+|------------|-------------|------------------------|---------------------|
+| RC1        | 2,70        | 0,39                   | 0,39                |
+| RC2        | 2,06        | 0,29                   | 0,68                |
 
 As duas componentes explicam conjuntamente aproximadamente **68% da variância total**, o que é considerado um valor elevado em aplicações nas ciências sociais.
 
@@ -383,8 +349,6 @@ Além disso, observa-se que:
 - O primeiro fator responde por cerca de **39%** da variância;
 - O segundo fator adiciona aproximadamente **29%**;
 - A distribuição da variância é relativamente equilibrada entre as componentes.
-
-
 
 #### Comunalidades e Complexidade
 
@@ -396,14 +360,13 @@ A **complexidade média dos itens** é aproximadamente **1,1**, sugerindo que:
 - A estrutura resultante é simples e facilmente interpretável;
 - Não há evidência de componentes mal definidas ou altamente sobrepostas.
 
-
-#### Qualidade de Ajuste da Solução 
+#### Qualidade de Ajuste da Solução
 
 A qualidade de ajuste da solução com dois fatores pode ser avaliada por meio dos resíduos:
 
-- **RMSR (Root Mean Square of Residuals)** = 0,09  
-- **Qui-quadrado empírico** = 78,37, com $p < 10^{-13}$  
-- **Ajuste baseado nos elementos fora da diagonal** = 0,95  
+- **RMSR (Root Mean Square of Residuals)** = 0,09\
+- **Qui-quadrado empírico** = 78,37, com $p < 10^{-13}$\
+- **Ajuste baseado nos elementos fora da diagonal** = 0,95
 
 Esses resultados indicam que:
 
@@ -411,9 +374,7 @@ Esses resultados indicam que:
 - A solução reproduz adequadamente a estrutura de correlações observada;
 - Embora o teste qui-quadrado seja significativo (como esperado em amostras moderadas a grandes), os índices globais indicam **bom ajuste prático**.
 
-
 ### Método dos Fatores Principais (PAF)
-
 
 A Análise Fatorial Exploratória foi conduzida utilizando o método dos **Fatores Principais** (*Principal Axis Factoring – PAF*), com extração de **dois fatores**, conforme indicado pelos critérios de Kaiser, Scree Plot e Análise Paralela. Para facilitar a interpretação, aplicou-se rotação **Varimax**, assumindo fatores ortogonais.
 
@@ -422,32 +383,30 @@ AF_fp <- fa(dados, nfactors = 2, fm = "pa", rotate = "varimax")
 print(AF_fp$loadings, cutoff = 0.3)
 ```
 
-
 #### Estrutura das Cargas Fatoriais
 
 A Tabela a seguir apresenta as **cargas fatoriais padronizadas** das variáveis nos dois fatores extraídos, considerando apenas cargas com magnitude superior a 0,30.
 
-| Variável  | PA1 | PA2 |
-|----------|-----|-----|
-| TEACH    |     | 0,758 |
-| CURRIC   |     | 0,691 |
-| FACULTY  |     | 0,636 |
-| INFRA    | 0,796 |     |
-| LIBRARY  | 0,780 |     |
-| IT       | 0,727 |     |
+| Variável | PA1   | PA2   |
+|----------|-------|-------|
+| TEACH    |       | 0,758 |
+| CURRIC   |       | 0,691 |
+| FACULTY  |       | 0,636 |
+| INFRA    | 0,796 |       |
+| LIBRARY  | 0,780 |       |
+| IT       | 0,727 |       |
 | SUPPORT  | 0,627 | 0,314 |
 
 Observa-se uma **estrutura simples e bem definida**, na qual a maioria das variáveis apresenta carga elevada em apenas um fator.
-
 
 #### Variância Explicada pelos Fatores
 
 A variância explicada pelos fatores pode ser resumida conforme a tabela a seguir:
 
 | Fator | SS Loadings | Proporção da Variância | Variância Acumulada |
-|------|-------------|-----------------------|---------------------|
-| PA1  | 2,260 | 0,323 | 0,323 |
-| PA2  | 1,609 | 0,230 | 0,553 |
+|-------|-------------|------------------------|---------------------|
+| PA1   | 2,260       | 0,323                  | 0,323               |
+| PA2   | 1,609       | 0,230                  | 0,553               |
 
 Os dois fatores explicam conjuntamente aproximadamente **55,3% da variância comum**, valor considerado adequado em estudos aplicados nas ciências sociais, especialmente quando se utiliza um modelo de fatores comuns.
 
@@ -456,8 +415,6 @@ Observa-se que:
 - O primeiro fator responde por cerca de **32,3%** da variância comum;
 - O segundo fator adiciona aproximadamente **23,0%**;
 - A distribuição da variância entre os fatores é relativamente equilibrada.
-
-
 
 #### Comparação conceitual com a a solução usando o método das componentes principais
 
@@ -469,8 +426,6 @@ Em comparação com a solução obtida usando o método das componentes principa
 
 Assim, a análise por Fatores Principais confirma que a estrutura identificada pela PCA não é um artefato da decomposição da variância total, mas reflete **fatores comuns subjacentes** às variáveis observadas.
 
-
-
 ### Método da Máxima Verossimilhança
 
 A Análise Fatorial Exploratória foi estimada utilizando o método da **Máxima Verossimilhança (ML)**, com extração de **dois fatores** e rotação **Varimax**. Esse método permite, além da estimação das cargas fatoriais, a avaliação formal da **qualidade de ajuste do modelo**, sob a suposição de normalidade multivariada aproximada.
@@ -481,36 +436,32 @@ AF_ml
 print(AF_ml$loadings, cutoff = 0.30)
 ```
 
-####  Estrutura das Cargas Fatoriais
+#### Estrutura das Cargas Fatoriais
 
-A Tabela a seguir apresenta as **cargas fatoriais padronizadas**, bem como as **comunalidades ($h^2$)**, **unicidades ($u^2$)** e **complexidade** dos itens.
+A Tabela a seguir apresenta as **cargas fatoriais padronizadas**, bem como as **comunalidades (**$h^2$), **unicidades (**$u^2$) e **complexidade** dos itens.
 
-| Variável  | ML1 | ML2 | $h^2$ | $u^2$ |
-|----------|-----|-----|------|------|
-| TEACH    | 0,13 | 0,76 | 0,60 | 0,40 |
-| CURRIC   | 0,08 | 0,69 | 0,48 | 0,52 |
-| FACULTY  | 0,27 | 0,63 | 0,47 | 0,53 |
-| INFRA    | 0,80 | 0,12 | 0,65 | 0,35 |
-| LIBRARY  | 0,78 | 0,12 | 0,63 | 0,37 |
-| IT       | 0,72 | 0,15 | 0,55 | 0,45 |
-| SUPPORT  | 0,62 | 0,32 | 0,49 | 0,51 |
+| Variável | ML1  | ML2  | $h^2$ | $u^2$ |
+|----------|------|------|-------|-------|
+| TEACH    | 0,13 | 0,76 | 0,60  | 0,40  |
+| CURRIC   | 0,08 | 0,69 | 0,48  | 0,52  |
+| FACULTY  | 0,27 | 0,63 | 0,47  | 0,53  |
+| INFRA    | 0,80 | 0,12 | 0,65  | 0,35  |
+| LIBRARY  | 0,78 | 0,12 | 0,63  | 0,37  |
+| IT       | 0,72 | 0,15 | 0,55  | 0,45  |
+| SUPPORT  | 0,62 | 0,32 | 0,49  | 0,51  |
 
 Observa-se que a maioria das variáveis apresenta **cargas elevadas em apenas um fator**, caracterizando uma estrutura simples e facilmente interpretável. A variável **SUPPORT** apresenta carga principal no fator ML1 e carga secundária no fator ML2, indicando novamente seu **caráter transversal**.
-
-
 
 #### Variância Explicada pelos Fatores
 
 A decomposição da variância pode ser resumida conforme a tabela a seguir:
 
 | Fator | SS Loadings | Proporção da Variância | Variância Acumulada |
-|------|-------------|-----------------------|---------------------|
-| ML1  | 2,26 | 0,32 | 0,32 |
-| ML2  | 1,61 | 0,23 | 0,55 |
+|-------|-------------|------------------------|---------------------|
+| ML1   | 2,26        | 0,32                   | 0,32                |
+| ML2   | 1,61        | 0,23                   | 0,55                |
 
 Os dois fatores explicam conjuntamente cerca de **55% da variância comum**, valor compatível com aplicações empíricas em ciências sociais e humanas.
-
-
 
 #### Comparação com MCP e PAF
 
@@ -521,23 +472,18 @@ Comparativamente às soluções obtidas por MCP e PAF, o método de Máxima Vero
 
 Assim, a solução ML reforça a conclusão de que a estrutura identificada reflete **fatores latentes reais**, e não apenas artefatos da decomposição da variância total.
 
-
 ## Interpretação dos Fatores
 
 Com base no padrão das cargas fatoriais obtidas através na estimação do modelo fatorial utilizando o método da máxima verossimilhança, os fatores estimados podem ser interpretados da seguinte forma:
 
-- **Fator 1 (ML1 – Estrutura e Suporte Institucional)**  
+- **Fator 1 (ML1 – Estrutura e Suporte Institucional)**\
   Apresenta cargas elevadas para **INFRA**, **LIBRARY**, **IT** e **SUPPORT**, representando aspectos relacionados à infraestrutura física, recursos tecnológicos e serviços administrativos de apoio ao estudante.
 
-- **Fator 2 (ML2 – Qualidade Acadêmica)**  
+- **Fator 2 (ML2 – Qualidade Acadêmica)**\
   Apresenta cargas elevadas para **TEACH**, **CURRIC** e **FACULTY**, caracterizando uma dimensão associada à qualidade do ensino, organização curricular e interação entre docentes e estudantes.
 
 Essa interpretação é plenamente coerente com as soluções obtidas por MCP e PAF, indicando **estabilidade da estrutura latente** independentemente do método de estimação.
 
-
 ## Conclusão
 
 A análise identificou duas dimensões latentes de satisfação estudantil: Qualidade Acadêmica e Estrutura/Suporte Institucional. A comparação entre MCP, PAF e ML mostrou consistência geral na interpretação. Os escores fatoriais permitem análises adicionais, como segmentação de estudantes e priorização de políticas de melhoria institucional.
-
-
-

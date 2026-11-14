@@ -4,7 +4,7 @@
     "href": "projeto.html",
     "title": "Projetos",
     "section": "",
-    "text": "Esta página contém os projetos de análise de dados que serão apresentados ao longo do semestre. Você pode baixar os projetos em versão PDF.\n\n\n\n1. Análise de Componentes Principais\n\n\n Ver projeto PDF \n Entrega: 02/11/2026",
+    "text": "Esta página contém os projetos de análise de dados que serão apresentados ao longo do semestre. Você pode baixar os projetos em versão PDF.\n\n\n\n1. Análise de Componentes Principais\n\n\n Ver projeto PDF \n Entrega: 02/11/2026 \n\n\n\n\n2. Análise Fatorial\n\n\n Ver projeto PDF \n Entrega: 23/11/2026",
     "crumbs": [
       "Projetos"
     ]
@@ -224,7 +224,7 @@
     "href": "index.html#avaliações",
     "title": "Análise Multivariada e Aprendizado Não Supervisionado",
     "section": "Avaliações",
-    "text": "Avaliações\n\n\n\n\n\n\nCritérios de Avaliação\n\n\n\nA nota final do semestre será computada da seguinte forma:\n\n\n\nAtividade\nTipo\nConteúdo\nData\nPontos\n\n\n\n\nAtividade 1\nLista de exercícios 01\nRevisão de Álgebra Matricial\n08/09/2026\n10,0\n\n\nAtividade 2\nLista de exercícios 02\nIntrodução à Estatística Multivariada\n21/09/2026\n10,0\n\n\nAtividade 3\nLista de exercícios 03\nDistribuição Normal Multivariada\n05/10/2026\n10,0\n\n\nAtividade 4\nRelatório de Análise de Dados\nAnálise de Componentes Principais\n02/11/2026\n17,5\n\n\nAtividade 5\nRelatório de Análise de Dados\nAnálise Fatorial\n16/11/2026\n17,5\n\n\nAtividade 6\nRelatório de Análise de Dados\nAnálise de Agrupamentos\n30/11/2026\n17,5\n\n\nAtividade 7\nRelatório de Análise de Dados\nAnálise Discriminante\n14/12/2026\n17,5\n\n\n\n\nTotal\n\n100,0\n\n\n\n\n\nExame Especial: 21/12/2026"
+    "text": "Avaliações\n\n\n\n\n\n\nCritérios de Avaliação\n\n\n\nA nota final do semestre será computada da seguinte forma:\n\n\n\nAtividade\nTipo\nConteúdo\nData\nPontos\n\n\n\n\nAtividade 1\nLista de exercícios 01\nRevisão de Álgebra Matricial\n08/09/2026\n10,0\n\n\nAtividade 2\nLista de exercícios 02\nIntrodução à Estatística Multivariada\n21/09/2026\n10,0\n\n\nAtividade 3\nLista de exercícios 03\nDistribuição Normal Multivariada\n05/10/2026\n10,0\n\n\nAtividade 4\nRelatório de Análise de Dados\nAnálise de Componentes Principais\n02/11/2026\n17,5\n\n\nAtividade 5\nRelatório de Análise de Dados\nAnálise Fatorial\n23/11/2026\n17,5\n\n\nAtividade 6\nRelatório de Análise de Dados\nAnálise de Agrupamentos\n30/11/2026\n17,5\n\n\nAtividade 7\nRelatório de Análise de Dados\nAnálise Discriminante\n14/12/2026\n17,5\n\n\n\n\nTotal\n\n100,0\n\n\n\n\n\nExame Especial: 21/12/2026"
   },
   {
     "objectID": "exercicios/lista03.html",
@@ -245,7 +245,7 @@
     "href": "aulas.html",
     "title": "Aulas",
     "section": "",
-    "text": "Esta página contém aulas que serão apresentadas ao longo do semestre.\n\n\n Revisão de Álgebra Matricial \n Ver slides  \n\n\n Introdução à Estatística Multivariada \n Ver slides  \n\n\n Distribuição Normal Multivariada \n Ver slides  \n\n\n Análise de Componentes Principais \n Ver slides  \n\n\n Análise Fatorial \n Ver slides",
+    "text": "Esta página contém aulas que serão apresentadas ao longo do semestre.\n\n\n Revisão de Álgebra Matricial \n Ver slides  \n\n\n Introdução à Estatística Multivariada \n Ver slides  \n\n\n Distribuição Normal Multivariada \n Ver slides  \n\n\n Análise de Componentes Principais \n Ver slides  \n\n\n Análise Fatorial \n Ver slides  \n\n\n Análise de Agrupamentos \n Ver slides",
     "crumbs": [
       "Aulas"
     ]
@@ -3548,7 +3548,7 @@
     "href": "cronograma.html",
     "title": "Cronograma da Disciplina",
     "section": "",
-    "text": "Esta página contém um esboço dos tópicos, conteúdos e tarefas para o semestre. Este cronograma será atualizado conforme o semestre avança.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSemana\nData\nTópico\nArtigo\nSlides\nEC\nLE\nScript\nMC\nProjeto\n\n\n\n\n1\nSeg, 24/08\nApresentação da disciplina\n\n\n\n\n\n\n\n\n\n\nQua, 26/08\nRevisão de Álgebra Linear\n\n\n\n\n\n\n\n\n\n2\nSeg, 31/08\nRevisão de Álgebra Linear\n\n\n\n\n\n\n\n\n\n\nQua, 02/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n3\nSeg, 07/09\nFeriado: Independência do Brasil\n\n\n\n\n\n\n\n\n\n\nQua, 09/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n4\nSeg, 14/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n\nQua, 16/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n5\nSeg, 21/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n\nQua, 23/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n6\nSeg, 28/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n\nQua, 30/09\nAnálise de Componentes Principais\n\n\n\n\n\n\n\n\n\n7\nSeg, 05/10\nAnálise de Componentes Principais\n\n\n\n\n\n\n\n\n\n\nQua, 07/10\nAnálise de Componentes Principais\n\n\n\n\n\n\n\n\n\n8\nSeg, 12/10\nFeriado: Nossa Senhora Aparecida\n\n\n\n\n\n\n\n\n\n\nQua, 14/10\nNão haverá aula!\n\n\n\n\n\n\n\n\n\n9\nSeg, 19/10\nAnálise de Componentes Principais\n\n\n\n\n\n\n\n\n\n\nQua, 21/10\nAnálise Fatorial\n\n\n\n\n\n\n\n\n\n10\nSeg, 26/10\nNão haverá aula!\n\n\n\n\n\n\n\n\n\n\nQua, 28/10\nRecesso Acadêmico: Dia do Servidor Público\n\n\n\n\n\n\n\n\n\n11\nSeg, 02/11\nFeriado: Finados\n\n\n\n\n\n\n\n\n\n\nQua, 04/11\nAnálise Fatorial\n\n\n\n\n\n\n\n\n\n12\nSeg, 09/11\nAnálise Fatorial\n\n\n\n\n\n\n\n\n\n\nQua, 11/11\nAnálise Fatorial",
+    "text": "Esta página contém um esboço dos tópicos, conteúdos e tarefas para o semestre. Este cronograma será atualizado conforme o semestre avança.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSemana\nData\nTópico\nArtigo\nSlides\nEC\nLE\nScript\nMC\nProjeto\n\n\n\n\n1\nSeg, 24/08\nApresentação da disciplina\n\n\n\n\n\n\n\n\n\n\nQua, 26/08\nRevisão de Álgebra Linear\n\n\n\n\n\n\n\n\n\n2\nSeg, 31/08\nRevisão de Álgebra Linear\n\n\n\n\n\n\n\n\n\n\nQua, 02/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n3\nSeg, 07/09\nFeriado: Independência do Brasil\n\n\n\n\n\n\n\n\n\n\nQua, 09/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n4\nSeg, 14/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n\nQua, 16/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n5\nSeg, 21/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n\nQua, 23/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n6\nSeg, 28/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n\nQua, 30/09\nAnálise de Componentes Principais\n\n\n\n\n\n\n\n\n\n7\nSeg, 05/10\nAnálise de Componentes Principais\n\n\n\n\n\n\n\n\n\n\nQua, 07/10\nAnálise de Componentes Principais\n\n\n\n\n\n\n\n\n\n8\nSeg, 12/10\nFeriado: Nossa Senhora Aparecida\n\n\n\n\n\n\n\n\n\n\nQua, 14/10\nNão haverá aula!\n\n\n\n\n\n\n\n\n\n9\nSeg, 19/10\nAnálise de Componentes Principais\n\n\n\n\n\n\n\n\n\n\nQua, 21/10\nAnálise Fatorial\n\n\n\n\n\n\n\n\n\n10\nSeg, 26/10\nNão haverá aula!\n\n\n\n\n\n\n\n\n\n\nQua, 28/10\nRecesso Acadêmico: Dia do Servidor Público\n\n\n\n\n\n\n\n\n\n11\nSeg, 02/11\nFeriado: Finados\n\n\n\n\n\n\n\n\n\n\nQua, 04/11\nAnálise Fatorial\n\n\n\n\n\n\n\n\n\n12\nSeg, 09/11\nAnálise Fatorial\n\n\n\n\n\n\n\n\n\n\nQua, 11/11\nAnálise Fatorial\n\n\n\n\n\n\n\n\n\n13\nSeg, 16/11\nAnálise de Agrupamentos\n\n\n\n\n\n\n\n\n\n\nQua, 18/11\nAnálise de Agrupamentos",
     "crumbs": [
       "Cronograma da Disciplina"
     ]
@@ -3599,14 +3599,14 @@
     "href": "programacao/semana-12.html",
     "title": "Semana 12",
     "section": "",
-    "text": "Análise Fatorial \n\n\nVer slides"
+    "text": "Análise Fatorial \n\n\nVer slides \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  Avaliação da Satisfação de Estudantes Universitários \n Ver análise PDF \n\n\n\n\n\n  Análise fatorial aplicada ao comportamento do consumidor \n Ver projeto PDF"
   },
   {
     "objectID": "programacao/semana-12.html#slides",
     "href": "programacao/semana-12.html#slides",
     "title": "Semana 12",
     "section": "",
-    "text": "Análise Fatorial \n\n\nVer slides"
+    "text": "Análise Fatorial \n\n\nVer slides \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  Avaliação da Satisfação de Estudantes Universitários \n Ver análise PDF \n\n\n\n\n\n  Análise fatorial aplicada ao comportamento do consumidor \n Ver projeto PDF"
   },
   {
     "objectID": "programacao/semana-12.html#script-de-análise-de-dados",
@@ -3760,7 +3760,7 @@
     "href": "projeto/af/af.html",
     "title": "Análise fatorial aplicada ao comportamento do consumidor",
     "section": "",
-    "text": "Data de entrega: 03 de fevereiro de 2026"
+    "text": "Data de entrega: 23 de novembro de 2026"
   },
   {
     "objectID": "projeto/af/af.html#medidas-de-adequação",

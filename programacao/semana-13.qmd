@@ -60,7 +60,7 @@ format:
 
 <div class="d-flex align-items-center gap-3">
 
-[Ver slides](/aulas/analise_agrupamento/agrupamento.html#/métodos-de-agrupamento-hierárquicos-6){.btn .btn-est304-main .btn-sm}
+[Ver slides](/aulas/analise_agrupamento/agrupamento.html#/title-slide){.btn .btn-est304-main .btn-sm}
 [PDF](/aulas/analise_agrupamento/agrupamento.pdf){.btn .btn-est304-outline .btn-sm}
 
 </div>
