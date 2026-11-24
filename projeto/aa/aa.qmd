@@ -109,7 +109,31 @@ dados_streaming <- bind_rows(g1, g2, g3) %>%
     tempo_assinatura = round(clamp(tempo_assinatura, 1, 60)),
     valor_plano = round(clamp(valor_plano, 25, 80), 2)
   )
-write.csv(dados_streaming, "F:/SITE/est328/dados/dados_streaming.csv", row.names = FALSE)
+# Identifica a raiz do projeto Quarto, independentemente do computador
+raiz_projeto <- Sys.getenv("QUARTO_PROJECT_DIR", unset = "")
+
+# Alternativa para execução manual no RStudio
+if (!nzchar(raiz_projeto)) {
+  raiz_projeto <- normalizePath(getwd(), winslash = "/", mustWork = TRUE)
+  while (!file.exists(file.path(raiz_projeto, "_quarto.yml"))) {
+    pasta_pai <- dirname(raiz_projeto)
+    if (identical(pasta_pai, raiz_projeto)) {
+      stop("Não foi possível localizar a raiz do projeto Quarto.")
+    }
+    raiz_projeto <- pasta_pai
+  }
+}
+
+# Garante que a pasta de dados exista
+pasta_dados <- file.path(raiz_projeto, "dados")
+dir.create(pasta_dados, recursive = TRUE, showWarnings = FALSE)
+
+# Salva a base de dados na pasta compartilhada do projeto
+write.csv(
+  dados_streaming,
+  file = file.path(pasta_dados, "dados_streaming.csv"),
+  row.names = FALSE
+)
 ```
 
 ---

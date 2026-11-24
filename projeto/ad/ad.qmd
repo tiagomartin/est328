@@ -174,7 +174,24 @@ simulate_credit_work <- function(n = 500, p_risco = 0.20, seed = 12345,
 # --------- uso ----------
 df <- simulate_credit_work(n = 550, p_risco = 0.30, seed = 12345, sep = 0.28)
 
-write.csv(df, "F:/SITE/est328/dados/dados_risco.csv", row.names = FALSE)
+# Identifica a raiz do projeto Quarto
+raiz_projeto <- Sys.getenv("QUARTO_PROJECT_DIR", unset = "")
+
+if (!nzchar(raiz_projeto)) {
+  raiz_projeto <- normalizePath(getwd(), winslash = "/", mustWork = TRUE)
+  while (!file.exists(file.path(raiz_projeto, "_quarto.yml"))) {
+    pasta_pai <- dirname(raiz_projeto)
+    if (identical(pasta_pai, raiz_projeto)) {
+      stop("Nao foi possivel localizar a raiz do projeto Quarto.")
+    }
+    raiz_projeto <- pasta_pai
+  }
+}
+
+pasta_dados <- file.path(raiz_projeto, "dados")
+dir.create(pasta_dados, recursive = TRUE, showWarnings = FALSE)
+
+write.csv(df, file.path(pasta_dados, "dados_risco.csv"), row.names = FALSE)
 ```
 
 
