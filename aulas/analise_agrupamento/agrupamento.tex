@@ -81,7 +81,6 @@
 
 
 \usepackage{longtable,booktabs,array}
-\newcounter{none} % for unnumbered tables
 \usepackage{calc} % for calculating minipage widths
 \usepackage{caption}
 % Make caption package work with longtable
@@ -163,18 +162,14 @@
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
-% fallback for those not using the hyperref driver hyperxmp:
-\makeatletter
-\@ifundefined{xmpquote}{\newcommand{\xmpquote}[1]{#1}}{}
-\makeatother
 \hypersetup{
   pdftitle={Análise de Agrupamentos},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 
 
-\title{\texorpdfstring{Análise de
-Agrupamentos}{Análise de Agrupamentos}}
+
+\title{Análise de Agrupamentos}
 \author{}
 \date{}
 
@@ -183,23 +178,27 @@ Agrupamentos}{Análise de Agrupamentos}}
 
 
 \begin{frame}{O que é clustering?}
-\protect\phantomsection\label{o-que-uxe9-clustering}
+\phantomsection\label{o-que-uxe9-clustering}
 É uma \textbf{técnica estatística multivariada} para identificar
 agrupamentos dos dados de acordo com o grau de semelhança. Queremos
 achar um grupo de objetos, que são similares entre si e diferentes de
 outros grupos.
 
-\begin{columns}[T]
-\protect\phantomsection\label{first-column}
-\begin{column}{0.5\linewidth}
-\pandocbounded{\includegraphics[keepaspectratio]{../../images/AA/grafico_AA-01.jpg}}
-\end{column}
+\begin{figure}
 
-\protect\phantomsection\label{second-column}
-\begin{column}{0.5\linewidth}
+\begin{minipage}{0.50\linewidth}
+\begin{center}
+\pandocbounded{\includegraphics[keepaspectratio]{../../images/AA/grafico_AA-01.jpg}}
+\end{center}
+\end{minipage}%
+%
+\begin{minipage}{0.50\linewidth}
+\begin{center}
 \pandocbounded{\includegraphics[keepaspectratio]{../../images/AA/grafico_AA-02.jpg}}
-\end{column}
-\end{columns}
+\end{center}
+\end{minipage}%
+
+\end{figure}%
 
 \begin{itemize}
 \tightlist
@@ -210,7 +209,7 @@ outros grupos.
 \end{frame}
 
 \begin{frame}{O que é clustering?}
-\protect\phantomsection\label{o-que-uxe9-clustering-1}
+\phantomsection\label{o-que-uxe9-clustering-1}
 \begin{itemize}
 \tightlist
 \item
@@ -223,7 +222,7 @@ outros grupos.
 \end{frame}
 
 \begin{frame}{O que é clustering?}
-\protect\phantomsection\label{o-que-uxe9-clustering-2}
+\phantomsection\label{o-que-uxe9-clustering-2}
 \begin{itemize}
 \tightlist
 \item
@@ -237,9 +236,9 @@ outros grupos.
 
 \begin{frame}{Tendência de agrupamentos: ``Faz sentido aplicar um
 algoritmo de clusterização nesses dados?''}
-\protect\phantomsection\label{tenduxeancia-de-agrupamentos-faz-sentido-aplicar-um-algoritmo-de-clusterizauxe7uxe3o-nesses-dados}
+\phantomsection\label{tenduxeancia-de-agrupamentos-faz-sentido-aplicar-um-algoritmo-de-clusterizauxe7uxe3o-nesses-dados}
 \begin{block}{\textbf{Método estatístico:} Estatística de Hopkins}
-\protect\phantomsection\label{muxe9todo-estatuxedstico-estatuxedstica-de-hopkins}
+\phantomsection\label{muxe9todo-estatuxedstico-estatuxedstica-de-hopkins}
 A \textbf{Estatística de Hopkins} é uma medida pré-clusterização muito
 usada para avaliar se um conjunto de dados apresenta tendência natural à
 formação de agrupamentos (clusters) ou se os pontos estão distribuídos
@@ -249,9 +248,9 @@ de forma aproximadamente aleatória no espaço das variáveis.
 
 \begin{frame}{Tendência de agrupamentos: ``Faz sentido aplicar um
 algoritmo de clusterização nesses dados?''}
-\protect\phantomsection\label{tenduxeancia-de-agrupamentos-faz-sentido-aplicar-um-algoritmo-de-clusterizauxe7uxe3o-nesses-dados-1}
+\phantomsection\label{tenduxeancia-de-agrupamentos-faz-sentido-aplicar-um-algoritmo-de-clusterizauxe7uxe3o-nesses-dados-1}
 \begin{block}{\textbf{Método estatístico:} Estatística de Hopkins}
-\protect\phantomsection\label{muxe9todo-estatuxedstico-estatuxedstica-de-hopkins-1}
+\phantomsection\label{muxe9todo-estatuxedstico-estatuxedstica-de-hopkins-1}
 \begin{itemize}
 \tightlist
 \item
@@ -274,9 +273,9 @@ algoritmo de clusterização nesses dados?''}
 
 \begin{frame}{Tendência de agrupamentos: ``Faz sentido aplicar um
 algoritmo de clusterização nesses dados?''}
-\protect\phantomsection\label{tenduxeancia-de-agrupamentos-faz-sentido-aplicar-um-algoritmo-de-clusterizauxe7uxe3o-nesses-dados-2}
+\phantomsection\label{tenduxeancia-de-agrupamentos-faz-sentido-aplicar-um-algoritmo-de-clusterizauxe7uxe3o-nesses-dados-2}
 \begin{block}{\textbf{Método estatístico:} Estatística de Hopkins}
-\protect\phantomsection\label{muxe9todo-estatuxedstico-estatuxedstica-de-hopkins-2}
+\phantomsection\label{muxe9todo-estatuxedstico-estatuxedstica-de-hopkins-2}
 \begin{itemize}
 \tightlist
 \item
@@ -297,9 +296,9 @@ d(x_i, x_j),
 
 \begin{frame}{Tendência de agrupamentos: ``Faz sentido aplicar um
 algoritmo de clusterização nesses dados?''}
-\protect\phantomsection\label{tenduxeancia-de-agrupamentos-faz-sentido-aplicar-um-algoritmo-de-clusterizauxe7uxe3o-nesses-dados-3}
+\phantomsection\label{tenduxeancia-de-agrupamentos-faz-sentido-aplicar-um-algoritmo-de-clusterizauxe7uxe3o-nesses-dados-3}
 \begin{block}{\textbf{Método estatístico:} Estatística de Hopkins}
-\protect\phantomsection\label{muxe9todo-estatuxedstico-estatuxedstica-de-hopkins-3}
+\phantomsection\label{muxe9todo-estatuxedstico-estatuxedstica-de-hopkins-3}
 \begin{itemize}
 \tightlist
 \item
@@ -321,9 +320,9 @@ d(y_i, x),
 
 \begin{frame}{Tendência de agrupamentos: ``Faz sentido aplicar um
 algoritmo de clusterização nesses dados?''}
-\protect\phantomsection\label{tenduxeancia-de-agrupamentos-faz-sentido-aplicar-um-algoritmo-de-clusterizauxe7uxe3o-nesses-dados-4}
+\phantomsection\label{tenduxeancia-de-agrupamentos-faz-sentido-aplicar-um-algoritmo-de-clusterizauxe7uxe3o-nesses-dados-4}
 \begin{block}{\textbf{Método estatístico:} Estatística de Hopkins}
-\protect\phantomsection\label{muxe9todo-estatuxedstico-estatuxedstica-de-hopkins-4}
+\phantomsection\label{muxe9todo-estatuxedstico-estatuxedstica-de-hopkins-4}
 \[H = \dfrac{\sum \limits_{i=1}^m u_i}{\sum \limits_{i=1}^m u_i + \sum \limits_{i=1}^m w_i}\]
 
 \begin{itemize}
@@ -337,9 +336,9 @@ algoritmo de clusterização nesses dados?''}
 
 \begin{frame}{Tendência de agrupamentos: ``Faz sentido aplicar um
 algoritmo de clusterização nesses dados?''}
-\protect\phantomsection\label{tenduxeancia-de-agrupamentos-faz-sentido-aplicar-um-algoritmo-de-clusterizauxe7uxe3o-nesses-dados-5}
+\phantomsection\label{tenduxeancia-de-agrupamentos-faz-sentido-aplicar-um-algoritmo-de-clusterizauxe7uxe3o-nesses-dados-5}
 \begin{block}{Interpretação da Estatística de Hopkins}
-\protect\phantomsection\label{interpretauxe7uxe3o-da-estatuxedstica-de-hopkins}
+\phantomsection\label{interpretauxe7uxe3o-da-estatuxedstica-de-hopkins}
 Sob a hipótese de ausência de clusters (padrão de referência), espera-se
 que as distâncias \(u_i\) e \(w_i\) sejam, em média, comparáveis, o que
 leva a: \[
@@ -365,9 +364,9 @@ Em termos práticos:
 
 \begin{frame}{Tendência de agrupamentos: ``Faz sentido aplicar um
 algoritmo de clusterização nesses dados?''}
-\protect\phantomsection\label{tenduxeancia-de-agrupamentos-faz-sentido-aplicar-um-algoritmo-de-clusterizauxe7uxe3o-nesses-dados-6}
+\phantomsection\label{tenduxeancia-de-agrupamentos-faz-sentido-aplicar-um-algoritmo-de-clusterizauxe7uxe3o-nesses-dados-6}
 \begin{block}{Interpretação da Estatística de Hopkins}
-\protect\phantomsection\label{interpretauxe7uxe3o-da-estatuxedstica-de-hopkins-1}
+\phantomsection\label{interpretauxe7uxe3o-da-estatuxedstica-de-hopkins-1}
 \begin{quote}
 \textbf{Observação:} como \(H\) depende de amostragem aleatória (seleção
 dos \(m\) pontos e geração dos pontos artificiais), é recomendável
@@ -378,10 +377,10 @@ mediana.
 \end{frame}
 
 \begin{frame}{Tendência de agrupamentos}
-\protect\phantomsection\label{tenduxeancia-de-agrupamentos}
+\phantomsection\label{tenduxeancia-de-agrupamentos}
 \begin{block}{\textbf{Método visual:} Avaliação visual da tendência de
 agrupamento (VAT)}
-\protect\phantomsection\label{muxe9todo-visual-avaliauxe7uxe3o-visual-da-tenduxeancia-de-agrupamento-vat}
+\phantomsection\label{muxe9todo-visual-avaliauxe7uxe3o-visual-da-tenduxeancia-de-agrupamento-vat}
 \begin{itemize}
 \item
   A Avaliação Visual da Tendência de Agrupamento (VAT) é um método
@@ -398,10 +397,10 @@ agrupamento (VAT)}
 \end{frame}
 
 \begin{frame}{Tendência de agrupamentos}
-\protect\phantomsection\label{tenduxeancia-de-agrupamentos-1}
+\phantomsection\label{tenduxeancia-de-agrupamentos-1}
 \begin{block}{\textbf{Método visual:} Avaliação visual da tendência de
 agrupamento (VAT)}
-\protect\phantomsection\label{muxe9todo-visual-avaliauxe7uxe3o-visual-da-tenduxeancia-de-agrupamento-vat-1}
+\phantomsection\label{muxe9todo-visual-avaliauxe7uxe3o-visual-da-tenduxeancia-de-agrupamento-vat-1}
 \begin{center}
 \pandocbounded{\includegraphics[keepaspectratio]{../../images/AA/metodo_visual.jpg}}
 \end{center}
@@ -409,10 +408,10 @@ agrupamento (VAT)}
 \end{frame}
 
 \begin{frame}{Tendência de agrupamentos}
-\protect\phantomsection\label{tenduxeancia-de-agrupamentos-2}
+\phantomsection\label{tenduxeancia-de-agrupamentos-2}
 \begin{block}{\textbf{Método visual:} Avaliação visual da tendência de
 agrupamento (VAT)}
-\protect\phantomsection\label{muxe9todo-visual-avaliauxe7uxe3o-visual-da-tenduxeancia-de-agrupamento-vat-2}
+\phantomsection\label{muxe9todo-visual-avaliauxe7uxe3o-visual-da-tenduxeancia-de-agrupamento-vat-2}
 \begin{itemize}
 \tightlist
 \item
@@ -435,7 +434,7 @@ agrupamento (VAT)}
 \end{frame}
 
 \begin{frame}{Que perguntas a clusterização pode responder?}
-\protect\phantomsection\label{que-perguntas-a-clusterizauxe7uxe3o-pode-responder}
+\phantomsection\label{que-perguntas-a-clusterizauxe7uxe3o-pode-responder}
 A clusterização é uma técnica de aprendizado não supervisionado cujo
 objetivo é identificar grupos de observações semelhantes, sem rótulos
 prévios. Ela é usada tanto como \textbf{objetivo final} quanto como
@@ -465,7 +464,7 @@ prévios. Ela é usada tanto como \textbf{objetivo final} quanto como
 \end{frame}
 
 \begin{frame}{Que perguntas a clusterização pode responder?}
-\protect\phantomsection\label{que-perguntas-a-clusterizauxe7uxe3o-pode-responder-1}
+\phantomsection\label{que-perguntas-a-clusterizauxe7uxe3o-pode-responder-1}
 \begin{itemize}
 \tightlist
 \item
@@ -488,7 +487,7 @@ prévios. Ela é usada tanto como \textbf{objetivo final} quanto como
 \end{frame}
 
 \begin{frame}{Algumas questões\ldots{}}
-\protect\phantomsection\label{algumas-questuxf5es}
+\phantomsection\label{algumas-questuxf5es}
 🤔 Como medir a homogeneidade entre indivíduos?
 
 🤔 E entre grupos de indivíduos?
@@ -497,90 +496,133 @@ prévios. Ela é usada tanto como \textbf{objetivo final} quanto como
 \end{frame}
 
 \begin{frame}{Algumas questões\ldots{}}
-\protect\phantomsection\label{algumas-questuxf5es-1}
+\phantomsection\label{algumas-questuxf5es-1}
 Imagine que você tenha 16 cartas figuradas (\(A,K,Q,J\)) e que queira
 formar grupos de cartas semelhantes\ldots{}
 
-\begin{columns}[T]
-\protect\phantomsection\label{first-column}
-\begin{column}{0.7\linewidth}
+\begin{figure}
+
+\begin{minipage}{0.70\linewidth}
+\begin{center}
 \pandocbounded{\includegraphics[keepaspectratio]{../../images/AA/bar.png}}
-\end{column}
+\end{center}
+\end{minipage}%
+%
+\begin{minipage}{0.30\linewidth}
+\textbf{Como você formaria esses grupos?}\end{minipage}%
 
-\protect\phantomsection\label{second-column}
-\begin{column}{0.3\linewidth}
-\textbf{Como você formaria esses grupos?}
-\end{column}
-\end{columns}
+\end{figure}%
 \end{frame}
 
 \begin{frame}{Algumas questões\ldots{}}
-\protect\phantomsection\label{algumas-questuxf5es-2}
-\begin{columns}[T]
-\begin{column}{0.5\linewidth}
+\phantomsection\label{algumas-questuxf5es-2}
 \begin{figure}
-\centering
-\includegraphics[width=0.85\linewidth,height=\textheight,keepaspectratio,alt={Cartas individuais?}]{../../images/AA/barsit1.jpg}
-\caption{Cartas individuais?}
-\end{figure}
-\end{column}
 
-\begin{column}{0.5\linewidth}
-\begin{figure}
-\centering
-\includegraphics[width=0.9\linewidth,height=\textheight,keepaspectratio,alt={Agrupar por naipes?}]{../../images/AA/barsit2.jpg}
-\caption{Agrupar por naipes?}
-\end{figure}
-\end{column}
-\end{columns}
+\begin{minipage}{0.50\linewidth}
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=0.85\linewidth,height=\textheight,keepaspectratio]{../../images/AA/barsit1.jpg}
+
+}
+
+\subcaption{Cartas individuais?}
+
+\end{figure}%
+
+\end{minipage}%
+%
+\begin{minipage}{0.50\linewidth}
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=0.9\linewidth,height=\textheight,keepaspectratio]{../../images/AA/barsit2.jpg}
+
+}
+
+\subcaption{Agrupar por naipes?}
+
+\end{figure}%
+
+\end{minipage}%
+
+\end{figure}%
 \end{frame}
 
 \begin{frame}{Algumas questões\ldots{}}
-\protect\phantomsection\label{algumas-questuxf5es-3}
-\begin{columns}[T]
-\begin{column}{0.5\linewidth}
+\phantomsection\label{algumas-questuxf5es-3}
 \begin{figure}
-\centering
-\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio,alt={Agrupar por cor do naipe?}]{../../images/AA/barsit3.jpg}
-\caption{Agrupar por cor do naipe?}
-\end{figure}
-\end{column}
 
-\begin{column}{0.5\linewidth}
-\begin{figure}
-\centering
-\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio,alt={Agrupar por naipes maiores e menores?}]{../../images/AA/barsit4.jpg}
-\caption{Agrupar por naipes maiores e menores?}
-\end{figure}
-\end{column}
-\end{columns}
+\begin{minipage}{0.50\linewidth}
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{../../images/AA/barsit3.jpg}
+
+}
+
+\subcaption{Agrupar por cor do naipe?}
+
+\end{figure}%
+
+\end{minipage}%
+%
+\begin{minipage}{0.50\linewidth}
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{../../images/AA/barsit4.jpg}
+
+}
+
+\subcaption{Agrupar por naipes maiores e menores?}
+
+\end{figure}%
+
+\end{minipage}%
+
+\end{figure}%
 \end{frame}
 
 \begin{frame}{Algumas questões\ldots{}}
-\protect\phantomsection\label{algumas-questuxf5es-4}
-\begin{columns}[T]
-\begin{column}{0.5\linewidth}
+\phantomsection\label{algumas-questuxf5es-4}
 \begin{figure}
-\centering
-\includegraphics[width=0.85\linewidth,height=\textheight,keepaspectratio,alt={Copas mais a Rainha de espadas e outros naipes?}]{../../images/AA/barsit5.jpg}
-\caption{Copas mais a Rainha de espadas e outros naipes?}
-\end{figure}
-\end{column}
 
-\begin{column}{0.5\linewidth}
-\begin{figure}
-\centering
-\includegraphics[width=0.96\linewidth,height=\textheight,keepaspectratio,alt={Agrupar por face da carta?}]{../../images/AA/barsit6.jpg}
-\caption{Agrupar por face da carta?}
-\end{figure}
-\end{column}
-\end{columns}
+\begin{minipage}{0.50\linewidth}
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=0.85\linewidth,height=\textheight,keepaspectratio]{../../images/AA/barsit5.jpg}
+
+}
+
+\subcaption{Copas mais a Rainha de espadas e outros naipes?}
+
+\end{figure}%
+
+\end{minipage}%
+%
+\begin{minipage}{0.50\linewidth}
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=0.96\linewidth,height=\textheight,keepaspectratio]{../../images/AA/barsit6.jpg}
+
+}
+
+\subcaption{Agrupar por face da carta?}
+
+\end{figure}%
+
+\end{minipage}%
+
+\end{figure}%
 \end{frame}
 
 \begin{frame}{Algumas questões\ldots{}}
-\protect\phantomsection\label{algumas-questuxf5es-5}
+\phantomsection\label{algumas-questuxf5es-5}
 \begin{block}{Resumindo\ldots{}}
-\protect\phantomsection\label{resumindo}
+\phantomsection\label{resumindo}
 \textbf{Necessidade} da definição de medidas de \textbf{similaridade}
 (ou dissimilaridade)
 
@@ -591,7 +633,7 @@ formar grupos de cartas semelhantes\ldots{}
 \end{frame}
 
 \begin{frame}{Similaridade e dissimilaridade}
-\protect\phantomsection\label{similaridade-e-dissimilaridade}
+\phantomsection\label{similaridade-e-dissimilaridade}
 \textbf{Medidas de Similaridade:} quanto \textbf{maior} o valor,
 \textbf{maior a semelhança} entre os objetos
 
@@ -602,7 +644,7 @@ valor, \textbf{mais diferentes} são os objetos
 \end{frame}
 
 \begin{frame}{Similaridade e dissimilaridade (exemplo)}
-\protect\phantomsection\label{similaridade-e-dissimilaridade-exemplo}
+\phantomsection\label{similaridade-e-dissimilaridade-exemplo}
 \textbf{Pesquisa com clientes de uma loja de equipamentos automotivos}
 
 \pause
@@ -629,8 +671,7 @@ valor, \textbf{mais diferentes} são os objetos
 \end{frame}
 
 \begin{frame}{Base de dados (exemplo)}
-\protect\phantomsection\label{base-de-dados-exemplo}
-{\def\LTcaptype{none} % do not increment counter
+\phantomsection\label{base-de-dados-exemplo}
 \begin{longtable}[]{@{}
   >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.0849}}
   >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1038}}
@@ -665,7 +706,6 @@ Cliente
 6 & 55 & 3 & A & Alta & Gasolina & Luxo \\
 \bottomrule\noalign{}
 \end{longtable}
-}
 
 \pause
 
@@ -676,7 +716,7 @@ indivíduos?}
 \section{Variáveis quantitativas}\label{variuxe1veis-quantitativas}
 
 \begin{frame}{Dissimilaridade}
-\protect\phantomsection\label{dissimilaridade}
+\phantomsection\label{dissimilaridade}
 As \textbf{distâncias} são as medidas de \textbf{dissimilaridade} mais
 utilizadas no estudo de bancos de dados com variáveis numéricas
 
@@ -704,7 +744,7 @@ utilizadas no estudo de bancos de dados com variáveis numéricas
 \end{frame}
 
 \begin{frame}{Dissimilaridade}
-\protect\phantomsection\label{dissimilaridade-1}
+\phantomsection\label{dissimilaridade-1}
 \begin{figure}[H]
 
 {\centering \includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{../../images/AA/desig_tri.jpg}
@@ -717,9 +757,9 @@ utilizadas no estudo de bancos de dados com variáveis numéricas
 \end{frame}
 
 \begin{frame}{Dissimilaridade}
-\protect\phantomsection\label{dissimilaridade-2}
+\phantomsection\label{dissimilaridade-2}
 \begin{block}{Principais medidas de distância}
-\protect\phantomsection\label{principais-medidas-de-distuxe2ncia}
+\phantomsection\label{principais-medidas-de-distuxe2ncia}
 \textbf{Distância Euclidiana}
 
 \[d_{ij} = \displaystyle{\sqrt{(\mathbf{x}_i - \mathbf{x}_j)^t(\mathbf{x}_i - \mathbf{x}_j)}} = \sqrt{\displaystyle{\sum_{k=1}^p(x_{ik} - x_{jk})^2}}\]
@@ -729,9 +769,9 @@ Distância geométrica entre dois pontos
 \end{frame}
 
 \begin{frame}{Dissimilaridade}
-\protect\phantomsection\label{dissimilaridade-3}
+\phantomsection\label{dissimilaridade-3}
 \begin{block}{Principais medidas de distância}
-\protect\phantomsection\label{principais-medidas-de-distuxe2ncia-1}
+\phantomsection\label{principais-medidas-de-distuxe2ncia-1}
 \textbf{Distância Euclidiana Generalizada}
 
 \[d_{ij} = \displaystyle{\sqrt{(\mathbf{x}_i - \mathbf{x}_j)^t\boldsymbol{W}(\mathbf{x}_i - \mathbf{x}_j)}}\]
@@ -748,9 +788,9 @@ Distância geométrica entre dois pontos
 \end{frame}
 
 \begin{frame}{Dissimilaridade}
-\protect\phantomsection\label{dissimilaridade-4}
+\phantomsection\label{dissimilaridade-4}
 \begin{block}{Principais medidas de distância}
-\protect\phantomsection\label{principais-medidas-de-distuxe2ncia-2}
+\phantomsection\label{principais-medidas-de-distuxe2ncia-2}
 \textbf{Distância de Minkowski}
 
 \[d_{ij} = \left( \displaystyle{\sum_{k=1}^P} |X_{ik} - X_{jk}|^{\lambda}\right)^{\frac{1}{\lambda}}\]
@@ -770,9 +810,9 @@ Distância geométrica entre dois pontos
 \end{frame}
 
 \begin{frame}{Dissimilaridade}
-\protect\phantomsection\label{dissimilaridade-5}
+\phantomsection\label{dissimilaridade-5}
 \begin{block}{Principais medidas de distância}
-\protect\phantomsection\label{principais-medidas-de-distuxe2ncia-3}
+\phantomsection\label{principais-medidas-de-distuxe2ncia-3}
 \textbf{Distância de Manhattan (city block)}
 
 \begin{center}
@@ -782,9 +822,9 @@ Distância geométrica entre dois pontos
 \end{frame}
 
 \begin{frame}{Dissimilaridade}
-\protect\phantomsection\label{dissimilaridade-6}
+\phantomsection\label{dissimilaridade-6}
 \begin{block}{Dissimilaridade \(\Longrightarrow\) Similaridade}
-\protect\phantomsection\label{dissimilaridade-longrightarrow-similaridade}
+\phantomsection\label{dissimilaridade-longrightarrow-similaridade}
 \[s_{ij} = 1 - d_{ij}^0\]
 
 em que
@@ -801,15 +841,14 @@ da diagonal principal dessa matriz.
 \section{Variáveis qualitativas}\label{variuxe1veis-qualitativas}
 
 \begin{frame}{Similaridade}
-\protect\phantomsection\label{similaridade}
+\phantomsection\label{similaridade}
 \begin{block}{Variáveis qualitativas nominais}
-\protect\phantomsection\label{variuxe1veis-qualitativas-nominais}
+\phantomsection\label{variuxe1veis-qualitativas-nominais}
 Neste caso, utilizamos variáveis fictícias (variáveis \emph{dummy}) para
 \textbf{codificar} as variáveis:
 
 \begin{columns}[T]
 \begin{column}{0.5\linewidth}
-{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}lr@{}}
 \toprule\noalign{}
 Combustível & \(N_1\) \\
@@ -819,11 +858,9 @@ Gasolina & 1 \\
 Álcool & 0 \\
 \bottomrule\noalign{}
 \end{longtable}
-}
 \end{column}
 
 \begin{column}{0.5\linewidth}
-{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}lrr@{}}
 \toprule\noalign{}
 Modelo & \(N_2\) & \(N_3\) \\
@@ -834,21 +871,19 @@ Luxo & 0 & 1 \\
 Standard & 0 & 0 \\
 \bottomrule\noalign{}
 \end{longtable}
-}
 \end{column}
 \end{columns}
 \end{block}
 \end{frame}
 
 \begin{frame}{Similaridade}
-\protect\phantomsection\label{similaridade-1}
+\phantomsection\label{similaridade-1}
 \begin{block}{Variáveis qualitativas nominais}
-\protect\phantomsection\label{variuxe1veis-qualitativas-nominais-1}
+\phantomsection\label{variuxe1veis-qualitativas-nominais-1}
 \textbf{No exemplo:}
 
 \begin{columns}[T]
 \begin{column}{0.5\linewidth}
-{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}rlr@{}}
 \toprule\noalign{}
 Cliente & Combustível & \(N_1\) \\
@@ -862,11 +897,9 @@ Cliente & Combustível & \(N_1\) \\
 6 & Gasolina & 1 \\
 \bottomrule\noalign{}
 \end{longtable}
-}
 \end{column}
 
 \begin{column}{0.5\linewidth}
-{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}rlrr@{}}
 \toprule\noalign{}
 Cliente & Modelo & \(N_2\) & \(N_3\) \\
@@ -880,19 +913,17 @@ Cliente & Modelo & \(N_2\) & \(N_3\) \\
 6 & Luxo & 0 & 1 \\
 \bottomrule\noalign{}
 \end{longtable}
-}
 \end{column}
 \end{columns}
 \end{block}
 \end{frame}
 
 \begin{frame}{Similaridade}
-\protect\phantomsection\label{similaridade-2}
+\phantomsection\label{similaridade-2}
 \begin{block}{Variáveis qualitativas nominais}
-\protect\phantomsection\label{variuxe1veis-qualitativas-nominais-2}
+\phantomsection\label{variuxe1veis-qualitativas-nominais-2}
 De forma que,
 
-{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}rrrr@{}}
 \toprule\noalign{}
 Cliente & \(N_1\) & \(N_2\) & \(N_3\) \\
@@ -906,21 +937,19 @@ Cliente & \(N_1\) & \(N_2\) & \(N_3\) \\
 6 & 1 & 0 & 1 \\
 \bottomrule\noalign{}
 \end{longtable}
-}
 \end{block}
 \end{frame}
 
 \begin{frame}{Similaridade}
-\protect\phantomsection\label{similaridade-3}
+\phantomsection\label{similaridade-3}
 \begin{block}{Variáveis qualitativas ordinais}
-\protect\phantomsection\label{variuxe1veis-qualitativas-ordinais}
+\phantomsection\label{variuxe1veis-qualitativas-ordinais}
 Utilizamos variáveis fictícias (variáveis \emph{dummy}) para
 \textbf{codificar} as variáveis, levando em consideração a ordinalidade
 das variáveis:
 
 \begin{columns}[T]
 \begin{column}{0.5\linewidth}
-{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}lrrr@{}}
 \toprule\noalign{}
 Classe social & \(O_1\) & \(O_2\) & \(O_3\) \\
@@ -932,11 +961,9 @@ C & 0 & 0 & 1 \\
 D & 0 & 0 & 0 \\
 \bottomrule\noalign{}
 \end{longtable}
-}
 \end{column}
 
 \begin{column}{0.5\linewidth}
-{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}lrr@{}}
 \toprule\noalign{}
 Potência & \(O_4\) & \(O_5\) \\
@@ -947,16 +974,15 @@ Média & 0 & 1 \\
 Baixa & 0 & 0 \\
 \bottomrule\noalign{}
 \end{longtable}
-}
 \end{column}
 \end{columns}
 \end{block}
 \end{frame}
 
 \begin{frame}{Similaridade}
-\protect\phantomsection\label{similaridade-4}
+\phantomsection\label{similaridade-4}
 \begin{block}{Observação}
-\protect\phantomsection\label{observauxe7uxe3o}
+\phantomsection\label{observauxe7uxe3o}
 As variáveis \textbf{Classe social} e \textbf{Potência do motor} possuem
 \textbf{ordem natural}. Por isso, foram codificadas por meio de
 \textbf{variáveis ordinais cumulativas}:
@@ -975,14 +1001,13 @@ geométrica específica ao espaço dos dados.
 \end{frame}
 
 \begin{frame}{Similaridade}
-\protect\phantomsection\label{similaridade-5}
+\phantomsection\label{similaridade-5}
 \begin{block}{Variáveis qualitativas ordinais}
-\protect\phantomsection\label{variuxe1veis-qualitativas-ordinais-1}
+\phantomsection\label{variuxe1veis-qualitativas-ordinais-1}
 \textbf{No exemplo:}
 
 \begin{columns}[T]
 \begin{column}{0.5\linewidth}
-{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}rlrrr@{}}
 \toprule\noalign{}
 Cliente & Classe social & \(O_1\) & \(O_2\) & \(O_3\) \\
@@ -996,11 +1021,9 @@ Cliente & Classe social & \(O_1\) & \(O_2\) & \(O_3\) \\
 6 & A & 1 & 1 & 1 \\
 \bottomrule\noalign{}
 \end{longtable}
-}
 \end{column}
 
 \begin{column}{0.5\linewidth}
-{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}rlrr@{}}
 \toprule\noalign{}
 Cliente & Potência & \(O_4\) & \(O_5\) \\
@@ -1014,19 +1037,17 @@ Cliente & Potência & \(O_4\) & \(O_5\) \\
 6 & Alta & 1 & 1 \\
 \bottomrule\noalign{}
 \end{longtable}
-}
 \end{column}
 \end{columns}
 \end{block}
 \end{frame}
 
 \begin{frame}{Similaridade}
-\protect\phantomsection\label{similaridade-6}
+\phantomsection\label{similaridade-6}
 \begin{block}{Variáveis qualitativas ordinais}
-\protect\phantomsection\label{variuxe1veis-qualitativas-ordinais-2}
+\phantomsection\label{variuxe1veis-qualitativas-ordinais-2}
 De forma que,
 
-{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}rrrrrr@{}}
 \toprule\noalign{}
 Cliente & \(O_1\) & \(O_2\) & \(O_3\) & \(O_4\) & \(O_5\) \\
@@ -1040,17 +1061,15 @@ Cliente & \(O_1\) & \(O_2\) & \(O_3\) & \(O_4\) & \(O_5\) \\
 6 & 1 & 1 & 1 & 1 & 1 \\
 \bottomrule\noalign{}
 \end{longtable}
-}
 \end{block}
 \end{frame}
 
 \begin{frame}{Similaridade}
-\protect\phantomsection\label{similaridade-7}
+\phantomsection\label{similaridade-7}
 \begin{block}{Variáveis qualitativas nominais e ordinais}
-\protect\phantomsection\label{variuxe1veis-qualitativas-nominais-e-ordinais}
+\phantomsection\label{variuxe1veis-qualitativas-nominais-e-ordinais}
 Juntando tudo\ldots{}
 
-{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedleft\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1385}}
   >{\raggedleft\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1077}}
@@ -1091,18 +1110,16 @@ Cliente
 6 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 1 \\
 \bottomrule\noalign{}
 \end{longtable}
-}
 \end{block}
 \end{frame}
 
 \begin{frame}{Similaridade}
-\protect\phantomsection\label{similaridade-8}
+\phantomsection\label{similaridade-8}
 \begin{block}{Variáveis qualitativas nominais e ordinais}
-\protect\phantomsection\label{variuxe1veis-qualitativas-nominais-e-ordinais-1}
+\phantomsection\label{variuxe1veis-qualitativas-nominais-e-ordinais-1}
 Considere os clientes 1 e 3. Vamos calcular a medida de similaridade
 entre eles:
 
-{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedleft\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1385}}
   >{\raggedleft\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1077}}
@@ -1139,15 +1156,13 @@ Cliente
 3 & 0 & 0 & 1 & 0 & 1 & 1 & 1 & 0 \\
 \bottomrule\noalign{}
 \end{longtable}
-}
 \end{block}
 \end{frame}
 
 \begin{frame}{Similaridade}
-\protect\phantomsection\label{similaridade-9}
+\phantomsection\label{similaridade-9}
 \begin{block}{Tabela de concordância entre dois indivíduos}
-\protect\phantomsection\label{tabela-de-concorduxe2ncia-entre-dois-indivuxedduos}
-{\def\LTcaptype{none} % do not increment counter
+\phantomsection\label{tabela-de-concorduxe2ncia-entre-dois-indivuxedduos}
 \begin{longtable}[]{@{}llll@{}}
 \toprule\noalign{}
 Indivíduo \(i\) \textbackslash{} Indivíduo \(j\) & 1 & 0 & Total \\
@@ -1158,7 +1173,6 @@ Indivíduo \(i\) \textbackslash{} Indivíduo \(j\) & 1 & 0 & Total \\
 \textbf{Total} & \(a + c\) & \(b + d\) & \(p\) \\
 \bottomrule\noalign{}
 \end{longtable}
-}
 
 \begin{itemize}
 \tightlist
@@ -1177,12 +1191,11 @@ Indivíduo \(i\) \textbackslash{} Indivíduo \(j\) & 1 & 0 & Total \\
 \end{frame}
 
 \begin{frame}{Similaridade}
-\protect\phantomsection\label{similaridade-10}
+\phantomsection\label{similaridade-10}
 \begin{block}{Tabela de concordância entre dois indivíduos}
-\protect\phantomsection\label{tabela-de-concorduxe2ncia-entre-dois-indivuxedduos-1}
+\phantomsection\label{tabela-de-concorduxe2ncia-entre-dois-indivuxedduos-1}
 \textbf{No exemplo:}
 
-{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}llll@{}}
 \toprule\noalign{}
 Indivíduo 1 \textbackslash{} Indivíduo 3 & 1 & 0 & Total \\
@@ -1193,7 +1206,6 @@ Indivíduo 1 \textbackslash{} Indivíduo 3 & 1 & 0 & Total \\
 \textbf{Total} & 4 & 4 & 8 \\
 \bottomrule\noalign{}
 \end{longtable}
-}
 \end{block}
 \end{frame}
 
@@ -1202,14 +1214,13 @@ similaridade} baseadas na \textbf{tabela de concordância} dos
 elementos?}{Como extrair as medidas de similaridade baseadas na tabela de concordância dos elementos?}}\label{como-extrair-as-medidas-de-similaridade-baseadas-na-tabela-de-concorduxe2ncia-dos-elementos}
 
 \begin{frame}{Critérios de similaridade}
-\protect\phantomsection\label{crituxe9rios-de-similaridade}
+\phantomsection\label{crituxe9rios-de-similaridade}
 \begin{block}{Coeficiente de Concordância Simples}
-\protect\phantomsection\label{coeficiente-de-concorduxe2ncia-simples}
+\phantomsection\label{coeficiente-de-concorduxe2ncia-simples}
 \[\Large s_{ij} = \displaystyle{\frac{a + d}{p}}\]
 
 \begin{columns}[T]
 \begin{column}{0.5\linewidth}
-{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}llll@{}}
 \toprule\noalign{}
 Indivíduo 1 \textbackslash{} Indivíduo 3 & 1 & 0 & Total \\
@@ -1220,7 +1231,6 @@ Indivíduo 1 \textbackslash{} Indivíduo 3 & 1 & 0 & Total \\
 \textbf{Total} & 4 & 4 & 8 \\
 \bottomrule\noalign{}
 \end{longtable}
-}
 \end{column}
 
 \begin{column}{0.5\linewidth}
@@ -1236,9 +1246,9 @@ s_{13} = \dfrac{a + d}{p}
 \end{frame}
 
 \begin{frame}{Critérios de similaridade}
-\protect\phantomsection\label{crituxe9rios-de-similaridade-1}
+\phantomsection\label{crituxe9rios-de-similaridade-1}
 \begin{block}{Coeficiente de Concordância Simples}
-\protect\phantomsection\label{coeficiente-de-concorduxe2ncia-simples-1}
+\phantomsection\label{coeficiente-de-concorduxe2ncia-simples-1}
 \textbf{Interpretação:}
 
 \begin{itemize}
@@ -1253,14 +1263,13 @@ s_{13} = \dfrac{a + d}{p}
 \end{frame}
 
 \begin{frame}{Critérios de similaridade}
-\protect\phantomsection\label{crituxe9rios-de-similaridade-2}
+\phantomsection\label{crituxe9rios-de-similaridade-2}
 \begin{block}{Coeficiente de Concordância Positiva}
-\protect\phantomsection\label{coeficiente-de-concorduxe2ncia-positiva}
+\phantomsection\label{coeficiente-de-concorduxe2ncia-positiva}
 \[\Large s_{ij} = \displaystyle{\frac{a}{p}}\]
 
 \begin{columns}[T]
 \begin{column}{0.5\linewidth}
-{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}llll@{}}
 \toprule\noalign{}
 Indivíduo 1 \textbackslash{} Indivíduo 3 & 1 & 0 & Total \\
@@ -1271,7 +1280,6 @@ Indivíduo 1 \textbackslash{} Indivíduo 3 & 1 & 0 & Total \\
 \textbf{Total} & 4 & 4 & 8 \\
 \bottomrule\noalign{}
 \end{longtable}
-}
 \end{column}
 
 \begin{column}{0.5\linewidth}
@@ -1285,9 +1293,9 @@ s_{13} = \dfrac{a}{p}=
 \end{frame}
 
 \begin{frame}{Critérios de similaridade}
-\protect\phantomsection\label{crituxe9rios-de-similaridade-3}
+\phantomsection\label{crituxe9rios-de-similaridade-3}
 \begin{block}{Coeficiente de Concordância Positiva}
-\protect\phantomsection\label{coeficiente-de-concorduxe2ncia-positiva-1}
+\phantomsection\label{coeficiente-de-concorduxe2ncia-positiva-1}
 \textbf{Interpretação:}
 
 \begin{itemize}
@@ -1306,14 +1314,13 @@ s_{13} = \dfrac{a}{p}=
 \end{frame}
 
 \begin{frame}{Critérios de similaridade}
-\protect\phantomsection\label{crituxe9rios-de-similaridade-4}
+\phantomsection\label{crituxe9rios-de-similaridade-4}
 \begin{block}{Coeficiente de Concordância de Jaccard}
-\protect\phantomsection\label{coeficiente-de-concorduxe2ncia-de-jaccard}
+\phantomsection\label{coeficiente-de-concorduxe2ncia-de-jaccard}
 \[\Large s_{ij} = \displaystyle{\frac{a}{a + b + c}}\]
 
 \begin{columns}[T]
 \begin{column}{0.5\linewidth}
-{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}llll@{}}
 \toprule\noalign{}
 Indivíduo 1 \textbackslash{} Indivíduo 3 & 1 & 0 & Total \\
@@ -1324,7 +1331,6 @@ Indivíduo 1 \textbackslash{} Indivíduo 3 & 1 & 0 & Total \\
 \textbf{Total} & 4 & 4 & 8 \\
 \bottomrule\noalign{}
 \end{longtable}
-}
 \end{column}
 
 \begin{column}{0.5\linewidth}
@@ -1339,9 +1345,9 @@ s_{13} = \dfrac{3}{3 + 2 + 1}
 \end{frame}
 
 \begin{frame}{Critérios de similaridade}
-\protect\phantomsection\label{crituxe9rios-de-similaridade-5}
+\phantomsection\label{crituxe9rios-de-similaridade-5}
 \begin{block}{Coeficiente de Concordância de Jaccard}
-\protect\phantomsection\label{coeficiente-de-concorduxe2ncia-de-jaccard-1}
+\phantomsection\label{coeficiente-de-concorduxe2ncia-de-jaccard-1}
 \textbf{Interpretação:}
 
 \begin{itemize}
@@ -1360,9 +1366,9 @@ s_{13} = \dfrac{3}{3 + 2 + 1}
 \end{frame}
 
 \begin{frame}{Critérios de similaridade}
-\protect\phantomsection\label{crituxe9rios-de-similaridade-6}
+\phantomsection\label{crituxe9rios-de-similaridade-6}
 \begin{block}{Coeficiente de Concordância de Gower e Legendre}
-\protect\phantomsection\label{coeficiente-de-concorduxe2ncia-de-gower-e-legendre}
+\phantomsection\label{coeficiente-de-concorduxe2ncia-de-gower-e-legendre}
 O \textbf{Coeficiente de Concordância de Gower--Legendre} é uma medida
 de similaridade projetada para \textbf{dados mistos}, isto é, conjuntos
 de dados que contêm, ao mesmo tempo:
@@ -1383,9 +1389,9 @@ medida de similaridade}, respeitando a natureza de cada uma.
 \end{frame}
 
 \begin{frame}{Critérios de similaridade}
-\protect\phantomsection\label{crituxe9rios-de-similaridade-7}
+\phantomsection\label{crituxe9rios-de-similaridade-7}
 \begin{block}{Coeficiente de Concordância de Gower e Legendre}
-\protect\phantomsection\label{coeficiente-de-concorduxe2ncia-de-gower-e-legendre-1}
+\phantomsection\label{coeficiente-de-concorduxe2ncia-de-gower-e-legendre-1}
 Considere dois indivíduos \(i\) e \(j\) descritos por \(p\) variáveis. A
 similaridade de Gower--Legendre é definida como:
 
@@ -1409,9 +1415,9 @@ S_{ij}
 \end{frame}
 
 \begin{frame}{Critérios de similaridade}
-\protect\phantomsection\label{crituxe9rios-de-similaridade-8}
+\phantomsection\label{crituxe9rios-de-similaridade-8}
 \begin{block}{Coeficiente de Concordância de Gower e Legendre}
-\protect\phantomsection\label{coeficiente-de-concorduxe2ncia-de-gower-e-legendre-2}
+\phantomsection\label{coeficiente-de-concorduxe2ncia-de-gower-e-legendre-2}
 O coeficiente assume valores em \([0,1]\):
 
 \begin{itemize}
@@ -1425,11 +1431,11 @@ O coeficiente assume valores em \([0,1]\):
 \end{frame}
 
 \begin{frame}{Critérios de similaridade}
-\protect\phantomsection\label{crituxe9rios-de-similaridade-9}
+\phantomsection\label{crituxe9rios-de-similaridade-9}
 \begin{block}{Coeficiente de Concordância de Gower e Legendre}
-\protect\phantomsection\label{coeficiente-de-concorduxe2ncia-de-gower-e-legendre-3}
+\phantomsection\label{coeficiente-de-concorduxe2ncia-de-gower-e-legendre-3}
 \begin{block}{Similaridade parcial por tipo de variável}
-\protect\phantomsection\label{similaridade-parcial-por-tipo-de-variuxe1vel}
+\phantomsection\label{similaridade-parcial-por-tipo-de-variuxe1vel}
 \textbf{Variáveis quantitativas}
 
 \begin{itemize}
@@ -1450,11 +1456,11 @@ onde \(R_k\) é o intervalo da variável \(k\) (máximo − mínimo).
 \end{frame}
 
 \begin{frame}{Critérios de similaridade}
-\protect\phantomsection\label{crituxe9rios-de-similaridade-10}
+\phantomsection\label{crituxe9rios-de-similaridade-10}
 \begin{block}{Coeficiente de Concordância de Gower e Legendre}
-\protect\phantomsection\label{coeficiente-de-concorduxe2ncia-de-gower-e-legendre-4}
+\phantomsection\label{coeficiente-de-concorduxe2ncia-de-gower-e-legendre-4}
 \begin{block}{Similaridade parcial por tipo de variável}
-\protect\phantomsection\label{similaridade-parcial-por-tipo-de-variuxe1vel-1}
+\phantomsection\label{similaridade-parcial-por-tipo-de-variuxe1vel-1}
 \textbf{Variáveis qualitativas nominais}
 
 \begin{itemize}
@@ -1476,11 +1482,11 @@ s_{ijk}
 \end{frame}
 
 \begin{frame}{Critérios de similaridade}
-\protect\phantomsection\label{crituxe9rios-de-similaridade-11}
+\phantomsection\label{crituxe9rios-de-similaridade-11}
 \begin{block}{Coeficiente de Concordância de Gower e Legendre}
-\protect\phantomsection\label{coeficiente-de-concorduxe2ncia-de-gower-e-legendre-5}
+\phantomsection\label{coeficiente-de-concorduxe2ncia-de-gower-e-legendre-5}
 \begin{block}{Similaridade parcial por tipo de variável}
-\protect\phantomsection\label{similaridade-parcial-por-tipo-de-variuxe1vel-2}
+\phantomsection\label{similaridade-parcial-por-tipo-de-variuxe1vel-2}
 \textbf{Variáveis qualitativas ordinais}
 
 Para variáveis ordinais, os níveis são primeiro convertidos em
@@ -1499,9 +1505,9 @@ onde \(r_{ik}\) e \(r_{jk}\) são os postos normalizados.
 \end{frame}
 
 \begin{frame}{Critérios de similaridade}
-\protect\phantomsection\label{crituxe9rios-de-similaridade-12}
+\phantomsection\label{crituxe9rios-de-similaridade-12}
 \begin{block}{Coeficiente de Concordância de Gower e Legendre}
-\protect\phantomsection\label{coeficiente-de-concorduxe2ncia-de-gower-e-legendre-6}
+\phantomsection\label{coeficiente-de-concorduxe2ncia-de-gower-e-legendre-6}
 \textbf{Interpretação:}
 
 \begin{itemize}
@@ -1519,20 +1525,19 @@ onde \(r_{ik}\) e \(r_{jk}\) são os postos normalizados.
 \end{frame}
 
 \begin{frame}{Critérios de similaridade}
-\protect\phantomsection\label{crituxe9rios-de-similaridade-13}
+\phantomsection\label{crituxe9rios-de-similaridade-13}
 \begin{block}{Similaridade \(\Longrightarrow\) Dissimilaridade}
-\protect\phantomsection\label{similaridade-longrightarrow-dissimilaridade}
+\phantomsection\label{similaridade-longrightarrow-dissimilaridade}
 \[\Large d_{ij}^* = 1 - s_{ij}\]
 \end{block}
 \end{frame}
 
 \begin{frame}{Critérios de similaridade}
-\protect\phantomsection\label{crituxe9rios-de-similaridade-14}
+\phantomsection\label{crituxe9rios-de-similaridade-14}
 \begin{block}{Coeficiente de Concordância de Gower e Legendre}
-\protect\phantomsection\label{coeficiente-de-concorduxe2ncia-de-gower-e-legendre-7}
+\phantomsection\label{coeficiente-de-concorduxe2ncia-de-gower-e-legendre-7}
 \textbf{No exemplo:}
 
-{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
   >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.0849}}
   >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1038}}
@@ -1567,14 +1572,13 @@ Cliente
 6 & 55 & 3 & A & Alta & Gasolina & Luxo \\
 \bottomrule\noalign{}
 \end{longtable}
-}
 \end{block}
 \end{frame}
 
 \begin{frame}{Critérios de similaridade}
-\protect\phantomsection\label{crituxe9rios-de-similaridade-15}
+\phantomsection\label{crituxe9rios-de-similaridade-15}
 \begin{block}{Coeficiente de Concordância de Gower e Legendre}
-\protect\phantomsection\label{coeficiente-de-concorduxe2ncia-de-gower-e-legendre-8}
+\phantomsection\label{coeficiente-de-concorduxe2ncia-de-gower-e-legendre-8}
 Temos que:
 
 \begin{itemize}
@@ -1589,11 +1593,11 @@ Temos que:
 \end{frame}
 
 \begin{frame}{Critérios de similaridade}
-\protect\phantomsection\label{crituxe9rios-de-similaridade-16}
+\phantomsection\label{crituxe9rios-de-similaridade-16}
 \begin{block}{Coeficiente de Concordância de Gower e Legendre}
-\protect\phantomsection\label{coeficiente-de-concorduxe2ncia-de-gower-e-legendre-9}
+\phantomsection\label{coeficiente-de-concorduxe2ncia-de-gower-e-legendre-9}
 \begin{block}{Similaridades parciais}
-\protect\phantomsection\label{similaridades-parciais}
+\phantomsection\label{similaridades-parciais}
 \begin{itemize}
 \tightlist
 \item
@@ -1618,11 +1622,11 @@ s=\;1-\dfrac{|1-1|}{2}=1
 \end{frame}
 
 \begin{frame}{Critérios de similaridade}
-\protect\phantomsection\label{crituxe9rios-de-similaridade-17}
+\phantomsection\label{crituxe9rios-de-similaridade-17}
 \begin{block}{Coeficiente de Concordância de Gower e Legendre}
-\protect\phantomsection\label{coeficiente-de-concorduxe2ncia-de-gower-e-legendre-10}
+\phantomsection\label{coeficiente-de-concorduxe2ncia-de-gower-e-legendre-10}
 \begin{block}{Similaridades parciais}
-\protect\phantomsection\label{similaridades-parciais-1}
+\phantomsection\label{similaridades-parciais-1}
 \begin{itemize}
 \tightlist
 \item
@@ -1647,11 +1651,11 @@ s=\;1-\left|0-\tfrac{1}{2}\right|=\tfrac{1}{2}=0,5
 \end{frame}
 
 \begin{frame}{Critérios de similaridade}
-\protect\phantomsection\label{crituxe9rios-de-similaridade-18}
+\phantomsection\label{crituxe9rios-de-similaridade-18}
 \begin{block}{Coeficiente de Concordância de Gower e Legendre}
-\protect\phantomsection\label{coeficiente-de-concorduxe2ncia-de-gower-e-legendre-11}
+\phantomsection\label{coeficiente-de-concorduxe2ncia-de-gower-e-legendre-11}
 \begin{block}{Similaridades parciais}
-\protect\phantomsection\label{similaridades-parciais-2}
+\phantomsection\label{similaridades-parciais-2}
 \begin{itemize}
 \tightlist
 \item
@@ -1672,11 +1676,11 @@ Esporte = Esporte \(\Rightarrow s=1\)
 \end{frame}
 
 \begin{frame}{Critérios de similaridade}
-\protect\phantomsection\label{crituxe9rios-de-similaridade-19}
+\phantomsection\label{crituxe9rios-de-similaridade-19}
 \begin{block}{Coeficiente de Concordância de Gower e Legendre}
-\protect\phantomsection\label{coeficiente-de-concorduxe2ncia-de-gower-e-legendre-12}
+\phantomsection\label{coeficiente-de-concorduxe2ncia-de-gower-e-legendre-12}
 \begin{block}{Similaridade total}
-\protect\phantomsection\label{similaridade-total}
+\phantomsection\label{similaridade-total}
 São \(p=6\) variáveis: \[
 S_{1,3}
 =\dfrac{0,1143+1+0,3333+0,5+1+1}{6}
@@ -1689,7 +1693,7 @@ S_{1,3}
 \section{Métodos de Agrupamento}\label{muxe9todos-de-agrupamento}
 
 \begin{frame}{Métodos de Agrupamento}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-1}
+\phantomsection\label{muxe9todos-de-agrupamento-1}
 \begin{itemize}
 \tightlist
 \item
@@ -1711,7 +1715,7 @@ S_{1,3}
 \end{frame}
 
 \begin{frame}{Métodos hierárquicos}
-\protect\phantomsection\label{muxe9todos-hieruxe1rquicos}
+\phantomsection\label{muxe9todos-hieruxe1rquicos}
 \begin{columns}[T]
 \begin{column}{0.75\linewidth}
 \begin{itemize}
@@ -1735,7 +1739,7 @@ S_{1,3}
 \end{frame}
 
 \begin{frame}{Métodos hierárquicos}
-\protect\phantomsection\label{muxe9todos-hieruxe1rquicos-1}
+\phantomsection\label{muxe9todos-hieruxe1rquicos-1}
 \begin{columns}[T]
 \begin{column}{0.75\linewidth}
 \begin{itemize}
@@ -1758,9 +1762,9 @@ S_{1,3}
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos}
 \begin{block}{Agrupamentos hierárquicos aglomerativos}
-\protect\phantomsection\label{agrupamentos-hieruxe1rquicos-aglomerativos}
+\phantomsection\label{agrupamentos-hieruxe1rquicos-aglomerativos}
 \begin{enumerate}
 [a)]
 \item
@@ -1783,9 +1787,9 @@ S_{1,3}
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-1}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-1}
 \begin{block}{Resultado da aplicação do método}
-\protect\phantomsection\label{resultado-da-aplicauxe7uxe3o-do-muxe9todo}
+\phantomsection\label{resultado-da-aplicauxe7uxe3o-do-muxe9todo}
 \begin{columns}[T]
 \begin{column}{0.75\linewidth}
 \begin{center}
@@ -1807,9 +1811,9 @@ S_{1,3}
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-2}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-2}
 \begin{block}{Como definir distância entre grupos?}
-\protect\phantomsection\label{como-definir-distuxe2ncia-entre-grupos}
+\phantomsection\label{como-definir-distuxe2ncia-entre-grupos}
 \begin{itemize}
 \item
   Suponha que temos um grupo \(K\) com \(n_k\) indivíduos e um grupo
@@ -1836,9 +1840,9 @@ S_{1,3}
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-3}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-3}
 \begin{block}{Método do vizinho mais próximo}
-\protect\phantomsection\label{muxe9todo-do-vizinho-mais-pruxf3ximo}
+\phantomsection\label{muxe9todo-do-vizinho-mais-pruxf3ximo}
 Consiste em considerar que a distância entre os dois grupos é a
 \textbf{menor distância entre as possíveis combinações de indivíduos}
 tomados dos dois grupos considerados, isto é,
@@ -1858,9 +1862,9 @@ tomados dos dois grupos considerados, isto é,
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-4}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-4}
 \begin{block}{Método do vizinho mais próximo}
-\protect\phantomsection\label{muxe9todo-do-vizinho-mais-pruxf3ximo-1}
+\phantomsection\label{muxe9todo-do-vizinho-mais-pruxf3ximo-1}
 \textbf{Esquematicamente:}
 
 \begin{center}
@@ -1870,9 +1874,9 @@ tomados dos dois grupos considerados, isto é,
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-5}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-5}
 \begin{block}{Método do vizinho mais próximo}
-\protect\phantomsection\label{muxe9todo-do-vizinho-mais-pruxf3ximo-2}
+\phantomsection\label{muxe9todo-do-vizinho-mais-pruxf3ximo-2}
 \textbf{Esquematicamente:}
 
 \begin{center}
@@ -1882,9 +1886,9 @@ tomados dos dois grupos considerados, isto é,
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-6}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-6}
 \begin{block}{Método do vizinho mais distante}
-\protect\phantomsection\label{muxe9todo-do-vizinho-mais-distante}
+\phantomsection\label{muxe9todo-do-vizinho-mais-distante}
 Consiste em considerar que a distância entre os dois grupos é a
 \textbf{maior distância entre as possíveis combinações de indivíduos}
 tomados dos dois grupos considerados, isto é,
@@ -1904,9 +1908,9 @@ tomados dos dois grupos considerados, isto é,
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-7}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-7}
 \begin{block}{Método da distância média}
-\protect\phantomsection\label{muxe9todo-da-distuxe2ncia-muxe9dia}
+\phantomsection\label{muxe9todo-da-distuxe2ncia-muxe9dia}
 Consiste em considerar que a distância entre os dois grupos é a
 \textbf{média aritmética das distâncias entre as possíveis combinações
 de indivíduos} tomados dos dois grupos considerados, isto é,
@@ -1926,9 +1930,9 @@ de indivíduos} tomados dos dois grupos considerados, isto é,
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-8}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-8}
 \begin{block}{Método do centroide}
-\protect\phantomsection\label{muxe9todo-do-centroide}
+\phantomsection\label{muxe9todo-do-centroide}
 Consiste em considerar que a distância entre os dois grupos é a
 \textbf{distância euclidiana ao quadrado entre os centroides} dos dois
 grupos. O centroide de um grupo é o ponto médio dos objetos contidos no
@@ -1952,9 +1956,9 @@ grupo, isto é,
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-9}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-9}
 \begin{block}{Método de Ward}
-\protect\phantomsection\label{muxe9todo-de-ward}
+\phantomsection\label{muxe9todo-de-ward}
 \begin{itemize}
 \tightlist
 \item
@@ -1975,9 +1979,9 @@ grupo, isto é,
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-10}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-10}
 \begin{block}{Método de Ward}
-\protect\phantomsection\label{muxe9todo-de-ward-1}
+\phantomsection\label{muxe9todo-de-ward-1}
 \begin{itemize}
 \item
   A união entre clusters \(A\) e \(B\) que proporcionarem menor
@@ -1990,9 +1994,9 @@ grupo, isto é,
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-11}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-11}
 \begin{block}{Exemplo}
-\protect\phantomsection\label{exemplo}
+\phantomsection\label{exemplo}
 \begin{columns}[T]
 \begin{column}{0.7\linewidth}
 A fim de exemplificar a aplicação dos métodos de agrupamento, considere
@@ -2001,7 +2005,6 @@ observações de cada indivíduo para as variáveis \(X_1\) e \(X_2\).
 \end{column}
 
 \begin{column}{0.3\linewidth}
-{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}rrr@{}}
 \toprule\noalign{}
 Caso & \(X_1\) & \(X_2\) \\
@@ -2016,16 +2019,15 @@ Caso & \(X_1\) & \(X_2\) \\
 7 & 6 & 5 \\
 \bottomrule\noalign{}
 \end{longtable}
-}
 \end{column}
 \end{columns}
 \end{block}
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-12}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-12}
 \begin{block}{Exemplo}
-\protect\phantomsection\label{exemplo-1}
+\phantomsection\label{exemplo-1}
 \textbf{Representação dos casos no plano}
 
 \begin{center}
@@ -2035,9 +2037,9 @@ Caso & \(X_1\) & \(X_2\) \\
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-13}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-13}
 \begin{block}{Exemplo}
-\protect\phantomsection\label{exemplo-2}
+\phantomsection\label{exemplo-2}
 \textbf{Matriz de distâncias}
 
 \[D_0 = \left[ \begin{matrix}
@@ -2054,9 +2056,9 @@ Caso & \(X_1\) & \(X_2\) \\
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-14}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-14}
 \begin{block}{Exemplo}
-\protect\phantomsection\label{exemplo-3}
+\phantomsection\label{exemplo-3}
 \textbf{Matriz de distâncias}
 
 \[D_0 = \left[ \begin{matrix}
@@ -2076,9 +2078,9 @@ Caso & \(X_1\) & \(X_2\) \\
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-15}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-15}
 \begin{block}{Exemplo}
-\protect\phantomsection\label{exemplo-4}
+\phantomsection\label{exemplo-4}
 \textbf{Passo 1: juntar os casos 1 e 2}
 
 \begin{itemize}
@@ -2094,9 +2096,9 @@ Caso & \(X_1\) & \(X_2\) \\
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-16}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-16}
 \begin{block}{Exemplo}
-\protect\phantomsection\label{exemplo-5}
+\phantomsection\label{exemplo-5}
 \textbf{Construção da nova matriz de distâncias}
 
 \[
@@ -2112,9 +2114,9 @@ d_{((1,2)7)} &=  \min(d_{17};d_{27}) = \min(6,403; 5,657) = 5,657
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-17}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-17}
 \begin{block}{Exemplo}
-\protect\phantomsection\label{exemplo-6}
+\phantomsection\label{exemplo-6}
 \textbf{Matriz de distâncias}
 
 \[D_1 = \left[ \begin{matrix}
@@ -2130,9 +2132,9 @@ d_{((1,2)7)} &=  \min(d_{17};d_{27}) = \min(6,403; 5,657) = 5,657
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-18}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-18}
 \begin{block}{Exemplo}
-\protect\phantomsection\label{exemplo-7}
+\phantomsection\label{exemplo-7}
 \textbf{Matriz de distâncias}
 
 \[D_1 = \left[ \begin{matrix}
@@ -2148,9 +2150,9 @@ d_{((1,2)7)} &=  \min(d_{17};d_{27}) = \min(6,403; 5,657) = 5,657
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-19}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-19}
 \begin{block}{Exemplo}
-\protect\phantomsection\label{exemplo-8}
+\phantomsection\label{exemplo-8}
 \textbf{Passo 2: juntar os casos 4 e 5}
 
 \textbf{Redefinir a matriz de distâncias considerando os casos mais
@@ -2169,9 +2171,9 @@ d_{((4,5)7)} &=  \min(d_{47};d_{57}) = \min(4,031; 5,000) = 4,031
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-20}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-20}
 \begin{block}{Exemplo}
-\protect\phantomsection\label{exemplo-9}
+\phantomsection\label{exemplo-9}
 \textbf{Matriz de distâncias}
 
 \[D_2 = \left[ \begin{matrix}
@@ -2186,9 +2188,9 @@ d_{((4,5)7)} &=  \min(d_{47};d_{57}) = \min(4,031; 5,000) = 4,031
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-21}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-21}
 \begin{block}{Exemplo}
-\protect\phantomsection\label{exemplo-10}
+\phantomsection\label{exemplo-10}
 \textbf{Matriz de distâncias}
 
 \[D_2 = \left[ \begin{matrix}
@@ -2203,9 +2205,9 @@ d_{((4,5)7)} &=  \min(d_{47};d_{57}) = \min(4,031; 5,000) = 4,031
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-22}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-22}
 \begin{block}{Exemplo}
-\protect\phantomsection\label{exemplo-11}
+\phantomsection\label{exemplo-11}
 \textbf{Passo 3: juntar o grupo \((1,2)\) como caso 3}
 
 \textbf{Redefinir a matriz de distâncias considerando os casos mais
@@ -2223,9 +2225,9 @@ d_{((1,2,3)7)} &= \min(d_{17};d_{27};d_{37}) =  \min(6,403; 5,657; 4,243) = 4,24
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-23}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-23}
 \begin{block}{Exemplo}
-\protect\phantomsection\label{exemplo-12}
+\phantomsection\label{exemplo-12}
 \textbf{Matriz de distâncias}
 
 \[D_3 = \left[ \begin{matrix}
@@ -2239,9 +2241,9 @@ d_{((1,2,3)7)} &= \min(d_{17};d_{27};d_{37}) =  \min(6,403; 5,657; 4,243) = 4,24
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-24}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-24}
 \begin{block}{Exemplo}
-\protect\phantomsection\label{exemplo-13}
+\phantomsection\label{exemplo-13}
 \textbf{Matriz de distâncias}
 
 \[D_3 = \left[ \begin{matrix}
@@ -2255,9 +2257,9 @@ d_{((1,2,3)7)} &= \min(d_{17};d_{27};d_{37}) =  \min(6,403; 5,657; 4,243) = 4,24
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-25}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-25}
 \begin{block}{Exemplo}
-\protect\phantomsection\label{exemplo-14}
+\phantomsection\label{exemplo-14}
 \textbf{Passo 4: juntar o grupo \((4,5)\) como caso 6}
 
 \textbf{Redefinir a matriz de distâncias considerando os casos mais
@@ -2275,9 +2277,9 @@ d_{((4,5,6)7)} &= \min(d_{47};d_{57};d_{67}) =  \min(4,031; 5,000; 3,606) = 3,60
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-26}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-26}
 \begin{block}{Exemplo}
-\protect\phantomsection\label{exemplo-15}
+\phantomsection\label{exemplo-15}
 \textbf{Matriz de distâncias}
 
 \[D_4 = \left[ \begin{matrix}
@@ -2290,9 +2292,9 @@ d_{((4,5,6)7)} &= \min(d_{47};d_{57};d_{67}) =  \min(4,031; 5,000; 3,606) = 3,60
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-27}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-27}
 \begin{block}{Exemplo}
-\protect\phantomsection\label{exemplo-16}
+\phantomsection\label{exemplo-16}
 \textbf{Matriz de distâncias}
 
 \[D_4 = \left[ \begin{matrix}
@@ -2305,9 +2307,9 @@ d_{((4,5,6)7)} &= \min(d_{47};d_{57};d_{67}) =  \min(4,031; 5,000; 3,606) = 3,60
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-28}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-28}
 \begin{block}{Exemplo}
-\protect\phantomsection\label{exemplo-17}
+\phantomsection\label{exemplo-17}
 \textbf{Passo 5: juntar o grupo \((1,2,3)\) com o grupo \((4,5,6)\)}
 
 \textbf{Redefinir a matriz de distâncias considerando os casos mais
@@ -2324,9 +2326,9 @@ d_{((1,2,3,4,5,6)7)} &=  \min(d_{17};d_{27};d_{37};d_{47};d_{57};d_{67}) \\
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-29}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-29}
 \begin{block}{Exemplo}
-\protect\phantomsection\label{exemplo-18}
+\phantomsection\label{exemplo-18}
 \textbf{Matriz de distâncias}
 
 \[D_5 = \left[ \begin{matrix}
@@ -2338,9 +2340,9 @@ d_{((1,2,3,4,5,6)7)} &=  \min(d_{17};d_{27};d_{37};d_{47};d_{57};d_{67}) \\
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-30}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-30}
 \begin{block}{Exemplo}
-\protect\phantomsection\label{exemplo-19}
+\phantomsection\label{exemplo-19}
 \textbf{Matriz de distâncias}
 
 \[D_5 = \left[ \begin{matrix}
@@ -2352,12 +2354,11 @@ d_{((1,2,3,4,5,6)7)} &=  \min(d_{17};d_{27};d_{37};d_{47};d_{57};d_{67}) \\
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-31}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-31}
 \begin{block}{Exemplo}
-\protect\phantomsection\label{exemplo-20}
+\phantomsection\label{exemplo-20}
 \textbf{Resumo do método de agrupamento}
 
-{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}rrlr@{}}
 \toprule\noalign{}
 Passo & Nº de grupos & Grupos & Distância \\
@@ -2372,14 +2373,13 @@ Passo & Nº de grupos & Grupos & Distância \\
 7 & 1 & (1,2,3,4,5,6,7) & 3,606 \\
 \bottomrule\noalign{}
 \end{longtable}
-}
 \end{block}
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-32}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-32}
 \begin{block}{Exemplo}
-\protect\phantomsection\label{exemplo-21}
+\phantomsection\label{exemplo-21}
 \begin{center}
 \includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{../../images/AA/dend3.jpg}
 \end{center}
@@ -2387,9 +2387,9 @@ Passo & Nº de grupos & Grupos & Distância \\
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-33}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-33}
 \begin{block}{Determinação do número de grupos}
-\protect\phantomsection\label{determinauxe7uxe3o-do-nuxfamero-de-grupos}
+\phantomsection\label{determinauxe7uxe3o-do-nuxfamero-de-grupos}
 \begin{itemize}
 \item
   O dendrograma permite ao pesquisador consultar a distância em que os
@@ -2406,9 +2406,9 @@ Passo & Nº de grupos & Grupos & Distância \\
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-34}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-34}
 \begin{block}{Determinação do número de grupos}
-\protect\phantomsection\label{determinauxe7uxe3o-do-nuxfamero-de-grupos-1}
+\phantomsection\label{determinauxe7uxe3o-do-nuxfamero-de-grupos-1}
 \begin{itemize}
 \item
   Uma partição dos dados em um número especificado de grupos pode ser
@@ -2426,9 +2426,9 @@ Passo & Nº de grupos & Grupos & Distância \\
 \end{frame}
 
 \begin{frame}{Métodos de Agrupamento Hierárquicos}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-35}
+\phantomsection\label{muxe9todos-de-agrupamento-hieruxe1rquicos-35}
 \begin{block}{Determinação do número de grupos}
-\protect\phantomsection\label{determinauxe7uxe3o-do-nuxfamero-de-grupos-2}
+\phantomsection\label{determinauxe7uxe3o-do-nuxfamero-de-grupos-2}
 \begin{center}
 \includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{../../images/AA/num_grupos.jpg}
 \end{center}
@@ -2436,7 +2436,7 @@ Passo & Nº de grupos & Grupos & Distância \\
 \end{frame}
 
 \begin{frame}{Métodos hierárquicos: comentários finais}
-\protect\phantomsection\label{muxe9todos-hieruxe1rquicos-comentuxe1rios-finais}
+\phantomsection\label{muxe9todos-hieruxe1rquicos-comentuxe1rios-finais}
 \begin{itemize}
 \tightlist
 \item
@@ -2475,7 +2475,7 @@ Passo & Nº de grupos & Grupos & Distância \\
 \end{frame}
 
 \begin{frame}{Métodos hierárquicos: comentários finais}
-\protect\phantomsection\label{muxe9todos-hieruxe1rquicos-comentuxe1rios-finais-1}
+\phantomsection\label{muxe9todos-hieruxe1rquicos-comentuxe1rios-finais-1}
 \begin{itemize}
 \tightlist
 \item
@@ -2511,7 +2511,7 @@ Passo & Nº de grupos & Grupos & Distância \\
 \end{frame}
 
 \begin{frame}{Métodos hierárquicos: comentários finais}
-\protect\phantomsection\label{muxe9todos-hieruxe1rquicos-comentuxe1rios-finais-2}
+\phantomsection\label{muxe9todos-hieruxe1rquicos-comentuxe1rios-finais-2}
 \begin{itemize}
 \tightlist
 \item
@@ -2544,7 +2544,7 @@ Passo & Nº de grupos & Grupos & Distância \\
 \end{frame}
 
 \begin{frame}{Métodos hierárquicos: comentários finais}
-\protect\phantomsection\label{muxe9todos-hieruxe1rquicos-comentuxe1rios-finais-3}
+\phantomsection\label{muxe9todos-hieruxe1rquicos-comentuxe1rios-finais-3}
 \begin{itemize}
 \tightlist
 \item
@@ -2583,7 +2583,7 @@ Passo & Nº de grupos & Grupos & Distância \\
 \end{frame}
 
 \begin{frame}{Validação dos agrupamentos}
-\protect\phantomsection\label{validauxe7uxe3o-dos-agrupamentos}
+\phantomsection\label{validauxe7uxe3o-dos-agrupamentos}
 \begin{itemize}
 \tightlist
 \item
@@ -2616,9 +2616,9 @@ Passo & Nº de grupos & Grupos & Distância \\
 \end{frame}
 
 \begin{frame}{Validação dos agrupamentos}
-\protect\phantomsection\label{validauxe7uxe3o-dos-agrupamentos-1}
+\phantomsection\label{validauxe7uxe3o-dos-agrupamentos-1}
 \begin{block}{Correlação Cofenética}
-\protect\phantomsection\label{correlauxe7uxe3o-cofenuxe9tica}
+\phantomsection\label{correlauxe7uxe3o-cofenuxe9tica}
 \begin{itemize}
 \item
   Medida de validação usada nos métodos hierárquicos principalmente
@@ -2630,30 +2630,30 @@ Passo & Nº de grupos & Grupos & Distância \\
 \end{frame}
 
 \begin{frame}{Validação dos agrupamentos}
-\protect\phantomsection\label{validauxe7uxe3o-dos-agrupamentos-2}
+\phantomsection\label{validauxe7uxe3o-dos-agrupamentos-2}
 \begin{center}
 \includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{../../images/AA/ccofenetica01.jpg}
 \end{center}
 \end{frame}
 
 \begin{frame}{Validação dos agrupamentos}
-\protect\phantomsection\label{validauxe7uxe3o-dos-agrupamentos-3}
+\phantomsection\label{validauxe7uxe3o-dos-agrupamentos-3}
 \begin{center}
 \includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{../../images/AA/ccofenetica02.jpg}
 \end{center}
 \end{frame}
 
 \begin{frame}{Validação dos agrupamentos}
-\protect\phantomsection\label{validauxe7uxe3o-dos-agrupamentos-4}
+\phantomsection\label{validauxe7uxe3o-dos-agrupamentos-4}
 \begin{center}
 \includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{../../images/AA/ccofenetica03.jpg}
 \end{center}
 \end{frame}
 
 \begin{frame}{Validação dos agrupamentos}
-\protect\phantomsection\label{validauxe7uxe3o-dos-agrupamentos-5}
+\phantomsection\label{validauxe7uxe3o-dos-agrupamentos-5}
 \begin{block}{Correlação Cofenética}
-\protect\phantomsection\label{correlauxe7uxe3o-cofenuxe9tica-1}
+\phantomsection\label{correlauxe7uxe3o-cofenuxe9tica-1}
 \begin{itemize}
 \item
   Em um bom agrupamento, espera-se que as distâncias previstas respeitem
@@ -2667,9 +2667,9 @@ Passo & Nº de grupos & Grupos & Distância \\
 \end{frame}
 
 \begin{frame}{Validação dos agrupamentos}
-\protect\phantomsection\label{validauxe7uxe3o-dos-agrupamentos-6}
+\phantomsection\label{validauxe7uxe3o-dos-agrupamentos-6}
 \begin{block}{Gráfico da Silhueta}
-\protect\phantomsection\label{gruxe1fico-da-silhueta}
+\phantomsection\label{gruxe1fico-da-silhueta}
 \begin{itemize}
 \item
   A análise (gráfico) da silhueta é um método utilizado para
@@ -2688,9 +2688,9 @@ Passo & Nº de grupos & Grupos & Distância \\
 \end{frame}
 
 \begin{frame}{Validação dos agrupamentos}
-\protect\phantomsection\label{validauxe7uxe3o-dos-agrupamentos-7}
+\phantomsection\label{validauxe7uxe3o-dos-agrupamentos-7}
 \begin{block}{Gráfico da Silhueta}
-\protect\phantomsection\label{gruxe1fico-da-silhueta-1}
+\phantomsection\label{gruxe1fico-da-silhueta-1}
 \begin{itemize}
 \item
   \(a_{(i)}\) = distância média do objeto \(i\) para os elementos de seu
@@ -2711,9 +2711,9 @@ Passo & Nº de grupos & Grupos & Distância \\
 \end{frame}
 
 \begin{frame}{Validação dos agrupamentos}
-\protect\phantomsection\label{validauxe7uxe3o-dos-agrupamentos-8}
+\phantomsection\label{validauxe7uxe3o-dos-agrupamentos-8}
 \begin{block}{Gráfico da Silhueta}
-\protect\phantomsection\label{gruxe1fico-da-silhueta-2}
+\phantomsection\label{gruxe1fico-da-silhueta-2}
 \begin{itemize}
 \item
   Se \(a_{(i)} <<< b_{(i)}, s_{(i)} \approx 1\), indicando que \(i\) é
@@ -2731,10 +2731,9 @@ Passo & Nº de grupos & Grupos & Distância \\
 \end{frame}
 
 \begin{frame}{Validação dos agrupamentos}
-\protect\phantomsection\label{validauxe7uxe3o-dos-agrupamentos-9}
+\phantomsection\label{validauxe7uxe3o-dos-agrupamentos-9}
 \begin{block}{Gráfico da Silhueta}
-\protect\phantomsection\label{gruxe1fico-da-silhueta-3}
-{\def\LTcaptype{none} % do not increment counter
+\phantomsection\label{gruxe1fico-da-silhueta-3}
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.4043}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5957}}@{}}
@@ -2754,12 +2753,11 @@ métodos de agrupamento \\
 \(\leqslant 0{,}25\) & Nenhuma estrutura encontrada \\
 \bottomrule\noalign{}
 \end{longtable}
-}
 \end{block}
 \end{frame}
 
 \begin{frame}{Métodos de agrupamento não-hierárquicos - MANH}
-\protect\phantomsection\label{muxe9todos-de-agrupamento-nuxe3o-hieruxe1rquicos---manh}
+\phantomsection\label{muxe9todos-de-agrupamento-nuxe3o-hieruxe1rquicos---manh}
 \begin{itemize}
 \tightlist
 \item
@@ -2789,7 +2787,7 @@ métodos de agrupamento \\
 \end{frame}
 
 \begin{frame}{Método k-médias (\emph{k-means})}
-\protect\phantomsection\label{muxe9todo-k-muxe9dias-k-means}
+\phantomsection\label{muxe9todo-k-muxe9dias-k-means}
 \begin{enumerate}
 [a)]
 \tightlist
@@ -2832,9 +2830,9 @@ métodos de agrupamento \\
 \end{frame}
 
 \begin{frame}{Método k-médias (\emph{k-means})}
-\protect\phantomsection\label{muxe9todo-k-muxe9dias-k-means-1}
+\phantomsection\label{muxe9todo-k-muxe9dias-k-means-1}
 \begin{block}{Esquematicamente}
-\protect\phantomsection\label{esquematicamente}
+\phantomsection\label{esquematicamente}
 \begin{center}
 \includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{../../images/AA/kmeans1.jpg}
 \end{center}
@@ -2842,9 +2840,9 @@ métodos de agrupamento \\
 \end{frame}
 
 \begin{frame}{Método k-médias (\emph{k-means})}
-\protect\phantomsection\label{muxe9todo-k-muxe9dias-k-means-2}
+\phantomsection\label{muxe9todo-k-muxe9dias-k-means-2}
 \begin{block}{Esquematicamente}
-\protect\phantomsection\label{esquematicamente-1}
+\phantomsection\label{esquematicamente-1}
 \begin{center}
 \includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{../../images/AA/kmeans2.jpg}
 \end{center}
@@ -2852,9 +2850,9 @@ métodos de agrupamento \\
 \end{frame}
 
 \begin{frame}{Método k-médias (\emph{k-means})}
-\protect\phantomsection\label{muxe9todo-k-muxe9dias-k-means-3}
+\phantomsection\label{muxe9todo-k-muxe9dias-k-means-3}
 \begin{block}{Esquematicamente}
-\protect\phantomsection\label{esquematicamente-2}
+\phantomsection\label{esquematicamente-2}
 \begin{center}
 \includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{../../images/AA/kmeans3.jpg}
 \end{center}
@@ -2862,9 +2860,9 @@ métodos de agrupamento \\
 \end{frame}
 
 \begin{frame}{Método k-médias (\emph{k-means})}
-\protect\phantomsection\label{muxe9todo-k-muxe9dias-k-means-4}
+\phantomsection\label{muxe9todo-k-muxe9dias-k-means-4}
 \begin{block}{Esquematicamente}
-\protect\phantomsection\label{esquematicamente-3}
+\phantomsection\label{esquematicamente-3}
 \begin{center}
 \includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{../../images/AA/kmeans4.jpg}
 \end{center}
@@ -2872,9 +2870,9 @@ métodos de agrupamento \\
 \end{frame}
 
 \begin{frame}{Método k-médias (\emph{k-means})}
-\protect\phantomsection\label{muxe9todo-k-muxe9dias-k-means-5}
+\phantomsection\label{muxe9todo-k-muxe9dias-k-means-5}
 \begin{block}{Esquematicamente}
-\protect\phantomsection\label{esquematicamente-4}
+\phantomsection\label{esquematicamente-4}
 \begin{center}
 \includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{../../images/AA/kmeans5.jpg}
 \end{center}
@@ -2882,9 +2880,9 @@ métodos de agrupamento \\
 \end{frame}
 
 \begin{frame}{Método k-médias (\emph{k-means})}
-\protect\phantomsection\label{muxe9todo-k-muxe9dias-k-means-6}
+\phantomsection\label{muxe9todo-k-muxe9dias-k-means-6}
 \begin{block}{Esquematicamente}
-\protect\phantomsection\label{esquematicamente-5}
+\phantomsection\label{esquematicamente-5}
 \begin{center}
 \includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{../../images/AA/kmeans6.jpg}
 \end{center}
@@ -2892,9 +2890,9 @@ métodos de agrupamento \\
 \end{frame}
 
 \begin{frame}{Método k-médias (\emph{k-means})}
-\protect\phantomsection\label{muxe9todo-k-muxe9dias-k-means-7}
+\phantomsection\label{muxe9todo-k-muxe9dias-k-means-7}
 \begin{block}{Esquematicamente}
-\protect\phantomsection\label{esquematicamente-6}
+\phantomsection\label{esquematicamente-6}
 \begin{center}
 \includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{../../images/AA/kmeans7.jpg}
 \end{center}
@@ -2902,9 +2900,9 @@ métodos de agrupamento \\
 \end{frame}
 
 \begin{frame}{Método k-médias (\emph{k-means})}
-\protect\phantomsection\label{muxe9todo-k-muxe9dias-k-means-8}
+\phantomsection\label{muxe9todo-k-muxe9dias-k-means-8}
 \begin{block}{Esquematicamente}
-\protect\phantomsection\label{esquematicamente-7}
+\phantomsection\label{esquematicamente-7}
 \begin{center}
 \includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{../../images/AA/kmeans8.jpg}
 \end{center}
@@ -2912,9 +2910,9 @@ métodos de agrupamento \\
 \end{frame}
 
 \begin{frame}{Método k-médias (\emph{k-means})}
-\protect\phantomsection\label{muxe9todo-k-muxe9dias-k-means-9}
+\phantomsection\label{muxe9todo-k-muxe9dias-k-means-9}
 \begin{block}{Esquematicamente}
-\protect\phantomsection\label{esquematicamente-8}
+\phantomsection\label{esquematicamente-8}
 \begin{center}
 \includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{../../images/AA/kmeans9.jpg}
 \end{center}
@@ -2922,9 +2920,9 @@ métodos de agrupamento \\
 \end{frame}
 
 \begin{frame}{Método k-médias (\emph{k-means})}
-\protect\phantomsection\label{muxe9todo-k-muxe9dias-k-means-10}
+\phantomsection\label{muxe9todo-k-muxe9dias-k-means-10}
 \begin{block}{Esquematicamente}
-\protect\phantomsection\label{esquematicamente-9}
+\phantomsection\label{esquematicamente-9}
 \begin{center}
 \includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{../../images/AA/kmeans10.jpg}
 \end{center}
@@ -2932,9 +2930,9 @@ métodos de agrupamento \\
 \end{frame}
 
 \begin{frame}{Método k-médias (\emph{k-means})}
-\protect\phantomsection\label{muxe9todo-k-muxe9dias-k-means-11}
+\phantomsection\label{muxe9todo-k-muxe9dias-k-means-11}
 \begin{block}{Esquematicamente}
-\protect\phantomsection\label{esquematicamente-10}
+\phantomsection\label{esquematicamente-10}
 \begin{center}
 \includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{../../images/AA/kmeans11.jpg}
 \end{center}
@@ -2942,7 +2940,7 @@ métodos de agrupamento \\
 \end{frame}
 
 \begin{frame}{Método k-médias: comentários finais}
-\protect\phantomsection\label{muxe9todo-k-muxe9dias-comentuxe1rios-finais}
+\phantomsection\label{muxe9todo-k-muxe9dias-comentuxe1rios-finais}
 \begin{itemize}
 \tightlist
 \item
@@ -2981,7 +2979,7 @@ métodos de agrupamento \\
 \end{frame}
 
 \begin{frame}{Método k-médias: comentários finais}
-\protect\phantomsection\label{muxe9todo-k-muxe9dias-comentuxe1rios-finais-1}
+\phantomsection\label{muxe9todo-k-muxe9dias-comentuxe1rios-finais-1}
 \begin{itemize}
 \tightlist
 \item
@@ -3011,7 +3009,7 @@ métodos de agrupamento \\
 \end{frame}
 
 \begin{frame}{Método k-médias: comentários finais}
-\protect\phantomsection\label{muxe9todo-k-muxe9dias-comentuxe1rios-finais-2}
+\phantomsection\label{muxe9todo-k-muxe9dias-comentuxe1rios-finais-2}
 \begin{itemize}
 \tightlist
 \item
