@@ -114,6 +114,18 @@ Análise de Agrupamentos
 </span>
 :::
 
+
+::: {.list-group-item .d-flex .justify-content-between .align-items-center}
+<span class="fw-bold">
+Análise Discriminante
+</span>
+
+<span>
+[Ver slides](/aulas/analise_discr/discriminante.html#/title-slide){.btn .btn-est304-main .btn-sm}
+<!-- [PDF](/aulas/regressao/intro/intro.pdf){.btn .btn-est304-outline .btn-sm} -->
+</span>
+:::
+
 :::
 
 

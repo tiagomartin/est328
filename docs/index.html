@@ -2,23 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.19">
+<meta name="generator" content="quarto-1.7.29">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Análise Multivariada e Aprendizado Não Supervisionado – EST328 - Análise Multivariada e Aprendizado Não Supervisionado</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -30,6 +24,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -60,14 +55,14 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-748b535e376f14d4692bf2b2e5fd6380.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-887c06f61e3308c771f0da166a334797.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-9c2eeff73d38631ef19175d7a1bd7235.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-887c06f61e3308c771f0da166a334797.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b09848b6287391c45069fed345a57cb2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-e9f3ba5fbee03b112b18b9666ab66a2c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-b09848b6287391c45069fed345a57cb2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -257,7 +252,6 @@ div.csl-indent {
       toggleColorMode(toAlternate);
       setStyleSentinel(toAlternate);
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
-      window.dispatchEvent(new Event('resize'));
     };
     // Switch to dark mode if need be
     if (hasAlternateSentinel()) {
@@ -289,8 +283,7 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="./images/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <img src="./images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main">
     <a href="https://github.com/tiagomartin/est328" title="github" class="quarto-navigation-tool px-1" aria-label="github"><i class="bi bi-github"></i></a>
@@ -424,7 +417,7 @@ div.csl-indent {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Critérios de Avaliação
+Critérios de Avaliação
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -442,51 +435,51 @@ div.csl-indent {
 <tbody>
 <tr class="odd">
 <td><strong>Atividade 1</strong></td>
-<td><a href="./exercicios/lista01.html" aria-label="Lista de exercícios 01" title="Lista de exercícios 01">Lista de exercícios 01</a></td>
+<td><a href=".\exercicios/lista01.html" aria-label="Lista de exercícios 01" title="Lista de exercícios 01">Lista de exercícios 01</a></td>
 <td>Revisão de Álgebra Matricial</td>
 <td style="text-align: right;"><strong>08/09/2026</strong></td>
 <td style="text-align: right;"><strong>10,0</strong></td>
 </tr>
 <tr class="even">
 <td><strong>Atividade 2</strong></td>
-<td><a href="./exercicios/lista02.html" aria-label="Lista de exercícios 02" title="Lista de exercícios 02">Lista de exercícios 02</a></td>
+<td><a href=".\exercicios/lista02.html" aria-label="Lista de exercícios 02" title="Lista de exercícios 02">Lista de exercícios 02</a></td>
 <td>Introdução à Estatística Multivariada</td>
 <td style="text-align: right;"><strong>21/09/2026</strong></td>
 <td style="text-align: right;"><strong>10,0</strong></td>
 </tr>
 <tr class="odd">
 <td><strong>Atividade 3</strong></td>
-<td><a href="./exercicios/lista03.html" aria-label="Lista de exercícios 03" title="Lista de exercícios 03">Lista de exercícios 03</a></td>
+<td><a href=".\exercicios/lista03.html" aria-label="Lista de exercícios 03" title="Lista de exercícios 03">Lista de exercícios 03</a></td>
 <td>Distribuição Normal Multivariada</td>
 <td style="text-align: right;"><strong>05/10/2026</strong></td>
 <td style="text-align: right;"><strong>10,0</strong></td>
 </tr>
 <tr class="even">
 <td><strong>Atividade 4</strong></td>
-<td><a href="./projeto/acp/acp.html" aria-label="Projeto: Análise de Componentes Principais" title="Projeto: Análise de Componentes Principais">Relatório de Análise de Dados</a></td>
+<td><a href=".\projeto/acp/acp.html" aria-label="Projeto: Análise de Componentes Principais" title="Projeto: Análise de Componentes Principais">Relatório de Análise de Dados</a></td>
 <td>Análise de Componentes Principais</td>
 <td style="text-align: right;"><strong>02/11/2026</strong></td>
 <td style="text-align: right;"><strong>17,5</strong></td>
 </tr>
 <tr class="odd">
 <td><strong>Atividade 5</strong></td>
-<td><a href="./projeto/af/af.html" aria-label="Projeto: Análise Fatorial" title="Projeto: Análise Fatorial">Relatório de Análise de Dados</a></td>
+<td><a href=".\projeto/af/af.html" aria-label="Projeto: Análise Fatorial" title="Projeto: Análise Fatorial">Relatório de Análise de Dados</a></td>
 <td>Análise Fatorial</td>
 <td style="text-align: right;"><strong>23/11/2026</strong></td>
 <td style="text-align: right;"><strong>17,5</strong></td>
 </tr>
 <tr class="even">
 <td><strong>Atividade 6</strong></td>
-<td>Relatório de Análise de Dados</td>
+<td><a href=".\projeto/aa/aa.html" aria-label="Projeto: Análise de Agrupamento" title="Projeto: Análise de Agrupamento">Relatório de Análise de Dados</a></td>
 <td>Análise de Agrupamentos</td>
-<td style="text-align: right;"><strong>30/11/2026</strong></td>
+<td style="text-align: right;"><strong>07/12/2026</strong></td>
 <td style="text-align: right;"><strong>17,5</strong></td>
 </tr>
 <tr class="odd">
 <td><strong>Atividade 7</strong></td>
-<td>Relatório de Análise de Dados</td>
+<td><a href=".\projeto/ad/ad.html" aria-label="Projeto: Análise Discriminante" title="Projeto: Análise Discriminante">Relatório de Análise de Dados</a></td>
 <td>Análise Discriminante</td>
-<td style="text-align: right;"><strong>14/12/2026</strong></td>
+<td style="text-align: right;"><strong>16/12/2026</strong></td>
 <td style="text-align: right;"><strong>17,5</strong></td>
 </tr>
 <tr class="even">
@@ -510,7 +503,7 @@ div.csl-indent {
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Referências Bibliográficas</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Referências Bibliográficas</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-anderson2009introduction" class="csl-entry" role="listitem">
 Anderson, T. W. 2009. <em>AN INTRODUCTION TO MULTIVARIATE STATISTICAL ANALYSIS, 3RD ED</em>. Wiley India Pvt. Limited.
 </div>
@@ -518,7 +511,7 @@ Anderson, T. W. 2009. <em>AN INTRODUCTION TO MULTIVARIATE STATISTICAL ANALYSIS, 
 CORRAR, Luiz J., Edilson PAULO, and José M. DIAS FILHO. 2007. <em>Análise Multivariada: Para Os Cursos de Administração, Ciências Contábeis e Economia.</em> Editora Atlas.
 </div>
 <div id="ref-favero2017manual" class="csl-entry" role="listitem">
-Fávero, L. P., and P. Belfiore. 2017. <em>Manual de an<span>á</span>lise de Dados: Estat<span>ı́</span>stica e Modelagem Multivariada Com Excel<span>®</span>, SPSS<span>®</span> e Stata<span>®</span></em>. Elsevier Editora Ltda.
+Fávero, L. P., and P. Belfiore. 2017. <em>Manual de an<span>á</span>lise de Dados: Estat<span>ı́</span>stica e Modelagem Multivariada Com Excel<span></span>, SPSS<span></span> e Stata<span></span></em>. Elsevier Editora Ltda.
 </div>
 <div id="ref-ferreira18" class="csl-entry" role="listitem">
 Ferreira, D. F. 2018. <em>Estatística Multivariada</em>. Editora UFLA.
@@ -603,14 +596,13 @@ Rencher, A. C., and W. F. Christensen. 2012. <em>Methods of Multivariate Analysi
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

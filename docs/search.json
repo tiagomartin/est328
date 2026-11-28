@@ -4,7 +4,7 @@
     "href": "projeto.html",
     "title": "Projetos",
     "section": "",
-    "text": "Esta página contém os projetos de análise de dados que serão apresentados ao longo do semestre. Você pode baixar os projetos em versão PDF.\n\n\n\n1. Análise de Componentes Principais\n\n\n Ver projeto PDF \n Entrega: 02/11/2026 \n\n\n\n\n2. Análise Fatorial\n\n\n Ver projeto PDF \n Entrega: 23/11/2026",
+    "text": "Esta página contém os projetos de análise de dados que serão apresentados ao longo do semestre. Você pode baixar os projetos em versão PDF.\n\n\n\n1. Análise de Componentes Principais\n\n\n Ver projeto PDF \n Entrega: 02/11/2026 \n\n\n\n\n2. Análise Fatorial\n\n\n Ver projeto PDF \n Entrega: 23/11/2026 \n\n\n\n\n3. Análise de Agrupamentos\n\n\n Ver projeto PDF \n Entrega: 07/12/2026 \n\n\n\n\n4. Análise Discriminante\n\n\n Ver projeto PDF \n Entrega: 16/12/2026",
     "crumbs": [
       "Projetos"
     ]
@@ -14,14 +14,14 @@
     "href": "projeto/ad/ad.html",
     "title": "Análise Discriminante em Detecção de Risco de Crédito",
     "section": "",
-    "text": "Data de entrega: 26 de fevereiro de 2026\n\n\n\n1 Contexto\nUma instituição financeira deseja desenvolver um sistema de apoio à decisão para identificar clientes com alto risco de inadimplência a partir de informações comportamentais e financeiras recentes.\nCada cliente foi classificado historicamente em duas populações:\n\nAdimplente: clientes que mantêm pagamentos regulares\nRisco: clientes que apresentaram atraso ou inadimplência relevante\n\nO objetivo da equipe de análise é construir e avaliar funções discriminantes capazes de separar essas populações e apoiar o processo de análise de crédito.\n\n\n\n2 Base de dados\nA base de dados contém as seguintes variáveis:\n\nvalor_limite: limite total de crédito disponível\ndias_atraso_medio: média de dias de atraso nos últimos 12 meses\nqt_atrasos_12m: número de atrasos registrados\nratio_divida_renda: razão dívida/renda mensal\ndist_agencia_resid: distância entre residência e agência mais próxima\nmudancas_endereco_6m: mudanças de endereço recentes\nclasse: população (Adimplente ou Risco)\n\nOs dados para esta análise estão disponíveis aqui.\n\n\n\n3 Etapas obrigatórias da análise\nO aluno deverá realizar uma análise discriminante completa para classificar clientes em duas populações (Adimplente vs Risco), reproduzindo todas as etapas de um estudo aplicado. Em síntese, espera-se que o aluno:\n\nExplorar os dados: analisar estrutura, distribuições, boxplots, relações bivariadas e matrizes de correlação por grupo.\nVerificar suposições: aplicar o teste de Box (Box’s M) e comparar as matrizes de covariância das populações.\nEstimar modelos discriminantes:\n\nFunção Discriminante Linear (LDA)\nFunção Discriminante Quadrática (QDA)\n\nVisualizar e interpretar:\n\nprojeção na função discriminante\nseparação entre os grupos\nimportância das variáveis.\n\nAvaliar desempenho preditivo usando três abordagens:\n\nmétodo da ressubstituição,\ndivisão treino/teste,\nvalidação cruzada.\n\nComparar LDA e QDA, discutindo qual modelo é mais adequado ao problema.\nProduzir interpretação final, relacionando resultados estatísticos com o contexto aplicado de risco de crédito."
+    "text": "Data de entrega: 16 de dezembro de 2026\n\n\n\n1 Contexto\nUma instituição financeira deseja desenvolver um sistema de apoio à decisão para identificar clientes com alto risco de inadimplência a partir de informações comportamentais e financeiras recentes.\nCada cliente foi classificado historicamente em duas populações:\n\nAdimplente: clientes que mantêm pagamentos regulares\nRisco: clientes que apresentaram atraso ou inadimplência relevante\n\nO objetivo da equipe de análise é construir e avaliar funções discriminantes capazes de separar essas populações e apoiar o processo de análise de crédito.\n\n\n\n2 Base de dados\nA base de dados contém as seguintes variáveis:\n\nvalor_limite: limite total de crédito disponível\ndias_atraso_medio: média de dias de atraso nos últimos 12 meses\nqt_atrasos_12m: número de atrasos registrados\nratio_divida_renda: razão dívida/renda mensal\ndist_agencia_resid: distância entre residência e agência mais próxima\nmudancas_endereco_6m: mudanças de endereço recentes\nclasse: população (Adimplente ou Risco)\n\nOs dados para esta análise estão disponíveis aqui.\n\n\n\n3 Etapas obrigatórias da análise\nO aluno deverá realizar uma análise discriminante completa para classificar clientes em duas populações (Adimplente vs Risco), reproduzindo todas as etapas de um estudo aplicado. Em síntese, espera-se que o aluno:\n\nExplorar os dados: analisar estrutura, distribuições, boxplots, relações bivariadas e matrizes de correlação por grupo.\nVerificar suposições: aplicar o teste de Box (Box’s M) e comparar as matrizes de covariância das populações.\nEstimar modelos discriminantes:\n\nFunção Discriminante Linear (LDA)\nFunção Discriminante Quadrática (QDA)\n\nVisualizar e interpretar:\n\nprojeção na função discriminante\nseparação entre os grupos\nimportância das variáveis.\n\nAvaliar desempenho preditivo usando três abordagens:\n\nmétodo da ressubstituição,\ndivisão treino/teste,\nvalidação cruzada.\n\nComparar LDA e QDA, discutindo qual modelo é mais adequado ao problema.\nProduzir interpretação final, relacionando resultados estatísticos com o contexto aplicado de risco de crédito."
   },
   {
     "objectID": "projeto/aa/aa.html",
     "href": "projeto/aa/aa.html",
     "title": "Segmentação de Usuários de uma Plataforma de Streaming",
     "section": "",
-    "text": "Data de entrega: 26 de fevereiro de 2026"
+    "text": "Data de entrega: 07 de dezembro de 2026"
   },
   {
     "objectID": "projeto/aa/aa.html#base-de-dados",
@@ -154,14 +154,14 @@
     "href": "programacao/semana-15.html",
     "title": "Semana 15",
     "section": "",
-    "text": "Análise Discriminante \n\n\nVer slides PDF"
+    "text": "Análise de Agrupamentos \n\n\nVer slides PDF\n\n\n\n\n Análise Discriminante \n\n\nVer slides PDF\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  Segmentação de clientes de uma rede de academias \n Ver análise PDF \n\n\n\n\n\n  Segmentação de Usuários de uma Plataforma de Streaming \n Ver projeto PDF"
   },
   {
     "objectID": "programacao/semana-15.html#slides",
     "href": "programacao/semana-15.html#slides",
     "title": "Semana 15",
     "section": "",
-    "text": "Análise Discriminante \n\n\nVer slides PDF"
+    "text": "Análise de Agrupamentos \n\n\nVer slides PDF\n\n\n\n\n Análise Discriminante \n\n\nVer slides PDF\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  Segmentação de clientes de uma rede de academias \n Ver análise PDF \n\n\n\n\n\n  Segmentação de Usuários de uma Plataforma de Streaming \n Ver projeto PDF"
   },
   {
     "objectID": "programacao/semana-13.html",
@@ -224,7 +224,7 @@
     "href": "index.html#avaliações",
     "title": "Análise Multivariada e Aprendizado Não Supervisionado",
     "section": "Avaliações",
-    "text": "Avaliações\n\n\n\n\n\n\nNoteCritérios de Avaliação\n\n\n\nA nota final do semestre será computada da seguinte forma:\n\n\n\nAtividade\nTipo\nConteúdo\nData\nPontos\n\n\n\n\nAtividade 1\nLista de exercícios 01\nRevisão de Álgebra Matricial\n08/09/2026\n10,0\n\n\nAtividade 2\nLista de exercícios 02\nIntrodução à Estatística Multivariada\n21/09/2026\n10,0\n\n\nAtividade 3\nLista de exercícios 03\nDistribuição Normal Multivariada\n05/10/2026\n10,0\n\n\nAtividade 4\nRelatório de Análise de Dados\nAnálise de Componentes Principais\n02/11/2026\n17,5\n\n\nAtividade 5\nRelatório de Análise de Dados\nAnálise Fatorial\n23/11/2026\n17,5\n\n\nAtividade 6\nRelatório de Análise de Dados\nAnálise de Agrupamentos\n30/11/2026\n17,5\n\n\nAtividade 7\nRelatório de Análise de Dados\nAnálise Discriminante\n14/12/2026\n17,5\n\n\n\n\nTotal\n\n100,0\n\n\n\n\n\nExame Especial: 21/12/2026"
+    "text": "Avaliações\n\n\n\n\n\n\nCritérios de Avaliação\n\n\n\nA nota final do semestre será computada da seguinte forma:\n\n\n\nAtividade\nTipo\nConteúdo\nData\nPontos\n\n\n\n\nAtividade 1\nLista de exercícios 01\nRevisão de Álgebra Matricial\n08/09/2026\n10,0\n\n\nAtividade 2\nLista de exercícios 02\nIntrodução à Estatística Multivariada\n21/09/2026\n10,0\n\n\nAtividade 3\nLista de exercícios 03\nDistribuição Normal Multivariada\n05/10/2026\n10,0\n\n\nAtividade 4\nRelatório de Análise de Dados\nAnálise de Componentes Principais\n02/11/2026\n17,5\n\n\nAtividade 5\nRelatório de Análise de Dados\nAnálise Fatorial\n23/11/2026\n17,5\n\n\nAtividade 6\nRelatório de Análise de Dados\nAnálise de Agrupamentos\n07/12/2026\n17,5\n\n\nAtividade 7\nRelatório de Análise de Dados\nAnálise Discriminante\n16/12/2026\n17,5\n\n\n\n\nTotal\n\n100,0\n\n\n\n\n\nExame Especial: 21/12/2026"
   },
   {
     "objectID": "exercicios/lista03.html",
@@ -245,7 +245,7 @@
     "href": "aulas.html",
     "title": "Aulas",
     "section": "",
-    "text": "Esta página contém aulas que serão apresentadas ao longo do semestre.\n\n\n Revisão de Álgebra Matricial \n Ver slides  \n\n\n Introdução à Estatística Multivariada \n Ver slides  \n\n\n Distribuição Normal Multivariada \n Ver slides  \n\n\n Análise de Componentes Principais \n Ver slides  \n\n\n Análise Fatorial \n Ver slides  \n\n\n Análise de Agrupamentos \n Ver slides",
+    "text": "Esta página contém aulas que serão apresentadas ao longo do semestre.\n\n\n Revisão de Álgebra Matricial \n Ver slides  \n\n\n Introdução à Estatística Multivariada \n Ver slides  \n\n\n Distribuição Normal Multivariada \n Ver slides  \n\n\n Análise de Componentes Principais \n Ver slides  \n\n\n Análise Fatorial \n Ver slides  \n\n\n Análise de Agrupamentos \n Ver slides  \n\n\n Análise Discriminante \n Ver slides",
     "crumbs": [
       "Aulas"
     ]
@@ -1753,7 +1753,7 @@
     "href": "analises.html",
     "title": "Análise de dados",
     "section": "",
-    "text": "Esta página contém scripts de análises de dados comentados utilizando algumas técnicas que serão apresentadas ao longo do semestre. Você pode baixar as análises em versão PDF.\n\n\n Descrição e Visualização da base de dados Iris \n Ver análise PDF \n\n\n Mapas Perceptuais com PCA: estudo de marcas \n Ver análise PDF \n\n\n Avaliação da Satisfação de Estudantes Universitários \n Ver análise PDF",
+    "text": "Esta página contém scripts de análises de dados comentados utilizando algumas técnicas que serão apresentadas ao longo do semestre. Você pode baixar as análises em versão PDF.\n\n\n Descrição e Visualização da base de dados Iris \n Ver análise PDF \n\n\n Mapas Perceptuais com PCA: estudo de marcas \n Ver análise PDF \n\n\n Avaliação da Satisfação de Estudantes Universitários \n Ver análise PDF \n\n\n Segmentação de clientes de uma rede de academias \n Ver análise PDF \n\n\n Classificação Antifraude em Seguros Automotivos usando Funções Discriminantes Lineares e Quadráticas \n Ver análise PDF",
     "crumbs": [
       "Análise de dados"
     ]
@@ -3548,7 +3548,7 @@
     "href": "cronograma.html",
     "title": "Cronograma da Disciplina",
     "section": "",
-    "text": "Esta página contém um esboço dos tópicos, conteúdos e tarefas para o semestre. Este cronograma será atualizado conforme o semestre avança.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSemana\nData\nTópico\nArtigo\nSlides\nEC\nLE\nScript\nMC\nProjeto\n\n\n\n\n1\nSeg, 24/08\nApresentação da disciplina\n\n\n\n\n\n\n\n\n\n\nQua, 26/08\nRevisão de Álgebra Linear\n\n\n\n\n\n\n\n\n\n2\nSeg, 31/08\nRevisão de Álgebra Linear\n\n\n\n\n\n\n\n\n\n\nQua, 02/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n3\nSeg, 07/09\nFeriado: Independência do Brasil\n\n\n\n\n\n\n\n\n\n\nQua, 09/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n4\nSeg, 14/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n\nQua, 16/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n5\nSeg, 21/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n\nQua, 23/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n6\nSeg, 28/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n\nQua, 30/09\nAnálise de Componentes Principais\n\n\n\n\n\n\n\n\n\n7\nSeg, 05/10\nAnálise de Componentes Principais\n\n\n\n\n\n\n\n\n\n\nQua, 07/10\nAnálise de Componentes Principais\n\n\n\n\n\n\n\n\n\n8\nSeg, 12/10\nFeriado: Nossa Senhora Aparecida\n\n\n\n\n\n\n\n\n\n\nQua, 14/10\nNão haverá aula!\n\n\n\n\n\n\n\n\n\n9\nSeg, 19/10\nAnálise de Componentes Principais\n\n\n\n\n\n\n\n\n\n\nQua, 21/10\nAnálise Fatorial\n\n\n\n\n\n\n\n\n\n10\nSeg, 26/10\nNão haverá aula!\n\n\n\n\n\n\n\n\n\n\nQua, 28/10\nRecesso Acadêmico: Dia do Servidor Público\n\n\n\n\n\n\n\n\n\n11\nSeg, 02/11\nFeriado: Finados\n\n\n\n\n\n\n\n\n\n\nQua, 04/11\nAnálise Fatorial\n\n\n\n\n\n\n\n\n\n12\nSeg, 09/11\nAnálise Fatorial\n\n\n\n\n\n\n\n\n\n\nQua, 11/11\nAnálise Fatorial\n\n\n\n\n\n\n\n\n\n13\nSeg, 16/11\nAnálise de Agrupamentos\n\n\n\n\n\n\n\n\n\n\nQua, 18/11\nAnálise de Agrupamentos\n\n\n\n\n\n\n\n\n\n14\nSeg, 23/11\nAnálise de Agrupamentos\n\n\n\n\n\n\n\n\n\n\nQua, 25/11\nAnálise de Agrupamentos",
+    "text": "Esta página contém um esboço dos tópicos, conteúdos e tarefas para o semestre. Este cronograma será atualizado conforme o semestre avança.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSemana\nData\nTópico\nArtigo\nSlides\nEC\nLE\nScript\nMC\nProjeto\n\n\n\n\n1\nSeg, 24/08\nApresentação da disciplina\n\n\n\n\n\n\n\n\n\n\nQua, 26/08\nRevisão de Álgebra Linear\n\n\n\n\n\n\n\n\n\n2\nSeg, 31/08\nRevisão de Álgebra Linear\n\n\n\n\n\n\n\n\n\n\nQua, 02/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n3\nSeg, 07/09\nFeriado: Independência do Brasil\n\n\n\n\n\n\n\n\n\n\nQua, 09/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n4\nSeg, 14/09\nIntrodução à Estatística Multivariada\n\n\n\n\n\n\n\n\n\n\nQua, 16/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n5\nSeg, 21/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n\nQua, 23/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n6\nSeg, 28/09\nDistribuição Normal Multivariada\n\n\n\n\n\n\n\n\n\n\nQua, 30/09\nAnálise de Componentes Principais\n\n\n\n\n\n\n\n\n\n7\nSeg, 05/10\nAnálise de Componentes Principais\n\n\n\n\n\n\n\n\n\n\nQua, 07/10\nAnálise de Componentes Principais\n\n\n\n\n\n\n\n\n\n8\nSeg, 12/10\nFeriado: Nossa Senhora Aparecida\n\n\n\n\n\n\n\n\n\n\nQua, 14/10\nNão haverá aula!\n\n\n\n\n\n\n\n\n\n9\nSeg, 19/10\nAnálise de Componentes Principais\n\n\n\n\n\n\n\n\n\n\nQua, 21/10\nAnálise Fatorial\n\n\n\n\n\n\n\n\n\n10\nSeg, 26/10\nNão haverá aula!\n\n\n\n\n\n\n\n\n\n\nQua, 28/10\nRecesso Acadêmico: Dia do Servidor Público\n\n\n\n\n\n\n\n\n\n11\nSeg, 02/11\nFeriado: Finados\n\n\n\n\n\n\n\n\n\n\nQua, 04/11\nAnálise Fatorial\n\n\n\n\n\n\n\n\n\n12\nSeg, 09/11\nAnálise Fatorial\n\n\n\n\n\n\n\n\n\n\nQua, 11/11\nAnálise Fatorial\n\n\n\n\n\n\n\n\n\n13\nSeg, 16/11\nAnálise de Agrupamentos\n\n\n\n\n\n\n\n\n\n\nQua, 18/11\nAnálise de Agrupamentos\n\n\n\n\n\n\n\n\n\n14\nSeg, 23/11\nAnálise de Agrupamentos\n\n\n\n\n\n\n\n\n\n\nQua, 25/11\nAnálise de Agrupamentos\n\n\n\n\n\n\n\n\n\n15\nSeg, 30/11\nAnálise de Agrupamentos\n\n\n\n\n\n\n\n\n\n\nQua, 02/12\nAnálise Discriminante\n\n\n\n\n\n\n\n\n\n16\nSeg, 07/12\nAnálise Discriminante\n\n\n\n\n\n\n\n\n\n\nQua, 09/12\nAnálise Discriminante",
     "crumbs": [
       "Cronograma da Disciplina"
     ]
@@ -3655,7 +3655,7 @@
     "href": "programacao/semana-16.html",
     "title": "Semana 16",
     "section": "",
-    "text": "Classificação Antifraude em Seguros Automotivos usando LDA e QDA \n Ver análise PDF \n\n\n\n\n\n  Análise Discriminante em Detecção de Risco de Crédito \n Ver projeto PDF"
+    "text": "Análise Discriminante \n\n\nVer slides PDF\n\n\n\n\n\n\n  Classificação Antifraude em Seguros Automotivos usando LDA e QDA \n Ver análise PDF \n\n\n\n\n\n  Análise Discriminante em Detecção de Risco de Crédito \n Ver projeto PDF"
   },
   {
     "objectID": "programacao/semana-16.html#script-de-análise-de-dados",
@@ -3824,5 +3824,26 @@
     "title": "Mapas Perceptuais com PCA: estudo de marcas",
     "section": "2.3 Perfil médio dos atributos por marca",
     "text": "2.3 Perfil médio dos atributos por marca\nO gráfico apresenta a média das notas de cada atributo para cada marca, permitindo identificar semelhanças e diferenças nos perfis de avaliação.\n\nlibrary(tidyverse)\n\n# Organizar os dados\nbrands_long &lt;- brands %&gt;%\n  mutate(brand = as.factor(brand)) %&gt;%\n  pivot_longer(\n    cols = -brand,\n    names_to = \"atributo\",\n    values_to = \"nota\"\n  )\n\n# Calcular médias por marca e atributo\nperfil_marcas &lt;- brands_long %&gt;%\n  group_by(brand, atributo) %&gt;%\n  summarise(\n    media = mean(nota, na.rm = TRUE),\n    .groups = \"drop\"\n  )\n\n# Gráfico de perfis\np_perfil &lt;- ggplot(\n  perfil_marcas,\n  aes(x = atributo, y = media,\n      group = brand, color = brand)\n) +\n  geom_line(linewidth = 0.9) +\n  geom_point(size = 2) +\n  scale_y_continuous(\n    limits = c(1, 10),\n    breaks = 1:10\n  ) +\n  labs(\n    title = \"Perfil médio dos atributos por marca\",\n    x = \"Atributo\",\n    y = \"Nota média\",\n    color = \"Marca\"\n  ) +\n  theme_minimal(base_size = 13) +\n  theme(\n    axis.text.x = element_text(\n      angle = 45, hjust = 1\n    ),\n    legend.position = \"bottom\"\n  )\n\np_perfil\n\n\n\n\n\n\n\n\nO gráfico de perfis médios evidencia diferenças expressivas na percepção dos consumidores em relação às dez marcas avaliadas. Observa-se que algumas marcas apresentam perfis relativamente semelhantes, enquanto outras se destacam por características específicas. As marcas d, e e h, por exemplo, apresentam avaliações elevadas em atributos associados à diversão, modernidade e tendência, enquanto b e c se destacam principalmente em liderança, desempenho e seriedade. Por outro lado, as marcas f e g apresentam avaliações favoráveis em preço vantajoso, valor percebido e intenção de recompra. Esses resultados sugerem a existência de diferentes padrões de posicionamento das marcas, possivelmente associados a dimensões perceptuais subjacentes. Nesse contexto, a Análise de Componentes Principais (ACP) pode contribuir para sintetizar as relações entre os atributos e representar as marcas em um espaço de menor dimensionalidade. Entretanto, a identificação e a interpretação dessas dimensões devem ser fundamentadas na estrutura de correlações e nas cargas das componentes principais, não apenas na semelhança visual entre os perfis médios."
+  },
+  {
+    "objectID": "programacao/semana-15.html#script-de-análise-de-dados",
+    "href": "programacao/semana-15.html#script-de-análise-de-dados",
+    "title": "Semana 15",
+    "section": "",
+    "text": "Segmentação de clientes de uma rede de academias \n Ver análise PDF"
+  },
+  {
+    "objectID": "programacao/semana-15.html#projeto-análise-de-agrupamentos",
+    "href": "programacao/semana-15.html#projeto-análise-de-agrupamentos",
+    "title": "Semana 15",
+    "section": "",
+    "text": "Segmentação de Usuários de uma Plataforma de Streaming \n Ver projeto PDF"
+  },
+  {
+    "objectID": "programacao/semana-16.html#slides",
+    "href": "programacao/semana-16.html#slides",
+    "title": "Semana 16",
+    "section": "",
+    "text": "Análise Discriminante \n\n\nVer slides PDF"
   }
 ]

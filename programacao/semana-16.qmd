@@ -51,6 +51,22 @@ format:
 
 ::: {.list-group .aulas-list}
 
+## Slides
+
+::: {.list-group-item .d-flex .justify-content-between .align-items-center}
+
+<div>
+  <span class="fw-bold">{{< fa file-powerpoint size=lg >}} Análise Discriminante </span>
+</div>
+
+<div class="d-flex align-items-center gap-3">
+
+[Ver slides](/aulas/analise_discr/discriminante.html){.btn .btn-est304-main .btn-sm}
+[PDF](/aulas/analise_discr/discriminante.pdf){.btn .btn-est304-outline .btn-sm}
+
+</div>
+:::
+
 
 ## Script de análise de dados
 

@@ -14,7 +14,7 @@ bibliography: references.bib
 
 
 <p align="center" style="font-size: 40px"> 
-`Data de entrega: 26 de fevereiro de 2026`
+`Data de entrega: 16 de dezembro de 2026`
 </p>
 
 
